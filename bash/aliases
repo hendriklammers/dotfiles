@@ -14,6 +14,8 @@ function take() {
 
 # Finder
 alias o='open .'
+alias showdotfiles="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+alias hidedotfiles="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
 
 # Processes
 alias tu='top -o cpu' # cpu
