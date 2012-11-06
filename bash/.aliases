@@ -1,13 +1,16 @@
-alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='sublime -w ~/bin/dotfiles/bash/aliases && reload'
+alias reload='source ~/bin/dotfiles/bash/.aliases'
+alias ea='sublime -w ~/bin/dotfiles/bash/.aliases && reload'
 
 alias test='say test'
 
 # Terminal
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias la='ls -A -l -G' # List all
 alias l.='ls -d .[^.]*' # List hidden
-alias ..='cd ..'
-function take() { 
+alias lsd='ls -l | grep "^d"' # List directories
+function md() { 
     mkdir -p "$1"
     cd "$1" 
 }
@@ -21,13 +24,17 @@ alias hidedotfiles="defaults write com.apple.Finder AppleShowAllFiles -bool fals
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 
+# Edit settings
+alias edit_ssh='subl -a ~/.ssh/config'
+
 # Git
 alias gi='git init'
 alias ungit='find . -name ".git" -exec rm -rf {} \;'
 alias gb='git branch'
+alias gbc='git checkout -b'
 alias gba='git branch -a'
 alias grb='git branch -d'
-alias ga='git add .'
+alias ga='git add'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gco='git checkout'
@@ -41,3 +48,16 @@ alias gs='git status'
 function gg() { 
     git commit -v -a -m "$*"
 }
+# Start an HTTP server from a directory, optionally specifying the port
+function server() {
+    local port="${1:-8000}"
+    open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port"
+}
+
+# Shortcuts
+alias code='cd ~/code'
+alias dl='cd ~/downloads'
+alias work='cd ~/work'
+alias drop='cd ~/Dropbox'
+alias docs='cd ~/Documents'
+alias alamode='cd ~/code/tumblr/themes/a-la-mode'
