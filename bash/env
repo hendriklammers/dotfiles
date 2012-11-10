@@ -1,3 +1,0 @@
-export EDITOR="nano -w"
-# Add to other paths /etc/paths
-export PATH=$PATH:~/bin
