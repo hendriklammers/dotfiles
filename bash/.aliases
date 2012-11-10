@@ -1,6 +1,7 @@
 alias reload='source ~/bin/dotfiles/bashrc'
 alias ea='subl -w ~/bin/dotfiles/bash/.aliases && reload'
 alias func='subl -w ~/bin/dotfiles/bash/.functions && reload'
+alias cfg='subl -w ~/bin/dotfiles/bash/.config && reload'
 
 # Terminal
 alias ..='cd ..'
@@ -33,7 +34,7 @@ alias gbc='git checkout -b'
 alias gba='git branch -a'
 alias grb='git branch -d'
 alias ga='git add'
-alias gc='git commit -v'
+alias gc='git commit -v -m'
 alias gca='git commit -v -a'
 alias gco='git checkout'
 alias gd='git diff | subl'
