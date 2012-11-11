@@ -10,6 +10,7 @@ alias ....='cd ../../..'
 alias la='ls -A -l -G' # List all
 alias l.='ls -d .[^.]*' # List hidden
 alias lsd='ls -l | grep "^d"' # List directories
+alias cl='clear' #clear screen
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -56,4 +57,4 @@ alias work='cd ~/work'
 alias drop='cd ~/Dropbox'
 alias doc='cd ~/Documents'
 alias dot='cd ~/bin/dotfiles'
-alias alamode='cd ~/code/tumblr/themes/a-la-mode'
+alias alamode='cd ~/code/tumblr/themes/a-la-mode/develop'
