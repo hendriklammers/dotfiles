@@ -24,6 +24,11 @@ alias hidedotfiles="defaults write com.apple.Finder AppleShowAllFiles -bool fals
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 
+# IP address
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
 # Edit settings
 alias edit_ssh='subl -a ~/.ssh/config'
 
