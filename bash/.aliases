@@ -17,8 +17,8 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Finder
 alias o='open .'
-alias showdotfiles="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
-alias hidedotfiles="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
+alias showhidden="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
 
 # Processes
 alias tu='top -o cpu' # cpu
