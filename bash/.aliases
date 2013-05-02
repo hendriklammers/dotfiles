@@ -33,17 +33,17 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias editssh='subl -a ~/.ssh/config'
 
 # Git
-alias ungit='find . -name ".git" -exec rm -rf {} \;'
 alias gb='git branch'
 alias ga='git add'
 alias gc='git commit'
 alias gco='git checkout'
 alias gd='git diff | subl'
 alias gdm='git diff master'
-alias gl='git pull'
+alias gl='git log'
+alias gla='git log --all --oneline --graph --decorate'
 alias gnp="git-notpushed"
 alias gp='git push'
-alias gs='git status'
+alias gs='git status -sb'
 alias gt='git tag'
 alias gm='git merge --no-ff'
 
@@ -52,13 +52,7 @@ alias gm='git merge --no-ff'
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
 # Shortcuts
-alias code='cd ~/code'
-alias dl='cd ~/downloads'
-alias desk='cd ~/desktop'
-alias work='cd ~/work'
-alias drop='cd ~/Dropbox'
-alias doc='cd ~/Documents'
-alias proj='cd ~/projects'
 alias dot='cd ~/bin/dotfiles'
 alias alamode='cd ~/code/tumblr/themes/a-la-mode/develop'
 alias myrna='cd ~/work/kinderopvang_myrna/website_2012/06_development'
+alias hendrik='cd ~/work/hendrik-lammers/website_2013'
