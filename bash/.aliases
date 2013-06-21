@@ -1,7 +1,7 @@
 alias reload='source ~/bin/dotfiles/bashrc'
-alias ea='subl -w ~/bin/dotfiles/bash/.aliases && reload'
-alias func='subl -w ~/bin/dotfiles/bash/.functions && reload'
-alias cfg='subl -w ~/bin/dotfiles/bash/.config && reload'
+alias ea='mate -w ~/bin/dotfiles/bash/.aliases && reload'
+alias func='mate -w ~/bin/dotfiles/bash/.functions && reload'
+alias cfg='mate -w ~/bin/dotfiles/bash/.config && reload'
 
 # Terminal
 alias ..='cd ..'
@@ -30,14 +30,14 @@ alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Edit settings
-alias editssh='subl -a ~/.ssh/config'
+alias editssh='mate -a ~/.ssh/config'
 
 # Git
 alias gb='git branch'
 alias ga='git add'
 alias gc='git commit'
 alias gco='git checkout'
-alias gd='git diff | subl'
+alias gd='git diff | mate'
 alias gdm='git diff master'
 alias gl='git log'
 alias gla='git log --all --oneline --graph --decorate'
@@ -53,6 +53,4 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 
 # Shortcuts
 alias dot='cd ~/bin/dotfiles'
-alias alamode='cd ~/code/tumblr/themes/a-la-mode/develop'
-alias myrna='cd ~/work/kinderopvang_myrna/website_2012/06_development'
-alias hendrik='cd ~/work/hendrik-lammers/website_2013'
+alias hendrik='cd ~/Dropbox/website_2013'
