@@ -1,4 +1,4 @@
-alias reload='source ~/bin/dotfiles/bashrc'
+alias reload='source ~/bin/dotfiles/.bashrc'
 alias ea='mate -w ~/bin/dotfiles/bash/.aliases && reload'
 alias func='mate -w ~/bin/dotfiles/bash/.functions && reload'
 alias cfg='mate -w ~/bin/dotfiles/bash/.config && reload'
@@ -53,4 +53,6 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 
 # Shortcuts
 alias dot='cd ~/bin/dotfiles'
+alias dl='cd ~/Downloads'
+alias code='cd ~/code'
 alias hendrik='cd ~/Dropbox/website_2013'
