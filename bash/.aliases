@@ -1,4 +1,4 @@
-alias reload='source ~/bin/dotfiles/.bashrc'
+alias reload='source ~/.bashrc'
 alias ea='mate -w ~/bin/dotfiles/bash/.aliases && reload'
 alias func='mate -w ~/bin/dotfiles/bash/.functions && reload'
 alias cfg='mate -w ~/bin/dotfiles/bash/.config && reload'
