@@ -1,7 +1,7 @@
 alias reload='source ~/.bashrc'
-alias ea='mate -w ~/dotfiles/bash/.aliases && reload'
-alias func='mate -w ~/dotfiles/bash/.functions && reload'
-alias cfg='mate -w ~/dotfiles/bash/.config && reload'
+alias ea='vi ~/dotfiles/bash/.aliases && reload'
+alias func='vi ~/dotfiles/bash/.functions && reload'
+alias cfg='vi ~/dotfiles/bash/.config && reload'
 
 # Terminal
 alias ..='cd ..'
@@ -56,3 +56,4 @@ alias dot='cd ~/dotfiles'
 alias dl='cd ~/Downloads'
 alias code='cd ~/code'
 alias hendrik='cd ~/Dropbox/website_2013'
+alias vimprac='cd ~/code/practise/vim'
