@@ -46,7 +46,8 @@ syntax on
 set t_Co=256
 set background=dark
 
-colorscheme vividchalk
+" Use vim version of Monokai Textmate color scheme
+colorscheme molokai
 
 " Enable wildmenu completion
 set wildmenu

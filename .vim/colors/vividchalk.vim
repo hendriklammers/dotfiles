@@ -71,21 +71,21 @@ function! s:hibg(group,guibg,first,second)
     exe "highlight ".a:group." guibg=".a:guibg." ctermbg=".ctermbg
 endfunction
 
-hi link railsMethod         PreProc
-hi link rubyDefine          Keyword
-hi link rubySymbol          Constant
-hi link rubyAccess          rubyMethod
-hi link rubyAttribute       rubyMethod
-hi link rubyEval            rubyMethod
-hi link rubyException       rubyMethod
-hi link rubyInclude         rubyMethod
-hi link rubyStringDelimiter rubyString
-hi link rubyRegexp          Regexp
-hi link rubyRegexpDelimiter rubyRegexp
-"hi link rubyConstant        Variable
-"hi link rubyGlobalVariable  Variable
-"hi link rubyClassVariable   Variable
-"hi link rubyInstanceVariable Variable
+hi link railsMethod             PreProc
+hi link rubyDefine              Keyword
+hi link rubySymbol              Constant
+hi link rubyAccess              rubyMethod
+hi link rubyAttribute           rubyMethod
+hi link rubyEval                rubyMethod
+hi link rubyException           rubyMethod
+hi link rubyInclude             rubyMethod
+hi link rubyStringDelimiter     rubyString
+hi link rubyRegexp              Regexp
+hi link rubyRegexpDelimiter     rubyRegexp
+"hi link rubyConstant           Variable
+"hi link rubyGlobalVariable     Variable
+"hi link rubyClassVariable      Variable
+"hi link rubyInstanceVariable   Variable
 hi link javascriptRegexpString  Regexp
 hi link javascriptNumber        Number
 hi link javascriptNull          Constant
@@ -96,25 +96,20 @@ highlight link diffSubname      Comment
 
 call s:hifg("Normal","#EEEEEE","White",87)
 if &background == "light" || has("gui_running")
-    hi Normal guibg=Black ctermbg=Black
+    hi Normal guibg=#29292e ctermbg=Black
 else
-    hi Normal guibg=Black ctermbg=NONE
+    hi Normal guibg=#29292e ctermbg=NONE
 endif
-highlight StatusLine    guifg=Black   guibg=#aabbee gui=bold ctermfg=Black ctermbg=White  cterm=bold
-highlight StatusLineNC  guifg=#444444 guibg=#aaaaaa gui=none ctermfg=Black ctermbg=Grey   cterm=none
-"if &t_Co == 256
-    "highlight StatusLine ctermbg=117
-"else
-    "highlight StatusLine ctermbg=43
-"endif
+
+highlight StatusLine   guifg=#666a6c guibg=#37373f gui=bold ctermfg=Black ctermbg=White cterm=bold
+highlight StatusLineNC guifg=#666a6c guibg=#37373f gui=none ctermfg=Black ctermbg=Grey  cterm=none
 
 highlight Ignore        ctermfg=Black
 highlight WildMenu      guifg=Black   guibg=#ffff00 gui=bold ctermfg=Black ctermbg=Yellow cterm=bold
-highlight Cursor        guifg=Black guibg=White ctermfg=Black ctermbg=White
-call s:hibg("ColorColumn","#333333","DarkGrey",81)
-call s:hibg("CursorLine","#333333","DarkGrey",81)
-call s:hibg("CursorColumn","#333333","DarkGrey",81)
-highlight NonText       guifg=#404040 ctermfg=8
+highlight Cursor        guifg=Black   guibg=#ffcc00 ctermfg=Black ctermbg=White
+highlight CursorLine    guibg=#202024 guifg=NONE
+highlight CursorColumn  guibg=#333333 guifg=NONE
+highlight NonText       guifg=#202020 ctermfg=8
 highlight SpecialKey    guifg=#404040 ctermfg=8
 highlight Directory     none
 high link Directory     Identifier
@@ -123,13 +118,13 @@ highlight Search        guifg=NONE ctermfg=NONE gui=none cterm=none
 call s:hibg("Search"    ,"#555555","DarkBlue",81)
 highlight IncSearch     guifg=White guibg=Black ctermfg=White ctermbg=Black
 highlight MoreMsg       guifg=#00AA00 ctermfg=Green
-highlight LineNr        guifg=#DDEEFF ctermfg=White
-call s:hibg("LineNr"    ,"#222222","DarkBlue",80)
+highlight LineNr        guifg=#4a4a4a ctermfg=White
+call s:hibg("LineNr"    ,"#29292e","DarkBlue",80)
 highlight Question      none
 high link Question      MoreMsg
 highlight Title         guifg=Magenta ctermfg=Magenta
 highlight VisualNOS     gui=none cterm=none
-call s:hibg("Visual"    ,"#555577","LightBlue",83)
+call s:hibg("Visual"    ,"#44444A","LightBlue",83)
 call s:hibg("VisualNOS" ,"#444444","DarkBlue",81)
 call s:hibg("MatchParen","#1100AA","DarkBlue",18)
 highlight WarningMsg    guifg=Red ctermfg=Red
@@ -140,8 +135,8 @@ highlight SpellRare     ctermbg=DarkMagenta
 highlight SpellCap      ctermbg=DarkBlue
 highlight SpellLocal    ctermbg=DarkCyan
 
-call s:hibg("Folded"    ,"#110077","DarkBlue",17)
-call s:hifg("Folded"    ,"#aaddee","LightCyan",63)
+call s:hibg("Folded"    ,"#1a1a1e","DarkBlue",17)
+call s:hifg("Folded"    ,"#44444c","LightCyan",63)
 highlight FoldColumn    none
 high link FoldColumn    Folded
 highlight DiffAdd       ctermbg=4 guibg=DarkBlue
