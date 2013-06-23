@@ -1,7 +1,7 @@
 alias reload='source ~/.bashrc'
-alias ea='mate -w ~/bin/dotfiles/bash/.aliases && reload'
-alias func='mate -w ~/bin/dotfiles/bash/.functions && reload'
-alias cfg='mate -w ~/bin/dotfiles/bash/.config && reload'
+alias ea='mate -w ~/dotfiles/bash/.aliases && reload'
+alias func='mate -w ~/dotfiles/bash/.functions && reload'
+alias cfg='mate -w ~/dotfiles/bash/.config && reload'
 
 # Terminal
 alias ..='cd ..'
@@ -52,7 +52,7 @@ alias gm='git merge --no-ff'
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
 # Shortcuts
-alias dot='cd ~/bin/dotfiles'
+alias dot='cd ~/dotfiles'
 alias dl='cd ~/Downloads'
 alias code='cd ~/code'
 alias hendrik='cd ~/Dropbox/website_2013'
