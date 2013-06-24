@@ -55,5 +55,5 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 alias dot='cd ~/dotfiles'
 alias dl='cd ~/Downloads'
 alias code='cd ~/code'
-alias hendrik='cd ~/Dropbox/website_2013'
+alias hendrik='cd ~/Dropbox/website_2013/06_development'
 alias vimprac='cd ~/code/practise/vim'

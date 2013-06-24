@@ -2,7 +2,12 @@
 set nocompatible
 
 " Keep some lines in history
-set history=700
+set history=100
+
+" Turn backup off, since most stuff is in git anyway...
+set nobackup
+set nowb
+set noswapfile
 
 " Allow Vim to manage multiple buffers effectively
 set hidden
