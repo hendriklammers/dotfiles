@@ -2,6 +2,7 @@ alias reload='source ~/.bashrc'
 alias ea='vi ~/dotfiles/bash/.aliases && reload'
 alias func='vi ~/dotfiles/bash/.functions && reload'
 alias cfg='vi ~/dotfiles/bash/.config && reload'
+alias editvim='vi ~/dotfiles/.vimrc'
 
 # Terminal
 alias ..='cd ..'

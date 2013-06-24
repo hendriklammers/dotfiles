@@ -65,12 +65,13 @@ set scrolloff=8
 " Show syntax highlighting
 syntax on
 
+" Use dark background
+set background=dark
+
 " 256 Colors
 set t_Co=256
 " Use vim version of Monokai Textmate color scheme
 colorscheme molokai
-" Use dark background
-set background=dark
  
 " Enable wildmenu completion
 set wildmenu
