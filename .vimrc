@@ -10,17 +10,30 @@ set hidden
 " Don't update the display while executing macros
 set lazyredraw
 
-" Enable filetype plugins
-filetype on
-filetype plugin on
-filetype indent on
+" Use pathogen to easily modify the runtime path to include all plugins under
+" the ~/.vim/bundle directory
+filetype off 
+call pathogen#infect()
+call pathogen#helptags()
+" enable detection, plugins and indenting in one step
+filetype plugin indent on       
 
+" Expand tabs by default
 set expandtab
+" Insert tabs at start of line according to shiftwidth
 set smarttab
+" Number of spaces to use for autoindenting
 set shiftwidth=4
+" use multiple of shiftwidth when indenting with '<' and '>'
+set shiftround
+" Tab is 4 spaces
 set tabstop=4
-set ai
-set si
+" Remove tab when hitting <BS>
+set softtabstop=4
+" Always use autoindent
+set autoindent
+" Copy previous indentation on autoindent
+set copyindent
 
 " Show line numbers
 set number
