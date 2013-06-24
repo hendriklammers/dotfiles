@@ -70,3 +70,6 @@ set wildmode=list:longest
 set hlsearch
 " Incrementally match the search
 set incsearch
+
+" Only use custom snipmate snippets
+let g:snippets_dir="~/.vim/snippets"
