@@ -4,7 +4,7 @@ set nocompatible
 " Keep some lines in history
 set history=100
 
-" Turn backup off, since most stuff is in git anyway...
+" Turn backup and swapfiles off, since most stuff is in git anyway...
 set nobackup
 set nowb
 set noswapfile
@@ -22,6 +22,9 @@ call pathogen#infect()
 call pathogen#helptags()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on       
+
+" Make backspace behave in a sane manner.
+set backspace=indent,eol,start
 
 " Expand tabs by default
 set expandtab
@@ -61,12 +64,14 @@ set scrolloff=8
 
 " Show syntax highlighting
 syntax on
-set t_Co=256
-set background=dark
 
+" 256 Colors
+set t_Co=256
 " Use vim version of Monokai Textmate color scheme
 colorscheme molokai
-
+" Use dark background
+set background=dark
+ 
 " Enable wildmenu completion
 set wildmenu
 set wildmode=list:longest
