@@ -49,7 +49,7 @@ set number
 " Always show status line
 set laststatus=2
 " Format status line
-set statusline=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
+set statusline=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n
 " Make command line two lines high
 set ch=2
 
