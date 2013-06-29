@@ -84,3 +84,16 @@ set incsearch
 
 " Only use custom snipmate snippets
 let g:snippets_dir="~/.vim/snippets"
+
+" Automatically add yanks and deletes to system clipboard
+" TODO: test
+set clipboard=unnamed
+
+" Map omnicomplete to CTRL+SPACE
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+            \ "\<lt>C-n>" :
+            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
+
