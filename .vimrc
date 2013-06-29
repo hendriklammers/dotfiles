@@ -82,12 +82,9 @@ set hlsearch
 " Incrementally match the search
 set incsearch
 
+
 " Only use custom snipmate snippets
 let g:snippets_dir="~/.vim/snippets"
-
-" Automatically add yanks and deletes to system clipboard
-" TODO: test
-set clipboard=unnamed
 
 " Map omnicomplete to CTRL+SPACE
 inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
@@ -97,3 +94,8 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
 
+" Map leader to comma key
+let mapleader = ","
+
+" Clear the last search pattern
+nnoremap <CR> :let @/=""<return>
