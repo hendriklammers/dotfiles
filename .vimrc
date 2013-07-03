@@ -82,6 +82,9 @@ set hlsearch
 " Incrementally match the search
 set incsearch
 
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
 
 " Only use custom snipmate snippets
 let g:snippets_dir="~/.vim/snippets"
@@ -99,3 +102,7 @@ let mapleader = ","
 
 " Clear the last search pattern
 nnoremap <CR> :let @/=""<return>
+
+" Disable the delete key in insert mode
+:inoremap <Del> <Nop>
+
