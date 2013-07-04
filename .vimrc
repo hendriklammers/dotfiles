@@ -101,7 +101,9 @@ imap <C-@> <C-Space>
 let mapleader = ","
 
 " Clear the last search pattern
-nnoremap <CR> :let @/=""<return>
+" nnoremap <CR> :let @/=""<return>
+" Hide last search highlight
+nnoremap <CR> :noh<CR>
 
 " Disable the delete key in insert mode
 :inoremap <Del> <Nop>
