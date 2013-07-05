@@ -5,3 +5,4 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore_global
+    editor = /usr/bin/vim
