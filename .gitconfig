@@ -2,7 +2,7 @@
 	name = Hendrik Lammers
 	email = lammers@gmail.com
 [color]
-	ui = true
+    ui = true
 [core]
 	excludesfile = ~/.gitignore_global
     editor = /usr/bin/vim
