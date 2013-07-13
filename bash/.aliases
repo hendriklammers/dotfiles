@@ -38,7 +38,7 @@ alias gb='git branch'
 alias ga='git add'
 alias gc='git commit'
 alias gco='git checkout'
-alias gd='git diff | mate'
+alias gd='git diff'
 alias gdm='git diff master'
 alias gl='git log'
 alias gla='git log --all --oneline --graph --decorate'
@@ -47,6 +47,7 @@ alias gp='git push'
 alias gs='git status -sb'
 alias gt='git tag'
 alias gm='git merge --no-ff'
+alias grm='git rm'
 
 # Merge PDF files
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
@@ -56,5 +57,6 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 alias dot='cd ~/dotfiles'
 alias dl='cd ~/Downloads'
 alias code='cd ~/code'
+alias drop='cd ~/Dropbox'
 alias hendrik='cd ~/Dropbox/website_2013/06_development/app'
 alias vimprac='cd ~/code/practise/vim'
