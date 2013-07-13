@@ -56,10 +56,7 @@ set ch=2
 " Show current mode
 set showmode
 
-" Hide the mouse pointer while typing
-set mousehide
-
-" Start scrolling when we're 8 lines away from margins
+" Start scrolling when 8 lines away from margins
 set scrolloff=8
 
 " Show syntax highlighting
