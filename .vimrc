@@ -43,9 +43,13 @@ set autoindent
 " Copy previous indentation on autoindent
 set copyindent
 
+" Max 80 characters per line
+set textwidth=80
+" Wrap, not sure about this yet...
+set wrap
+
 " Show line numbers
 set number
-
 " Always show status line
 set laststatus=2
 " Format status line
