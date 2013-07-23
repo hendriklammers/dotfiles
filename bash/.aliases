@@ -34,6 +34,7 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias editssh='mate -a ~/.ssh/config'
 
 # Git
+# Probably belongs in .gitconfig
 alias gb='git branch'
 alias ga='git add'
 alias gc='git commit'
@@ -60,3 +61,4 @@ alias code='cd ~/code'
 alias drop='cd ~/Dropbox'
 alias hendrik='cd ~/Dropbox/website_2013/06_development/app'
 alias vimprac='cd ~/code/practise/vim'
+alias htdocs='cd /Applications/MAMP/htdocs'

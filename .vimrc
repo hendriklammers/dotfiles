@@ -44,9 +44,15 @@ set autoindent
 set copyindent
 
 " Max 80 characters per line
-set textwidth=80
-" Wrap, not sure about this yet...
-set wrap
+" set textwidth=80
+" Make sure vim doesn't break words
+" set linebreak
+
+" Highlight characters past 80 columns
+" augroup vimrc_autocmds
+"     autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+"     autocmd BufEnter * match OverLength /\%80v.*/
+" augroup END
 
 " Show line numbers
 set number
@@ -82,7 +88,6 @@ set wildmode=list:longest
 set hlsearch
 " Incrementally match the search
 set incsearch
-
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
