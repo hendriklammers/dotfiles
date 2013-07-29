@@ -9,7 +9,8 @@ set nobackup
 set nowb
 set noswapfile
 
-" Allow Vim to manage multiple buffers effectively
+" Allow Vim to manage multiple buffers effectively.
+" i.e. Edit multiple unsaved files at the same time.
 set hidden
 
 " Don't update the display while executing macros
@@ -17,11 +18,11 @@ set lazyredraw
 
 " Use pathogen to easily modify the runtime path to include all plugins under
 " the ~/.vim/bundle directory
-filetype off 
+filetype off
 call pathogen#infect()
 call pathogen#helptags()
 " enable detection, plugins and indenting in one step
-filetype plugin indent on       
+filetype plugin indent on
 
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
@@ -79,7 +80,7 @@ set background=dark
 set t_Co=256
 " Use vim version of Monokai Textmate color scheme
 colorscheme molokai
- 
+
 " Enable wildmenu completion
 set wildmenu
 set wildmode=list:longest
@@ -111,6 +112,34 @@ let mapleader = ","
 " Hide last search highlight
 nnoremap <CR> :noh<CR>
 
-" Disable the delete key in insert mode
-:inoremap <Del> <Nop>
+" Keep folds saved when file is closed
+" Possibly the first * should be removed to support dot files
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
+" Make snipmate snippets available in multiple file formats
+au BufRead,BufNewFile *.php set ft=php.html
+au BufRead,BufNewFile *.less set ft=css.less
+au BufRead,BufNewFile *.scss set ft=scss.css
+
+" Highlight trailing whitespace
+" match ErrorMsg '\s\+$'
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Remove trailing whitespace
+nnoremap <Leader>rw :%s/\s\+$//e<CR>
+
+" Zencoding settings for scss and less
+let g:user_zen_settings = {
+\  'scss' : {
+\    'filters' : 'fc',
+\  }
+\}
+
+" Switch to paste mode before pasting text from outside Vim
+set pastetoggle=<F2>
