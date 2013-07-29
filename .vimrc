@@ -96,6 +96,9 @@ set smartcase
 " Only use custom snipmate snippets
 let g:snippets_dir="~/.vim/snippets"
 
+" Make Y consistent with C and D.
+nnoremap Y y$
+
 " Map omnicomplete to CTRL+SPACE
 inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\<lt>C-n>" :
@@ -143,3 +146,21 @@ let g:user_zen_settings = {
 
 " Switch to paste mode before pasting text from outside Vim
 set pastetoggle=<F2>
+
+" easier window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Add a return with indent, like in Textmate
+let delimitMate_expand_cr=1
+
+" Automatically reload vimrc when it changes
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
+" Edit vimrc in a new tab
+nmap <leader>ev :tabedit $MYVIMRC<CR>
