@@ -49,6 +49,9 @@ alias gs='git status -sb'
 alias gt='git tag'
 alias gm='git merge --no-ff'
 alias grm='git rm'
+# To stop tracking a file:
+# Add file to .gitignore, then do: grc filename
+alias grc='git rm --cached'
 
 # Merge PDF files
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
