@@ -107,6 +107,9 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
 
+" Exit Insert mode
+:imap jj <Esc>
+
 " Map leader to comma key
 let mapleader = ","
 
@@ -122,7 +125,7 @@ autocmd BufWinEnter *.* silent loadview
 
 " Make snipmate snippets available in multiple file formats
 au BufRead,BufNewFile *.php set ft=php.html
-au BufRead,BufNewFile *.less set ft=css.less
+au BufRead,BufNewFile *.less set ft=less.css
 au BufRead,BufNewFile *.scss set ft=scss.css
 
 " Highlight trailing whitespace
