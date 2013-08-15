@@ -93,6 +93,10 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Always use 'very magic' when searching with regex
+noremap / /\v
+noremap ? ?\v
+
 " Only use custom snipmate snippets
 let g:snippets_dir="~/.vim/snippets"
 
@@ -108,15 +112,17 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 imap <C-@> <C-Space>
 
 " Exit Insert mode
-:imap jj <Esc>
+imap jj <Esc>
 
 " Map leader to comma key
 let mapleader = ","
+" Backslash now replaces comma
+noremap \ ,
 
 " Clear the last search pattern
 " nnoremap <CR> :let @/=""<return>
 " Hide last search highlight
-nnoremap <CR> :noh<CR>
+nnoremap <leader>h :noh<CR>:<backspace>
 
 " Keep folds saved when file is closed
 " Possibly the first * should be removed to support dot files
@@ -151,10 +157,10 @@ let g:user_zen_settings = {
 set pastetoggle=<F2>
 
 " easier window navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Add a return with indent, like in Textmate
 let delimitMate_expand_cr=1
@@ -167,3 +173,8 @@ augroup END
 
 " Edit vimrc in a new tab
 nmap <leader>ev :tabedit $MYVIMRC<CR>
+
+" Insert blank line below in normal mode
+nnoremap g<C-o> o<ESC>k
+" Insert blank line above in normal mode
+nnoremap gO O<ESC>j

@@ -48,6 +48,8 @@ alias gp='git push'
 alias gs='git status -sb'
 alias gt='git tag'
 alias gm='git merge --no-ff'
+# Unstage a file: grh <filename>
+alias grh='git reset HEAD'
 alias grm='git rm'
 # To stop tracking a file:
 # Add file to .gitignore, then do: grc filename
@@ -60,6 +62,7 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 # Shortcuts
 alias dot='cd ~/dotfiles'
 alias dl='cd ~/Downloads'
+alias dt='cd ~/Desktop'
 alias code='cd ~/code'
 alias drop='cd ~/Dropbox'
 alias hendrik='cd ~/Dropbox/website_2013/06_development/app'
