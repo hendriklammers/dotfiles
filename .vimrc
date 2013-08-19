@@ -1,7 +1,7 @@
 " Use Vim settings, rather then Vi settings
 set nocompatible
 
-" Keep some lines in history
+" Keep 100 lines in history
 set history=100
 
 " Turn backup and swapfiles off, since most stuff is in git anyway...
@@ -9,12 +9,25 @@ set nobackup
 set nowb
 set noswapfile
 
+" Yank to clipboard by default
+if has('unnamedplus')
+  set clipboard=unnamedplus
+else
+  set clipboard=unnamed
+endif
+
+" Reload files changed outside of VIM
+set autoread
+
 " Allow Vim to manage multiple buffers effectively.
 " i.e. Edit multiple unsaved files at the same time.
 set hidden
 
 " Don't update the display while executing macros
 set lazyredraw
+
+" No sound
+set visualbell
 
 " Use pathogen to easily modify the runtime path to include all plugins under
 " the ~/.vim/bundle directory
@@ -44,6 +57,7 @@ set autoindent
 " Copy previous indentation on autoindent
 set copyindent
 
+" TODO: Wrap settings
 " Max 80 characters per line
 " set textwidth=80
 " Make sure vim doesn't break words
@@ -67,8 +81,8 @@ set ch=2
 " Show current mode
 set showmode
 
-" Start scrolling when 8 lines away from margins
-set scrolloff=8
+" Start scrolling when 4 lines away from margins
+set scrolloff=4
 
 " Show syntax highlighting
 syntax on
@@ -84,6 +98,7 @@ colorscheme molokai
 " Enable wildmenu completion
 set wildmenu
 set wildmode=list:longest
+" TODO: Add files to ignore
 
 " Enable search highlighting
 set hlsearch
@@ -121,8 +136,12 @@ noremap \ ,
 
 " Clear the last search pattern
 " nnoremap <CR> :let @/=""<return>
-" Hide last search highlight
-nnoremap <leader>h :noh<CR>:<backspace>
+
+" ,/ hides last search highlighting
+nnoremap <leader>/ :noh<CR>:<backspace>
+
+" ,w to quickly save the file
+nmap <leader>w :w!<CR>
 
 " Keep folds saved when file is closed
 " Possibly the first * should be removed to support dot files
@@ -156,6 +175,9 @@ let g:user_zen_settings = {
 " Switch to paste mode before pasting text from outside Vim
 set pastetoggle=<F2>
 
+" Better mark jumping (line + col)
+nnoremap ' `
+
 " easier window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -166,10 +188,10 @@ nnoremap <C-l> <C-w>l
 let delimitMate_expand_cr=1
 
 " Automatically reload vimrc when it changes
-augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
+" augroup myvimrc
+"     au!
+"     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+" augroup END
 
 " Edit vimrc in a new tab
 nmap <leader>ev :tabedit $MYVIMRC<CR>
