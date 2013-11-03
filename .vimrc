@@ -145,8 +145,8 @@ nmap <leader>w :w!<CR>
 
 " Keep folds saved when file is closed
 " Possibly the first * should be removed to support dot files
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
 
 " Make snipmate snippets available in multiple file formats
 au BufRead,BufNewFile *.php set ft=php.html
@@ -200,3 +200,9 @@ nmap <leader>ev :tabedit $MYVIMRC<CR>
 nnoremap g<C-o> o<ESC>k
 " Insert blank line above in normal mode
 nnoremap gO O<ESC>j
+
+"Shortcut for NERDTreeToggle
+nmap <leader>nt :NERDTreeToggle<CR>
+
+"Show hidden files in NerdTree
+let NERDTreeShowHidden=1
