@@ -1,13 +1,13 @@
-alias reload='source ~/.bashrc'
-alias ea='vi ~/dotfiles/bash/.aliases && reload'
-alias func='vi ~/dotfiles/bash/.functions && reload'
-alias cfg='vi ~/dotfiles/bash/.config && reload'
-alias editvim='vi ~/dotfiles/.vimrc'
+alias reload='source ~/.profile'
+alias ea='vi ~/.aliases && reload'
+alias func='vi ~/.functions && reload'
+alias editvim='vi ~/.vimrc'
 
 # Terminal
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
 alias la='ls -A -l -G' # List all
 alias l.='ls -d .[^.]*' # List hidden
 alias lsd='ls -l | grep "^d"' # List directories

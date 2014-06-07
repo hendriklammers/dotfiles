@@ -1,0 +1,53 @@
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+	export TERM=gnome-256color
+elif infocmp xterm-256color >/dev/null 2>&1; then
+	export TERM=xterm-256color
+fi
+
+if tput setaf 1 &> /dev/null; then
+	tput sgr0
+	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+		COLOR_NAME=$(tput setaf 27)
+		COLOR_MACHINE=$(tput setaf 27)
+		COLOR_PATH=$(tput setaf 51)
+		COLOR_BRANCH=$(tput setaf 191)
+		WHITE=$(tput setaf 7)
+	else
+		COLOR_NAME=$(tput setaf 4)
+		COLOR_MACHINE=$(tput setaf 4)
+		COLOR_PATH=$(tput setaf 6)
+		COLOR_BRANCH=$(tput setaf 2)
+		WHITE=$(tput setaf 7)
+	fi
+	BOLD=$(tput bold)
+	RESET=$(tput sgr0)
+else
+	COLOR_NAME="\033[1;34m"
+	COLOR_MACHINE="\033[1;34m"
+	COLOR_PATH="\033[1;36m"
+	COLOR_BRANCH="\033[1;32m"
+	WHITE="\033[1;37m"
+	BOLD=""
+	RESET="\033[m"
+fi
+
+export COLOR_NAME
+export COLOR_MACHINE
+export COLOR_PATH
+export COLOR_BRANCH
+export WHITE
+export BOLD
+export RESET
+
+function parse_git_branch() {
+	local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+	if [ -n "${branch}" ]; then
+		[ "${branch}" == "HEAD" ] && local branch=$(git rev-parse --short HEAD 2>/dev/null)
+		local status=$(git status --porcelain 2>/dev/null)
+		echo -n " ${WHITE}[${COLOR_BRANCH}${branch}"
+		[ -n "${status}" ] && echo -n "*"
+		echo -n "${WHITE}]"
+	fi
+}
+
+export PS1="\[${COLOR_NAME}\]\u\[$WHITE\]@\[$COLOR_MACHINE\]\h\[$WHITE\]: \[$COLOR_PATH\]\w\[$WHITE\]\$(parse_git_branch)\[$WHITE\]\n$ \[$RESET\]"
