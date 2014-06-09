@@ -37,6 +37,48 @@ call pathogen#helptags()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
 
+" In GVIM
+if has("gui_running")
+    " Set font and size
+    set guifont=Inconsolata:h13
+
+    " Hide MacVim toolbar
+    set guioptions-=T
+
+    " Hide scrollbars
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=b
+
+    " Set window size
+    set lines=999
+    set columns=999
+
+    " Fill whole screen when in Fullscreen mode
+    set fuoptions=maxvert,maxhorz
+
+    " Use dark background
+    set background=dark
+    " colorscheme
+    colorscheme codeschool
+    " colorscheme molokai
+    " let g:molokai_original = 1 " Use original Monokai background
+    " colorscheme badwolf
+    " colorscheme jellybeans
+    " colorscheme Tomorrow-Night
+
+    " set guicursor=a:blinkon0   " turn off cursor blinking
+    set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
+else
+    " Use dark background
+    set background=dark
+    " 256 Colors
+    set t_Co=256
+    " TODO: Find better colorscheme
+    " colorscheme molokai
+    colorscheme distinguished
+endif
+
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
@@ -87,14 +129,6 @@ set scrolloff=4
 " Show syntax highlighting
 syntax on
 
-" Use dark background
-set background=dark
-
-" 256 Colors
-set t_Co=256
-" Use vim version of Monokai Textmate color scheme
-colorscheme molokai
-
 " Enable wildmenu completion
 set wildmenu
 set wildmode=list:longest
@@ -109,25 +143,25 @@ set ignorecase
 set smartcase
 
 " Always use 'very magic' when searching with regex
-noremap / /\v
-noremap ? ?\v
+" noremap / /\v
+" noremap ? ?\v
 
 " Only use custom snipmate snippets
-let g:snippets_dir="~/.vim/snippets"
+" let g:snippets_dir="~/.vim/snippets"
 
 " Make Y consistent with C and D.
-nnoremap Y y$
+" nnoremap Y y$
 
 " Map omnicomplete to CTRL+SPACE
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-            \ "\<lt>C-n>" :
-            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
+" inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+"           \ "\<lt>C-n>" :
+"           \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+"           \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+"           \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+" imap <C-@> <C-Space>
 
 " Exit Insert mode
-imap jj <Esc>
+" imap jj <Esc>
 
 " Map leader to comma key
 let mapleader = ","
@@ -138,10 +172,10 @@ noremap \ ,
 " nnoremap <CR> :let @/=""<return>
 
 " ,/ hides last search highlighting
-nnoremap <leader>/ :noh<CR>:<backspace>
+" nnoremap <leader>/ :noh<CR>:<backspace>
 
 " ,w to quickly save the file
-nmap <leader>w :w!<CR>
+" nmap <leader>w :w!<CR>
 
 " Keep folds saved when file is closed
 " Possibly the first * should be removed to support dot files
@@ -149,43 +183,43 @@ nmap <leader>w :w!<CR>
 " autocmd BufWinEnter *.* silent loadview
 
 " Make snipmate snippets available in multiple file formats
-au BufRead,BufNewFile *.php set ft=php.html
-au BufRead,BufNewFile *.less set ft=less.css
-au BufRead,BufNewFile *.scss set ft=scss.css
+" au BufRead,BufNewFile *.php set ft=php.html
+" au BufRead,BufNewFile *.less set ft=less.css
+" au BufRead,BufNewFile *.scss set ft=scss.css
 
 " Highlight trailing whitespace
 " match ErrorMsg '\s\+$'
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" match ExtraWhitespace /\s\+$/
+" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" autocmd BufWinLeave * call clearmatches()
 
 " Remove trailing whitespace
-nnoremap <Leader>rw :%s/\s\+$//e<CR>
+" nnoremap <Leader>rw :%s/\s\+$//e<CR>
 
 " Zencoding settings for scss and less
-let g:user_zen_settings = {
-\  'scss' : {
-\    'filters' : 'fc',
-\  }
-\}
+" let g:user_zen_settings = {
+" \  'scss' : {
+" \    'filters' : 'fc',
+" \  }
+" \}
 
 " Switch to paste mode before pasting text from outside Vim
-set pastetoggle=<F2>
+" set pastetoggle=<F2>
 
 " Better mark jumping (line + col)
-nnoremap ' `
+" nnoremap ' `
 
 " easier window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 
 " Add a return with indent, like in Textmate
-let delimitMate_expand_cr=1
+" let delimitMate_expand_cr=1
 
 " Automatically reload vimrc when it changes
 " augroup myvimrc
@@ -194,15 +228,15 @@ let delimitMate_expand_cr=1
 " augroup END
 
 " Edit vimrc in a new tab
-nmap <leader>ev :tabedit $MYVIMRC<CR>
+" nmap <leader>ev :tabedit $MYVIMRC<CR>
 
 " Insert blank line below in normal mode
-nnoremap g<C-o> o<ESC>k
+" nnoremap g<C-o> o<ESC>k
 " Insert blank line above in normal mode
-nnoremap gO O<ESC>j
+" nnoremap gO O<ESC>j
 
 "Shortcut for NERDTreeToggle
-nmap <leader>nt :NERDTreeToggle<CR>
+" nmap <leader>nt :NERDTreeToggle<CR>
 
 "Show hidden files in NerdTree
-let NERDTreeShowHidden=1
+" let NERDTreeShowHidden=1
