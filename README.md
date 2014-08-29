@@ -2,7 +2,6 @@ Dotfiles
 --------
 Very basic stuff, needs update.
 
-Don't use the sync script, use symlinks instead.
-```
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-```
+Use symlinks: `ln -s ~/dotfiles/.vimrc ~/.vimrc`
+
+Vim uses the patched Inconsolata font from [here](https://github.com/Lokaltog/powerline-fonts).
