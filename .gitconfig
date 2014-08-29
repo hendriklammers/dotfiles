@@ -1,5 +1,12 @@
+[user]
+    name = Hendrik Lammers
+    email = lammers@gmail.com
 [color]
-    ui = true
+    ui = always
 [core]
-	excludesfile = ~/.gitignore_global
     editor = /usr/bin/vim
+    excludesfile = ~/.gitignore
+[push]
+	default = simple
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
