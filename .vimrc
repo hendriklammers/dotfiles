@@ -40,45 +40,11 @@ call pathogen#helptags()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
 
-" In GVIM
-if has("gui_running")
-    " Set font and size
-    " set guifont=Inconsolata:h14
-    set guifont=Inconsolata\ for\ Powerline:h14
-    " set guifont=Menlo:h12
-    " set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
+" Use dark background
+set background=dark
 
-    " Hide MacVim toolbar
-    set guioptions-=T
-
-    " Hide scrollbars
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=b
-
-    " Set window size
-    set lines=999
-    set columns=999
-
-    " Fill whole screen when in Fullscreen mode
-    set fuoptions=maxvert,maxhorz
-
-    set background=dark
-    " Set the colorscheme
-    colorscheme solarized
-
-    " set guicursor=a:blinkon0   " turn off cursor blinking
-    set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
-else
-    " Use dark background
-    set background=dark
-
-    " 256 Colors
-    " set t_Co=256
-
-    " colorscheme distinguished
-    colorscheme solarized
-endif
+" colorscheme distinguished
+colorscheme solarized
 
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
@@ -265,6 +231,8 @@ map <leader>c <C-_><C-_>
 
 " Use fancy symbols in Airline
 let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 " Not a fan of emmets default <C-y> leader
 " let g:user_emmet_leader_key = '<leader>e'
@@ -272,3 +240,35 @@ let g:airline_powerline_fonts = 1
 " Don't indent after <html> tag
 " i.e. <head> and <body> have same indentation as <html>
 let g:html_exclude_tags = ['html']
+
+" These settings will only be used for vim with gui (Macvim)
+if has("gui_running")
+    " Set font and size
+    " set guifont=Inconsolata:h14
+    set guifont=Inconsolata\ for\ Powerline:h14
+    " set guifont=Menlo:h12
+    " set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
+
+    " Hide MacVim toolbar
+    set guioptions-=T
+
+    " Hide scrollbars
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=b
+
+    " Set window size
+    set lines=999
+    set columns=999
+
+    " Fill whole screen when in Fullscreen mode
+    set fuoptions=maxvert,maxhorz
+
+    " set guicursor=a:blinkon0   " turn off cursor blinking
+    set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
+
+    " Powerline separators for airline don't look too well in terminal
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+endif
+
