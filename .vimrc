@@ -246,8 +246,6 @@ if has("gui_running")
     " Set font and size
     " set guifont=Inconsolata:h14
     set guifont=Inconsolata\ for\ Powerline:h14
-    " set guifont=Menlo:h12
-    " set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
 
     " Hide MacVim toolbar
     set guioptions-=T
