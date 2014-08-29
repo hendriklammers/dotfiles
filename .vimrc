@@ -10,11 +10,11 @@ set nowb
 set noswapfile
 
 " Yank to clipboard by default
-if has('unnamedplus')
-  set clipboard=unnamedplus
-else
-  set clipboard=unnamed
-endif
+" if has('unnamedplus')
+"   set clipboard=unnamedplus
+" else
+"   set clipboard=unnamed
+" endif
 
 " Reload files changed outside of VIM
 set autoread
@@ -29,6 +29,9 @@ set lazyredraw
 " No sound
 set visualbell
 
+" Enable matchit.vim
+runtime macros/matchit.vim
+
 " Use pathogen to easily modify the runtime path to include all plugins under
 " the ~/.vim/bundle directory
 filetype off
@@ -40,7 +43,10 @@ filetype plugin indent on
 " In GVIM
 if has("gui_running")
     " Set font and size
-    set guifont=Inconsolata:h13
+    " set guifont=Inconsolata:h14
+    set guifont=Inconsolata\ for\ Powerline:h14
+    " set guifont=Menlo:h12
+    " set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
 
     " Hide MacVim toolbar
     set guioptions-=T
@@ -57,26 +63,21 @@ if has("gui_running")
     " Fill whole screen when in Fullscreen mode
     set fuoptions=maxvert,maxhorz
 
-    " Use dark background
     set background=dark
-    " colorscheme
-    colorscheme codeschool
-    " colorscheme molokai
-    " let g:molokai_original = 1 " Use original Monokai background
-    " colorscheme badwolf
-    " colorscheme jellybeans
-    " colorscheme Tomorrow-Night
+    " Set the colorscheme
+    colorscheme solarized
 
     " set guicursor=a:blinkon0   " turn off cursor blinking
     set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
 else
     " Use dark background
     set background=dark
+
     " 256 Colors
-    set t_Co=256
-    " TODO: Find better colorscheme
-    " colorscheme molokai
-    colorscheme distinguished
+    " set t_Co=256
+
+    " colorscheme distinguished
+    colorscheme solarized
 endif
 
 " Make backspace behave in a sane manner.
@@ -101,9 +102,9 @@ set copyindent
 
 " TODO: Wrap settings
 " Max 80 characters per line
-" set textwidth=80
+set textwidth=80
 " Make sure vim doesn't break words
-" set linebreak
+set linebreak
 
 " Highlight characters past 80 columns
 " augroup vimrc_autocmds
@@ -126,13 +127,22 @@ set showmode
 " Start scrolling when 4 lines away from margins
 set scrolloff=4
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " Show syntax highlighting
 syntax on
 
 " Enable wildmenu completion
 set wildmenu
 set wildmode=list:longest
-" TODO: Add files to ignore
+" patterns to ignore during file-navigation
+set wildignore+=.git,.svn,.sass-cache
+" Ignores for ctrlp plugin
+let g:ctrlp_custom_ignore = 'node_modules'
+" Be able to open hidden files with ctrlp
+let g:ctrlp_show_hidden = 1
 
 " Enable search highlighting
 set hlsearch
@@ -146,22 +156,19 @@ set smartcase
 " noremap / /\v
 " noremap ? ?\v
 
-" Only use custom snipmate snippets
-" let g:snippets_dir="~/.vim/snippets"
-
 " Make Y consistent with C and D.
-" nnoremap Y y$
+nnoremap Y y$
 
 " Map omnicomplete to CTRL+SPACE
-" inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-"           \ "\<lt>C-n>" :
-"           \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-"           \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-"           \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-" imap <C-@> <C-Space>
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+          \ "\<lt>C-n>" :
+          \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+          \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+          \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
 
 " Exit Insert mode
-" imap jj <Esc>
+imap jj <Esc>
 
 " Map leader to comma key
 let mapleader = ","
@@ -172,63 +179,54 @@ noremap \ ,
 " nnoremap <CR> :let @/=""<return>
 
 " ,/ hides last search highlighting
-" nnoremap <leader>/ :noh<CR>:<backspace>
+ nnoremap <leader>/ :noh<CR>:<backspace>
 
 " ,w to quickly save the file
-" nmap <leader>w :w!<CR>
+nmap <leader>w :w!<CR>
 
 " Keep folds saved when file is closed
 " Possibly the first * should be removed to support dot files
 " autocmd BufWinLeave *.* mkview
 " autocmd BufWinEnter *.* silent loadview
 
-" Make snipmate snippets available in multiple file formats
-" au BufRead,BufNewFile *.php set ft=php.html
-" au BufRead,BufNewFile *.less set ft=less.css
-" au BufRead,BufNewFile *.scss set ft=scss.css
-
 " Highlight trailing whitespace
-" match ErrorMsg '\s\+$'
-" highlight ExtraWhitespace ctermbg=red guibg=red
-" match ExtraWhitespace /\s\+$/
-" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-" autocmd BufWinLeave * call clearmatches()
+match ErrorMsg '\s\+$'
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " Remove trailing whitespace
-" nnoremap <Leader>rw :%s/\s\+$//e<CR>
-
-" Zencoding settings for scss and less
-" let g:user_zen_settings = {
-" \  'scss' : {
-" \    'filters' : 'fc',
-" \  }
-" \}
+nnoremap <Leader>rw :%s/\s\+$//e<CR>
 
 " Switch to paste mode before pasting text from outside Vim
-" set pastetoggle=<F2>
+set pastetoggle=<F2>
 
 " Better mark jumping (line + col)
 " nnoremap ' `
 
 " easier window navigation
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Open help in a new tab
+cabbrev help tab help
 
 " Add a return with indent, like in Textmate
-" let delimitMate_expand_cr=1
+let delimitMate_expand_cr=1
 
 " Automatically reload vimrc when it changes
-" augroup myvimrc
-"     au!
-"     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-" augroup END
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
 
 " Edit vimrc in a new tab
-" nmap <leader>ev :tabedit $MYVIMRC<CR>
+nmap <leader>ev :tabedit $MYVIMRC<CR>
 
 " Insert blank line below in normal mode
 " nnoremap g<C-o> o<ESC>k
@@ -236,7 +234,41 @@ noremap \ ,
 " nnoremap gO O<ESC>j
 
 "Shortcut for NERDTreeToggle
-" nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
 
-"Show hidden files in NerdTree
-" let NERDTreeShowHidden=1
+" Syntastic settings
+" let g:syntastic_html_tidy_ignore_errors = ['<html> proprietary attribute "class"', ' proprietary attribute "ng-', 'trimming empty <select>']
+let g:syntastic_html_tidy_ignore_errors = [
+    \"trimming empty <i>",
+    \"trimming empty <span>",
+    \"trimming empty <select>",
+    \"trimming empty <option>",
+    \"<input> proprietary attribute \"autocomplete\"",
+    \"<img> lacks \"src\" attribute",
+    \"proprietary attribute \"role\"",
+    \"proprietary attribute \"hidden\"",
+    \"<html> proprietary attribute \"class\"",
+    \"proprietary attribute \"ng-"
+\]
+
+" Expand snippets with TAB
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" Open :UltiSnipsEdit in a vertical split
+let g:UltiSnipsEditSplit="vertical"
+" Edit UltiSnips snippets
+nmap <leader>ue :UltiSnipsEdit<CR>
+
+" Faster shortcut for tComment
+map <leader>c <C-_><C-_>
+
+" Use fancy symbols in Airline
+let g:airline_powerline_fonts = 1
+
+" Not a fan of emmets default <C-y> leader
+" let g:user_emmet_leader_key = '<leader>e'
+
+" Don't indent after <html> tag
+" i.e. <head> and <body> have same indentation as <html>
+let g:html_exclude_tags = ['html']
