@@ -68,7 +68,7 @@ set copyindent
 
 " TODO: Wrap settings
 " Max 80 characters per line
-set textwidth=80
+" set textwidth=80
 " Make sure vim doesn't break words
 set linebreak
 
