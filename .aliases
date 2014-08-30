@@ -1,4 +1,4 @@
-alias reload='source ~/.profile'
+alias reload='source ~/.bash_profile'
 alias ea='vi ~/.aliases && reload'
 alias func='vi ~/.functions && reload'
 alias editvim='vi ~/.vimrc'
@@ -29,9 +29,6 @@ alias tm='top -o vsize' # memory
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-
-# Edit settings
-alias editssh='mate -a ~/.ssh/config'
 
 # Git
 # Probably belongs in .gitconfig
@@ -65,6 +62,4 @@ alias dl='cd ~/Downloads'
 alias dt='cd ~/Desktop'
 alias code='cd ~/code'
 alias drop='cd ~/Dropbox'
-alias hendrik='cd ~/Dropbox/website_2013/06_development/app'
-alias vimprac='cd ~/code/practise/vim'
 alias htdocs='cd ~/htdocs'
