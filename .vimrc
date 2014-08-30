@@ -201,6 +201,7 @@ nmap <leader>ev :tabedit $MYVIMRC<CR>
 
 "Shortcut for NERDTreeToggle
 nmap <leader>nt :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
 
 " Syntastic settings
 " let g:syntastic_html_tidy_ignore_errors = ['<html> proprietary attribute "class"', ' proprietary attribute "ng-', 'trimming empty <select>']
@@ -240,6 +241,15 @@ let g:airline_right_sep = ''
 " Don't indent after <html> tag
 " i.e. <head> and <body> have same indentation as <html>
 let g:html_exclude_tags = ['html']
+
+" Git shortcuts used for Fugitive plugin
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gg :Gbrowse<CR>
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>gr :Gread<CR>
 
 " These settings will only be used for vim with gui (Macvim)
 if has("gui_running")
