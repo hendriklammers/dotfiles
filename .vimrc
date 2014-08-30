@@ -1,6 +1,35 @@
 " Use Vim settings, rather then Vi settings
 set nocompatible
 
+" Use Vundle to install vim plugins
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Plugins from github
+Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mattn/emmet-vim'
+Plugin 'othree/html5.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'tpope/vim-fugitive'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-surround'
+
+call vundle#end()
+" enable detection, plugins and indenting in one step
+filetype plugin indent on
+
 " Keep 100 lines in history
 set history=100
 
@@ -31,14 +60,6 @@ set visualbell
 
 " Enable matchit.vim
 runtime macros/matchit.vim
-
-" Use pathogen to easily modify the runtime path to include all plugins under
-" the ~/.vim/bundle directory
-filetype off
-call pathogen#infect()
-call pathogen#helptags()
-" enable detection, plugins and indenting in one step
-filetype plugin indent on
 
 " Use dark background
 set background=dark
