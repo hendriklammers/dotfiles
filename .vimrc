@@ -6,9 +6,9 @@ filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
 " Plugins from github
 Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
@@ -25,6 +25,7 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
 call vundle#end()
 " enable detection, plugins and indenting in one step
