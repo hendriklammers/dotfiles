@@ -72,6 +72,40 @@ let g:solarized_diffmode = 'high'
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
+" Use fancy symbols in Airline
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+" These settings will only be used for vim with gui (Macvim)
+if has("gui_running")
+    " Set font and size
+    " set guifont=Inconsolata:h14
+    set guifont=Inconsolata\ for\ Powerline:h14
+
+    " Hide MacVim toolbar
+    set guioptions-=T
+
+    " Hide scrollbars
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=b
+
+    " Set window size
+    set lines=999
+    set columns=999
+
+    " Fill whole screen when in Fullscreen mode
+    set fuoptions=maxvert,maxhorz
+
+    " set guicursor=a:blinkon0   " turn off cursor blinking
+    set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
+
+    " Powerline separators for airline don't look too well in terminal
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+endif
+
 " Expand tabs by default
 set expandtab
 " Insert tabs at start of line according to shiftwidth
@@ -266,11 +300,6 @@ nmap <leader>ue :UltiSnipsEdit<CR>
 " Faster shortcut for tComment
 map <leader>c <C-_><C-_>
 
-" Use fancy symbols in Airline
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
 " Not a fan of emmets default <C-y> leader
 " let g:user_emmet_leader_key = '<leader>e'
 
@@ -287,32 +316,5 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gr :Gread<CR>
 
-" These settings will only be used for vim with gui (Macvim)
-if has("gui_running")
-    " Set font and size
-    " set guifont=Inconsolata:h14
-    set guifont=Inconsolata\ for\ Powerline:h14
-
-    " Hide MacVim toolbar
-    set guioptions-=T
-
-    " Hide scrollbars
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=b
-
-    " Set window size
-    set lines=999
-    set columns=999
-
-    " Fill whole screen when in Fullscreen mode
-    set fuoptions=maxvert,maxhorz
-
-    " set guicursor=a:blinkon0   " turn off cursor blinking
-    set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
-
-    " Powerline separators for airline don't look too well in terminal
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-endif
+let g:used_javascript_libs = 'angularjs,jquery,underscore'
 
