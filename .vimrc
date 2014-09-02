@@ -40,11 +40,11 @@ set nowb
 set noswapfile
 
 " Yank to clipboard by default
-" if has('unnamedplus')
-"   set clipboard=unnamedplus
-" else
-"   set clipboard=unnamed
-" endif
+if has('unnamedplus')
+  set clipboard=unnamedplus
+else
+  set clipboard=unnamed
+endif
 
 " Reload files changed outside of VIM
 set autoread
