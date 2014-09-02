@@ -65,8 +65,10 @@ runtime macros/matchit.vim
 " Use dark background
 set background=dark
 
-" colorscheme distinguished
+" Use Solarized colorscheme
 colorscheme solarized
+" More constrast colors in vimdiff
+let g:solarized_diffmode = 'high'
 
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
