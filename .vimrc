@@ -6,7 +6,6 @@ filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 " Plugins from github
@@ -23,10 +22,10 @@ Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-surround'
-Plugin 'othree/javascript-libraries-syntax.vim'
-
+" Plugin 'othree/javascript-libraries-syntax.vim'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
