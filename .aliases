@@ -60,7 +60,6 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 alias dot='cd ~/dotfiles'
 alias dl='cd ~/Downloads'
 alias dt='cd ~/Desktop'
-alias code='cd ~/code'
 alias drop='cd ~/Dropbox'
 alias htdocs='cd ~/htdocs'
 alias work='cd ~/work'
