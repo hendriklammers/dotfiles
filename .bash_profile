@@ -1,10 +1,8 @@
 # Path
 PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
-# Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.rvm/bin
 # Add global composer bin to PATH
 PATH=$HOME/.composer/vendor/bin:$PATH
-# Needed for NVM to work
+# Use locally installed node binaries instead of global ones
 PATH=./node_modules/.bin:$PATH
 
 # Set the default editor
@@ -22,8 +20,6 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 # This loads NVMexport PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
@@ -33,3 +29,6 @@ fi
 [[ -s "$HOME/.functions" ]] && source "$HOME/.functions"
 # Aliases
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
