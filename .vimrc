@@ -274,18 +274,15 @@ nmap <leader>nt :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden=1
 
 " Syntastic settings
-" let g:syntastic_html_tidy_ignore_errors = ['<html> proprietary attribute "class"', ' proprietary attribute "ng-', 'trimming empty <select>']
+" Most of this is needed when using Angularjs
 let g:syntastic_html_tidy_ignore_errors = [
-    \"trimming empty <i>",
-    \"trimming empty <span>",
-    \"trimming empty <select>",
-    \"trimming empty <option>",
-    \"<input> proprietary attribute \"autocomplete\"",
-    \"<img> lacks \"src\" attribute",
-    \"proprietary attribute \"role\"",
-    \"proprietary attribute \"hidden\"",
-    \"<html> proprietary attribute \"class\"",
-    \"proprietary attribute \"ng-"
+    \"trimming empty <",
+    \"unescaped &",
+    \"lacks \"src\" attribute",
+    \"lacks \"action",
+    \"proprietary attribute",
+    \"is not recognized!",
+    \"discarding unexpected"
 \]
 
 " Expand snippets with TAB
