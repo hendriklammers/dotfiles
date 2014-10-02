@@ -1,0 +1,49 @@
+snippet str "Use jshint/jslint strict mode"
+'use strict';$1
+endsnippet
+
+snippet log "console.log()"
+console.log($1);
+endsnippet
+
+snippet iife "immediately-invoked function expression"
+(function() {
+	$1
+}());
+endsnippet
+
+snippet fun "function"
+function ${1:functionName}(${2:arguments}) {
+	${3:// body...}
+}
+endsnippet
+
+snippet af "anonymous function" w
+function($1) {
+	$0
+}${2:;}
+endsnippet
+
+snippet if "if statement"
+if (${1:true}) {
+	$2
+}
+endsnippet
+
+snippet ife "if...else"
+if (${1:true}) {
+	$2
+} else {
+	$3
+}
+endsnippet
+
+snippet req "Require node/commonjs module"
+require('$1')$0
+endsnippet
+
+snippet mod "node/commonjs module" b
+module.exports = function($1) {
+	$2
+};
+endsnippet
