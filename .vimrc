@@ -22,7 +22,7 @@ Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-surround'
 " Plugin 'othree/javascript-libraries-syntax.vim'
@@ -195,13 +195,28 @@ set smartcase
 " Make Y consistent with C and D.
 nnoremap Y y$
 
-" Map omnicomplete to CTRL+SPACE
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-          \ "\<lt>C-n>" :
-          \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-          \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-          \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
+" Omnicomplete setting
+set completeopt=longest,menuone
+set omnifunc=csscomplete#CompleteCSS
+
+" map omnicompletion to ctrl+space
+function! Auto_complete_string()
+    if pumvisible()
+        return "\<C-n>"
+    else
+        return "\<C-x>\<C-o>\<C-r>=Auto_complete_opened()\<CR>"
+    end
+endfunction
+
+function! Auto_complete_opened()
+    if pumvisible()
+        return "\<Down>"
+    end
+    return ""
+endfunction
+
+inoremap <expr> <Nul> Auto_complete_string()
+inoremap <expr> <C-Space> Auto_complete_string()
 
 " Exit Insert mode
 imap jj <Esc>
@@ -240,8 +255,32 @@ nnoremap <Leader>rw :%s/\s\+$//e<CR>
 " Switch to paste mode before pasting text from outside Vim
 set pastetoggle=<F2>
 
+" mapping to make movements operate on 1 screen line in wrap mode
+function! ScreenMovement(movement)
+   if &wrap
+      return "g" . a:movement
+   else
+      return a:movement
+   endif
+endfunction
+onoremap <silent> <expr> j ScreenMovement("j")
+onoremap <silent> <expr> k ScreenMovement("k")
+onoremap <silent> <expr> 0 ScreenMovement("0")
+onoremap <silent> <expr> ^ ScreenMovement("^")
+onoremap <silent> <expr> $ ScreenMovement("$")
+nnoremap <silent> <expr> j ScreenMovement("j")
+nnoremap <silent> <expr> k ScreenMovement("k")
+nnoremap <silent> <expr> 0 ScreenMovement("0")
+nnoremap <silent> <expr> ^ ScreenMovement("^")
+nnoremap <silent> <expr> $ ScreenMovement("$")
+
 " Better mark jumping (line + col)
 " nnoremap ' `
+
+" Show relative line numbers
+set relativenumber
+" Toggle between relative and absolute line numbers
+nnoremap <silent><leader>l :set relativenumber!<cr>
 
 " easier window navigation
 nnoremap <C-h> <C-w>h
@@ -298,7 +337,13 @@ nmap <leader>ue :UltiSnipsEdit<CR>
 map <leader>c <C-_><C-_>
 
 " Not a fan of emmets default <C-y> leader
-" let g:user_emmet_leader_key = '<leader>e'
+let g:user_emmet_leader_key = '<C-e>'
+
+" let g:user_emmet_expandabbr_key = '<Tab>'
+" let g:user_emmet_complete_tag = 1
+" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+" imap <buffer> <Tab> <Esc>:call emmet#moveNextPrev(0)<CR>
+" imap <buffer> <S-Tab> <Esc>:call emmet#moveNextPrev(1)<CR>
 
 " Don't indent after <html> tag
 " i.e. <head> and <body> have same indentation as <html>
@@ -313,5 +358,5 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gr :Gread<CR>
 
-let g:used_javascript_libs = 'angularjs,jquery,underscore'
+" let g:used_javascript_libs = 'angularjs,jquery,underscore'
 
