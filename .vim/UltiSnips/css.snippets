@@ -4,10 +4,77 @@ snippet ! "!important CSS (!)"
 !important$0
 endsnippet
 
+# background
 snippet bg "background" b
-background: $1;$0
+background: $1;
+$0
 endsnippet
 
 snippet bg+ "background long" b
-background: ${1:#fff} url('${2:image.jpg}') ${3:no-repeat} ${4:0 0};$0
+background: ${1:#fff} url('${2:image.jpg}') ${3:no-repeat} ${4:0 0};
+$0
+endsnippet
+
+snippet bg:n "background: none" b
+background: none;$0
+endsnippet
+
+snippet bgc "background-color" b
+background-color: $1;
+$0
+endsnippet
+
+snippet bgc:t "background-color: transparent" b
+background-color: transparent;$0
+endsnippet
+
+snippet bgi "background-image" b
+background-image: url('${1:image.jpg}');
+$0
+endsnippet
+
+snippet bgi:n "background-image: none" b
+background-image: none;$0
+endsnippet
+
+snippet bgr "background-repeat" b
+background-repeat: $1;
+$0
+endsnippet
+
+snippet bgr:n "background-repeat: no-repeat" b
+background-repeat: no-repeat;$0
+endsnippet
+
+snippet bgr:x "background-repeat: repeat-x" b
+background-repeat: repeat-x;$0
+endsnippet
+
+snippet bgr:y "background-repeat: repeat-y" b
+background-repeat: repeat-y;$0
+endsnippet
+
+snippet bga "background-attachment" b
+background-attachment: $1;
+$0
+endsnippet
+
+snippet bgp "background-position" b
+background-position: $1;
+$0
+endsnippet
+
+snippet bgpx "background-position-x" b
+background-position-x: $1;
+$0
+endsnippet
+
+snippet bgpy "background-position-y" b
+background-position-y: $1;
+$0
+endsnippet
+
+snippet bgs "background-size" b
+background-size: $1;
+$0
 endsnippet
