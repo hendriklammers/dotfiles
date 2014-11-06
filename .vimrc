@@ -11,13 +11,13 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins from github
 Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'mattn/emmet-vim'
 Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'mattn/emmet-vim'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'hail2u/vim-css3-syntax'
@@ -198,6 +198,7 @@ nnoremap Y y$
 " Omnicomplete setting
 set completeopt=longest,menuone
 set omnifunc=csscomplete#CompleteCSS
+set omnifunc=htmlcomplete#CompleteTags
 
 " map omnicompletion to ctrl+space
 function! Auto_complete_string()
