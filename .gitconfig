@@ -6,7 +6,13 @@
 [core]
     editor = /usr/bin/vim
     excludesfile = ~/.gitignore
+	autocrlf = input
 [push]
 	default = simple
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	s = status -s
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
