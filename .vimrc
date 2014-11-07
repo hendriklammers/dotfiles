@@ -336,7 +336,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Open :UltiSnipsEdit in a vertical split
 let g:UltiSnipsEditSplit="vertical"
 " Edit UltiSnips snippets
-nmap <leader>eu :UltiSnipsEdit<CR>
+nmap <leader>ue :UltiSnipsEdit<CR>
 
 " Faster shortcut for tComment
 map <leader>c <C-_><C-_>
