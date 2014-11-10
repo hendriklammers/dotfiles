@@ -365,3 +365,5 @@ nmap <leader>gr :Gread<CR>
 
 " let g:used_javascript_libs = 'angularjs,jquery,underscore'
 
+" Select last pasted text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
