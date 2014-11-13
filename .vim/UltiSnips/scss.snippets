@@ -3,7 +3,7 @@ priority -50
 extends css
 
 snippet /@?imp/ "@import '...';" br
-@import '${1:file}';
+@import "${1:file}";
 endsnippet
 
 snippet /@?inc/ "@include mixin(...);" br
@@ -14,7 +14,7 @@ snippet /@?ext?/ "@extend %placeholder;" br
 @extend %${1:placeholder};
 endsnippet
 
-snippet /@?mixin/ "@mixin (...) { ... }" br
+snippet /@?mix/ "@mixin (...) { ... }" br
 @mixin ${1:name}(${2:arguments}) {
 	${VISUAL}$0
 }
@@ -54,4 +54,22 @@ snippet /@?while/ "@while loop" br
 @while ${1:$i} ${2:>} ${3:0} {
 	${VISUAL}$0
 }
+endsnippet
+
+snippet rc "rem-calc function"
+rem-calc($1)$0
+endsnippet
+
+snippet med "@media" b
+@media #{${1:$medium-up}} {
+	$2
+}
+endsnippet
+
+snippet pie "Compass PIE clearfix" b
+@include pie-clearfix;$0
+endsnippet
+
+snippet sprite "Compass icons-sprite" b
+@include icons-sprite('${1:name}', ${2:true});${3}
 endsnippet
