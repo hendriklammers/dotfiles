@@ -35,7 +35,44 @@ snippet link "Link to external css file" b
 <link rel="stylesheet" href="${1}">$0
 endsnippet
 
+snippet req "required"
+required$0
+endsnippet
+
+snippet pl "placeholder"
+placeholder="${1:text}"$0
+endsnippet
+
 # Trying out interpolation, needs to be changed to a more useful todo comment
 snippet todo "This is a TODO reminder" b
 <!-- TODO: `ECHO $USER` ${1:description} `!v strftime("%c")` -->
+endsnippet
+
+# Angular snippets
+snippet ngm "ng-model"
+ng-model="${1:model}"$0
+endsnippet
+
+snippet ngc "ng-controller"
+ng-controller="${1:controller}"$0
+endsnippet
+
+snippet ngcl "ng-class"
+ng-class="${1:class}"$0
+endsnippet
+
+snippet ngr "ng-repeat"
+ng-repeat="$1"$0
+endsnippet
+
+snippet ngi "ng-if"
+ng-if="$1"$0
+endsnippet
+
+snippet ngs "ng-switch"
+ng-switch="$1"$0
+endsnippet
+
+snippet ngch "ng-change"
+ng-change="$1"$0
 endsnippet
