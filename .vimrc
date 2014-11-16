@@ -166,7 +166,7 @@ set wildignore+=.git,.svn,.sass-cache
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup --hidden
@@ -329,9 +329,11 @@ let g:syntastic_html_tidy_ignore_errors = [
     \"discarding unexpected"
 \]
 
+let g:syntastic_php_checkers=['php']
+
 " Expand snippets with TAB
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Open :UltiSnipsEdit in a vertical split
 let g:UltiSnipsEditSplit="vertical"
