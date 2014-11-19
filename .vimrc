@@ -203,6 +203,7 @@ nnoremap Y y$
 set completeopt=longest,menuone
 set omnifunc=csscomplete#CompleteCSS
 set omnifunc=htmlcomplete#CompleteTags
+set omnifunc=javascriptcomplete#CompleteJS
 
 " map omnicompletion to ctrl+space
 function! Auto_complete_string()
@@ -339,9 +340,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 " Edit UltiSnips snippets
 nmap <leader>ue :UltiSnipsEdit<CR>
-
-" Faster shortcut for tComment
-map <leader>c <C-_><C-_>
 
 " Not a fan of emmets default <C-y> leader
 let g:user_emmet_leader_key = '<C-e>'
