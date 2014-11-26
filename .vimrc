@@ -174,6 +174,7 @@ if executable('ag')
     \ --ignore .git
     \ --ignore bower_components
     \ --ignore node_modules
+    \ --ignore .sass-cache
     \ -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
@@ -336,7 +337,8 @@ let g:syntastic_php_checkers=['php']
 " Expand snippets with TAB
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 " Open :UltiSnipsEdit in a vertical split
 let g:UltiSnipsEditSplit="vertical"
 " Edit UltiSnips snippets
