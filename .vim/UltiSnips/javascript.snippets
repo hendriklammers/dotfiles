@@ -1,3 +1,9 @@
+snippet /** "Comment block" b
+/**
+ * ${1:Description}
+ */
+endsnippet
+
 snippet str "Use jshint/jslint strict mode"
 'use strict';$1
 endsnippet
@@ -46,8 +52,4 @@ snippet mod "node/commonjs module" b
 module.exports = function($1) {
 	$2
 };
-endsnippet
-
-snippet t "temp"
-$1: ['$2', '$3'],$0
 endsnippet
