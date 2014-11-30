@@ -137,6 +137,14 @@ set linebreak
 
 " Show line numbers
 set number
+" Show relative line numbers
+set relativenumber
+" Toggle between relative and absolute line numbers
+" nnoremap <silent><leader>l :set relativenumber!<cr>
+
+" Highlight current line
+set cursorline
+
 " Always show status line
 set laststatus=2
 " Format status line
@@ -284,11 +292,6 @@ nnoremap <silent> <expr> $ ScreenMovement("$")
 
 " Better mark jumping (line + col)
 " nnoremap ' `
-
-" Show relative line numbers
-set relativenumber
-" Toggle between relative and absolute line numbers
-nnoremap <silent><leader>l :set relativenumber!<cr>
 
 " easier window navigation
 nnoremap <C-h> <C-w>h
