@@ -49,6 +49,10 @@ snippet todo "This is a TODO reminder" b
 endsnippet
 
 # Angular snippets
+snippet nga "ng-app"
+ng-app="${1:appName}"$0
+endsnippet
+
 snippet ngm "ng-model"
 ng-model="${1:model}"$0
 endsnippet
@@ -58,7 +62,11 @@ ng-controller="${1:controller}"$0
 endsnippet
 
 snippet ngcl "ng-class"
-ng-class="${1:class}"$0
+ng-class="${1:className}"$0
+endsnippet
+
+snippet ngch "ng-change"
+ng-change="$1"$0
 endsnippet
 
 snippet ngr "ng-repeat"
@@ -69,10 +77,10 @@ snippet ngi "ng-if"
 ng-if="$1"$0
 endsnippet
 
-snippet ngs "ng-switch"
-ng-switch="$1"$0
+snippet ngs "ng-show"
+ng-show="$1"$0
 endsnippet
 
-snippet ngch "ng-change"
-ng-change="$1"$0
+snippet ngv "ng-view"
+ng-view$0
 endsnippet
