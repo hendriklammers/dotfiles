@@ -266,6 +266,10 @@ snippet va "vertical-align" b
 vertical-align: ${1:top};$0
 endsnippet
 
+snippet vam "vertical-align: middle" b
+vertical-align: middle;$0
+endsnippet
+
 snippet ta "text-align" b
 text-align: $1;$0
 endsnippet
@@ -375,6 +379,23 @@ endsnippet
 
 snippet lst "list-style-type" b
 list-style-type: ${1:disc};$0
+endsnippet
+
+# Generated content
+snippet cn "content" b
+content: '$1';$0
+endsnippet
+
+snippet af "&:after" b
+&:after {
+	$0
+}
+endsnippet
+
+snippet bf "&:before" b
+&:before {
+	$0
+}
 endsnippet
 
 # TODO: Animations, tranforms etc..
