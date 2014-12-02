@@ -53,3 +53,25 @@ module.exports = function($1) {
 	$2
 };
 endsnippet
+
+# Angular snippets
+snippet ngi "@ngInject" b
+/* @ngInject */$0
+endsnippet
+
+snippet ngc "Angular controller" b
+(function(angular) {
+    'use strict';
+
+    angular
+        .module('${1:app}')
+        .controller('${2:Controller}', $2);
+
+	/* @ngInject */
+    function $2(${3:$scope}) {
+		var vm = this;
+		$4
+    }
+
+}(window.angular));
+endsnippet
