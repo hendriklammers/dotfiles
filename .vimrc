@@ -319,8 +319,13 @@ nmap <leader>ev :tabedit $MYVIMRC<CR>
 " Insert blank line above in normal mode
 " nnoremap gO O<ESC>j
 
-"Shortcut for NERDTreeToggle
+" Shortcut for NERDTreeToggle
 nmap <leader>nt :NERDTreeToggle<CR>
+
+" Show current file in NERDTree
+nmap <leader>nf :NERDTreeFind<CR>
+
+" Show hidden files in NERDTree by default
 let g:NERDTreeShowHidden=1
 
 " Syntastic settings
