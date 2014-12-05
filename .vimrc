@@ -251,6 +251,9 @@ noremap \ ,
 " ,w to quickly save the file
 nmap <leader>w :w!<CR>
 
+" Save the session
+nmap <leader>s :mksession!<CR>
+
 " Keep folds saved when file is closed
 " Possibly the first * should be removed to support dot files
 " autocmd BufWinLeave *.* mkview
