@@ -25,6 +25,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-surround'
+Plugin 'heavenshell/vim-jsdoc'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 call vundle#end()
 " enable detection, plugins and indenting in one step
@@ -381,3 +382,7 @@ nmap <leader>gr :Gread<CR>
 
 " Select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Disable default jsdoc mapping to <C-l>, use <leader>j instead
+let g:jsdoc_default_mapping='0'
+nmap <Leader>j :JsDoc<cr>
