@@ -4,17 +4,17 @@ snippet ngi "@ngInject" b
 endsnippet
 
 snippet ngm "Angular module" b
-(function(angular) {
+(function() {
     'use strict';
 
     angular
         .module('${1:app}', [$0]);
 
-}(window.angular));
+}());
 endsnippet
 
 snippet ngc "Angular controller" b
-(function(angular) {
+(function() {
     'use strict';
 
     angular
@@ -27,5 +27,5 @@ snippet ngc "Angular controller" b
 		$4
     }
 
-}(window.angular));
+}());
 endsnippet
