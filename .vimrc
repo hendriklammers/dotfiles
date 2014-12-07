@@ -345,6 +345,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 \]
 
 let g:syntastic_php_checkers=['php']
+let g:syntastic_css_checkers=[]
 
 " Expand snippets with TAB
 let g:UltiSnipsExpandTrigger="<c-j>"
