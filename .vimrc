@@ -378,6 +378,7 @@ nmap <leader>gb :Gblame<CR>
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gr :Gread<CR>
+nmap <leader>gl :Glog<CR>
 
 " let g:used_javascript_libs = 'angularjs,jquery,underscore'
 
@@ -386,4 +387,4 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Disable default jsdoc mapping to <C-l>, use <leader>j instead
 let g:jsdoc_default_mapping='0'
-nmap <Leader>j :JsDoc<cr>
+nmap <leader>j :JsDoc<CR>
