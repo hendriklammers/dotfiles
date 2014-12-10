@@ -380,6 +380,9 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>gr :Gread<CR>
 nmap <leader>gl :Glog<CR>
 
+" Open Gdiff in vertical splits
+set diffopt+=vertical
+
 " let g:used_javascript_libs = 'angularjs,jquery,underscore'
 
 " Select last pasted text
