@@ -194,6 +194,8 @@ endif
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|output|bower_components|dist)|(\.(swp|hg|git|svn))$'
 " Be able to open hidden files with ctrlp
 let g:ctrlp_show_hidden = 1
+" Start searching from the directory that was opened in vim
+let g:ctrlp_working_path_mode = 0
 
 " Enable search highlighting
 set hlsearch
