@@ -392,4 +392,4 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Disable default jsdoc mapping to <C-l>, use <leader>j instead
 let g:jsdoc_default_mapping='0'
-nmap <leader>j :JsDoc<CR>
+nmap <leader>jd :JsDoc<CR>
