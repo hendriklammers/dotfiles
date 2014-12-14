@@ -140,8 +140,6 @@ set linebreak
 set number
 " Show relative line numbers
 set relativenumber
-" Toggle between relative and absolute line numbers
-" nnoremap <silent><leader>l :set relativenumber!<cr>
 
 " Highlight current line
 set cursorline
@@ -245,9 +243,6 @@ let mapleader = ","
 " Backslash now replaces comma
 noremap \ ,
 
-" Clear the last search pattern
-" nnoremap <CR> :let @/=""<return>
-
 " ,/ hides last search highlighting
  nnoremap <leader>/ :noh<CR>:<backspace>
 
@@ -256,11 +251,6 @@ nmap <leader>w :w!<CR>
 
 " Save the session
 nmap <leader>s :mksession!<CR>
-
-" Keep folds saved when file is closed
-" Possibly the first * should be removed to support dot files
-" autocmd BufWinLeave *.* mkview
-" autocmd BufWinEnter *.* silent loadview
 
 " Highlight trailing whitespace
 match ErrorMsg '\s\+$'
@@ -319,11 +309,6 @@ augroup END
 
 " Edit vimrc in a new tab
 nmap <leader>ev :tabedit $MYVIMRC<CR>
-
-" Insert blank line below in normal mode
-" nnoremap g<C-o> o<ESC>k
-" Insert blank line above in normal mode
-" nnoremap gO O<ESC>j
 
 " Shortcut for NERDTreeToggle
 nmap <leader>nt :NERDTreeToggle<CR>
