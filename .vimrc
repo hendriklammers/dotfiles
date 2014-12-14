@@ -26,7 +26,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-surround'
 Plugin 'heavenshell/vim-jsdoc'
-" Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
@@ -370,7 +370,7 @@ nmap <leader>gl :Glog<CR>
 " Open Gdiff in vertical splits
 set diffopt+=vertical
 
-" let g:used_javascript_libs = 'angularjs,jquery,underscore'
+let g:used_javascript_libs = 'angularjs,angularui,jquery,underscore,jasmine'
 
 " Select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
