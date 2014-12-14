@@ -27,6 +27,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-surround'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'elzr/vim-json'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
