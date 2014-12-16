@@ -336,9 +336,9 @@ let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
 
 " Expand snippets with TAB
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Open :UltiSnipsEdit in a vertical split
 let g:UltiSnipsEditSplit="vertical"
