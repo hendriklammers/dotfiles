@@ -106,6 +106,10 @@ if has("gui_running")
     " Powerline separators for airline don't look too well in terminal
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
+
+    " Cmd-Enter: Toggle Fullscreen
+    nmap <D-CR> :set invfu<cr>
+    vmap <D-CR> <Esc>:set invfu<cr>gv
 endif
 
 " Expand tabs by default
