@@ -240,6 +240,9 @@ endfunction
 inoremap <expr> <Nul> Auto_complete_string()
 inoremap <expr> <C-Space> Auto_complete_string()
 
+" Exit Insert mode
+imap jj <Esc>
+
 " Map leader to comma key
 let mapleader = ","
 " Backslash now replaces comma
