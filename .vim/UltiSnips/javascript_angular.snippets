@@ -29,3 +29,23 @@ snippet ngc "Angular controller" b
 
 }());
 endsnippet
+
+snippet ngs "Angular service/factory" b
+(function() {
+    'use strict';
+
+    angular
+        .module('${1:app}')
+        .factory('${2:name}', $2);
+
+	/* @ngInject */
+    function $2($3) {
+		var service = {
+			$4
+		};
+
+		return service;
+    }
+
+}());
+endsnippet
