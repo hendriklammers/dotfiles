@@ -3,11 +3,15 @@ alias ea='vi ~/.aliases && reload'
 alias func='vi ~/.functions && reload'
 alias editvim='vi ~/.vimrc'
 
+# Use Vim installed with Homebrew
+alias vi='vim'
+
 # Terminal
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 alias la='ls -A -l -G' # List all
 alias l.='ls -d .[^.]*' # List hidden
 alias lsd='ls -l | grep "^d"' # List directories
@@ -17,7 +21,6 @@ alias cl='clear' #clear screen
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Finder
-alias o='open .'
 alias showhidden="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
 alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
 
@@ -67,3 +70,4 @@ alias drop='cd ~/Dropbox'
 alias htdocs='cd ~/htdocs'
 alias work='cd ~/work'
 alias www='cd /home/www'
+alias pro='cd ~/Projects'
