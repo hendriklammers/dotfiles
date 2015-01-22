@@ -187,6 +187,7 @@ if executable('ag')
     \ --ignore bower_components
     \ --ignore node_modules
     \ --ignore .sass-cache
+    \ --ignore css
     \ -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
@@ -239,9 +240,6 @@ endfunction
 
 inoremap <expr> <Nul> Auto_complete_string()
 inoremap <expr> <C-Space> Auto_complete_string()
-
-" Exit Insert mode
-imap jj <Esc>
 
 " Map leader to comma key
 let mapleader = ","
