@@ -188,6 +188,8 @@ if executable('ag')
     \ --ignore node_modules
     \ --ignore .sass-cache
     \ --ignore css
+    \ --ignore img
+    \ --ignore images
     \ -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
@@ -195,7 +197,7 @@ if executable('ag')
 endif
 
 " Ignores for ctrlp plugin
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|output|bower_components|dist|img|images)|(\.(swp|hg|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|output|bower_components|dist)|(\.(swp|hg|git|svn))$'
 " Be able to open hidden files with ctrlp
 let g:ctrlp_show_hidden = 1
 " Start searching from the directory that was opened in vim
