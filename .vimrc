@@ -264,13 +264,16 @@ nmap <leader>w :w!<CR>
 nmap <leader>s :mksession!<CR>
 
 " Highlight trailing whitespace
-match ErrorMsg '\s\+$'
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+" match ErrorMsg '\s\+$'
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" match ExtraWhitespace /\s\+$/
+" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" autocmd BufWinLeave * call clearmatches()
+
+" Enable markdown syntax highlighting
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Remove trailing whitespace
 nnoremap <Leader>rw :%s/\s\+$//e<CR>
