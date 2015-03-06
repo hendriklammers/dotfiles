@@ -15,6 +15,9 @@ export HISTSIZE=10000
 # Set folder where brew cask puts the application symlinks
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# Export pkconfig folder
+export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+
 # bash git completion is installed with homebrew
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
