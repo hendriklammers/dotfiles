@@ -247,7 +247,7 @@ inoremap <expr> <Nul> Auto_complete_string()
 inoremap <expr> <C-Space> Auto_complete_string()
 
 " Exit Insert mode
-imap jk <Esc>
+imap jj <Esc>
 
 " Map leader to comma key
 let mapleader = ","
