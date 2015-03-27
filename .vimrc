@@ -275,6 +275,9 @@ nmap <leader>s :mksession!<CR>
 " Enable markdown syntax highlighting
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+" For ES6 support
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
 " Remove trailing whitespace
 nnoremap <Leader>rw :%s/\s\+$//e<CR>
 
