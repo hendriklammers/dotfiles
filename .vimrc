@@ -393,6 +393,6 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,underscore,jasmine'
 " Select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" Disable default jsdoc mapping to <C-l>, use <leader>j instead
+" Disable default jsdoc mapping to <C-l>, use <leader>jd instead
 let g:jsdoc_default_mapping='0'
 nmap <leader>jd :JsDoc<CR>
