@@ -58,6 +58,21 @@ module.exports = function($1) {
 };
 endsnippet
 
+# JSDoc snippets
+snippet /* "A JSDoc comment" b
+/**
+ * ${1:${VISUAL}}$0
+ */
+endsnippet
+
+snippet @p "@param {Type} varname Description"
+@param {${1:Type}} ${2:varname} ${3:Description}
+endsnippet
+
+snippet @ret "@return {Type} Description"
+@return {${1:Type}} ${2:Description}
+endsnippet
+
 # Gulp snippets
 snippet gut "gulp task" b
 gulp.task('${1:name}', function() {
