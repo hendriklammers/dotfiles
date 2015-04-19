@@ -255,13 +255,16 @@ let mapleader = ","
 noremap \ ,
 
 " ,/ hides last search highlighting
- nnoremap <leader>/ :noh<CR>:<backspace>
+nnoremap <leader>/ :noh<CR>:<backspace>
 
 " ,w to quickly save the file
 nmap <leader>w :w!<CR>
 
 " Save the session
 nmap <leader>s :mksession!<CR>
+
+" Toggle between relative and absolute line numbers
+nnoremap <silent><leader>l :set relativenumber!<CR>
 
 " Highlight trailing whitespace
 " match ErrorMsg '\s\+$'
