@@ -399,7 +399,7 @@ nmap <leader>gl :Glog<CR>
 " Open Gdiff in vertical splits
 set diffopt+=vertical
 
-let g:used_javascript_libs = 'angularjs,angularui,jquery,underscore,jasmine'
+let g:used_javascript_libs = 'angularjs,angularui,jquery,underscore'
 
 " Select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
