@@ -30,6 +30,7 @@ Plugin 'heavenshell/vim-jsdoc'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'elzr/vim-json'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'csscomb/vim-csscomb'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
