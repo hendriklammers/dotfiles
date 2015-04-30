@@ -36,8 +36,8 @@ call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
 
-" Keep 100 lines in history
-set history=100
+" Keep 1000 lines in history instead of 20 default
+set history=1000
 
 " Turn backup and swapfiles off, since most stuff is in git anyway...
 set nobackup
