@@ -420,3 +420,6 @@ function! QuickfixFilenames()
     endfor
     return join(values(buffer_numbers))
 endfunction
+
+" CSScomb orders CSS properties
+nmap  <leader>cs :CSScomb<CR>
