@@ -422,4 +422,4 @@ function! QuickfixFilenames()
 endfunction
 
 " CSScomb orders CSS properties
-nmap  <leader>cs :CSScomb<CR>
+noremap <leader>c :CSScomb<CR>
