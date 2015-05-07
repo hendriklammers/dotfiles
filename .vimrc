@@ -423,3 +423,6 @@ endfunction
 
 " CSScomb orders CSS properties
 noremap <leader>c :CSScomb<CR>
+
+" Delete in insert mode
+inoremap <C-d> <Del>
