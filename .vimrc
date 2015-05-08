@@ -325,9 +325,6 @@ nnoremap <C-l> <C-w>l
 " Disable Ex mode
 nnoremap Q <nop>
 
-" Open help in a new tab
-cabbrev help tab help
-
 " Add a return with indent, like in Textmate
 let delimitMate_expand_cr=1
 
