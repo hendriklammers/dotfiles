@@ -50,6 +50,41 @@ snippet ngs "Angular service/factory" b
 }());
 endsnippet
 
+snippet ngd "Angular directive" b
+(function() {
+    'use strict';
+
+    angular
+        .module('${1:app}')
+        .directive('${2:name}', $2);
+
+    /* @ngInject */
+    function $2() {
+        var directive = {
+            restrict: '${3:EA}',
+            replace: ${4:true},
+            scope: {},
+            controller: ${5:$2Controller},
+            controllerAs: 'vm',
+            bindToController: true,
+            link: link
+            templateUrl: '${6:template.html}'
+        };
+
+        return directive;
+
+        function link(scope, elem, attrs, ctrl) {
+			$0
+        }
+    }
+
+    /* @ngInject */
+    function $5() {
+        var vm = this;
+    }
+}
+endsnippet
+
 snippet uist "ui router state"
 .state('${1:name}', {
 	url: '${2:url}',
