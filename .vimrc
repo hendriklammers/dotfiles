@@ -32,6 +32,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'elzr/vim-json'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'csscomb/vim-csscomb'
+Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
@@ -165,6 +166,9 @@ set showmode
 
 " Start scrolling when 4 lines away from margins
 set scrolloff=4
+
+" Fold by syntax
+" set foldmethod=syntax
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -423,3 +427,6 @@ noremap <leader>c :CSScomb<CR>
 
 " Delete in insert mode
 inoremap <C-d> <Del>
+
+" Make sure fugitive still works with editorconfig plugin
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
