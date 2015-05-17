@@ -434,3 +434,9 @@ inoremap <C-d> <Del>
 
 " Make sure fugitive still works with editorconfig plugin
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+" Use arrow keys to resize window
+noremap <up> <C-W>+
+noremap <down> <C-W>-
+noremap <left> 3<C-W><
+noremap <right> 3<C-W>>
