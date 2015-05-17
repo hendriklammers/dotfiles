@@ -4,9 +4,17 @@
 [color]
     ui = always
 [core]
-    editor = /usr/bin/vim
+    editor = vim
     excludesfile = ~/.gitignore
 	autocrlf = input
+    filemode = false
+[merge]
+    log = true
+    tool = vimdiff
+[diff]
+    tool = vimdiff
+[difftool]
+	prompt = false
 [push]
 	default = simple
 [alias]
@@ -16,3 +24,5 @@
 	rebase = true
 [rerere]
 	enabled = true
+[credential]
+	helper = osxkeychain
