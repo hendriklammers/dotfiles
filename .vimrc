@@ -440,3 +440,6 @@ noremap <up> <C-W>+
 noremap <down> <C-W>-
 noremap <left> 3<C-W><
 noremap <right> 3<C-W>>
+
+" Auto save file when vim loses focus
+:au FocusLost * silent! wa
