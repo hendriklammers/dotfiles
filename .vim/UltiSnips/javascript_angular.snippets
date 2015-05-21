@@ -67,7 +67,7 @@ snippet ngd "Angular directive" b
             controller: ${5:$2Controller},
             controllerAs: 'vm',
             bindToController: true,
-            link: link
+            link: link,
             templateUrl: '${6:template.html}'
         };
 
@@ -82,7 +82,7 @@ snippet ngd "Angular directive" b
     function $5() {
         var vm = this;
     }
-}
+}());
 endsnippet
 
 snippet uist "ui router state"
