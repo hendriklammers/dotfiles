@@ -29,7 +29,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
 Plugin 'heavenshell/vim-jsdoc'
-Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'elzr/vim-json'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'csscomb/vim-csscomb'
@@ -405,8 +404,6 @@ nmap <leader>gl :Glog<CR>
 
 " Open Gdiff in vertical splits
 set diffopt+=vertical
-
-let g:used_javascript_libs = 'angularjs,angularui,jquery,underscore'
 
 " Select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
