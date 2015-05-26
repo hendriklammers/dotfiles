@@ -444,3 +444,6 @@ noremap <right> 3<C-W>>
 
 " Exclude these from editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" Matchit sometimes doesn't work with braces, this fixes it..
+let b:match_debug = 1
