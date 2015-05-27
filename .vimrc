@@ -410,8 +410,11 @@ set diffopt+=vertical
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Disable default jsdoc mapping to <C-l>, use <leader>jd instead
-let g:jsdoc_default_mapping='0'
+let g:jsdoc_default_mapping= 0
 nmap <leader>jd :JsDoc<CR>
+
+" Prompt for jsdoc parameter types & descriptions
+let g:jsdoc_allow_input_prompt = 1
 
 " Use :Qargs to populate args with all files from quickfix list
 command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
