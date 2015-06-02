@@ -439,9 +439,6 @@ noremap <down> <C-W>-
 noremap <left> 3<C-W><
 noremap <right> 3<C-W>>
 
-" Auto save file when vim loses focus
-:au FocusLost * silent! wa
-
 " Exclude these from editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
