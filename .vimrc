@@ -444,3 +444,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Matchit sometimes doesn't work with braces, this fixes it..
 let b:match_debug = 1
+
+" Neovim specific setttings
+if has('nvim')
+    " Exit terminal mode with leader e
+    tnoremap <Leader>e <C-\><C-n>
+endif
