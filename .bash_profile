@@ -6,7 +6,10 @@ PATH=$HOME/.composer/vendor/bin:$PATH
 PATH=./node_modules/.bin:$PATH
 
 # Set the default editor
-export EDITOR=vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+export GIT_EDITOR=vim
 
 # Larger bash history (default is 500)
 export HISTFILESIZE=10000
