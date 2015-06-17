@@ -449,4 +449,14 @@ let b:match_debug = 1
 if has('nvim')
     " Exit terminal mode with leader e
     tnoremap <Leader>e <C-\><C-n>
+    tnoremap <esc><esc> <C-\><C-n>
+
+    " move from the neovim terminal window to somewhere else
+    tnoremap <C-h> <C-\><C-n><C-w>h
+    tnoremap <C-j> <C-\><C-n><C-w>j
+    tnoremap <C-k> <C-\><C-n><C-w>k
+    tnoremap <C-l> <C-\><C-n><C-w>l
+
+    " Immediately go in insert mode when entering terminal
+    autocmd WinEnter term://* startinsert
 endif
