@@ -222,8 +222,8 @@ set ignorecase
 set smartcase
 
 " Always use 'very magic' when searching with regex
-noremap / /\v
-noremap ? ?\v
+" noremap / /\v
+" noremap ? ?\v
 
 " Make Y consistent with C and D.
 nnoremap Y y$
