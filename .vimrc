@@ -461,3 +461,6 @@ if has('nvim')
     " Immediately go in insert mode when entering terminal
     autocmd WinEnter term://* startinsert
 endif
+
+" This should fix matchit to jump from <ul> to <li> instead of </ul>
+autocmd FileType html let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
