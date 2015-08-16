@@ -35,6 +35,7 @@ Plugin 'csscomb/vim-csscomb'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'wikitopian/hardmode'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
@@ -464,3 +465,6 @@ endif
 
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
 autocmd FileType html let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
+
+" Toggle hardmode
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
