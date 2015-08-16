@@ -17,6 +17,9 @@ alias l.='ls -d .[^.]*' # List hidden
 alias lsd='ls -l | grep "^d"' # List directories
 alias cl='clear' #clear screen
 
+# Thefuck: https://github.com/nvbn/thefuck
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
