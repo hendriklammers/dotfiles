@@ -35,7 +35,7 @@ Plugin 'csscomb/vim-csscomb'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'wikitopian/hardmode'
+Plugin 'chrisbra/csv.vim'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
