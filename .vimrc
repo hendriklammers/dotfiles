@@ -167,8 +167,8 @@ set ch=2
 " Show current mode
 set showmode
 
-" Start scrolling when 4 lines away from margins
-set scrolloff=4
+" Start scrolling when 3 lines away from margins
+set scrolloff=3
 
 " Fold by syntax
 " set foldmethod=syntax
@@ -197,6 +197,7 @@ if executable('ag')
     \ --ignore .git
     \ --ignore bower_components
     \ --ignore node_modules
+    \ --ignore jspm_packages
     \ --ignore .sass-cache
     \ --ignore css
     \ --ignore img
@@ -209,7 +210,7 @@ if executable('ag')
 endif
 
 " Ignores for ctrlp plugin
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|output|bower_components|dist)|(\.(swp|hg|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|jspm_packages|target|output|bower_components|dist)|(\.(swp|hg|git|svn))$'
 " Be able to open hidden files with ctrlp
 let g:ctrlp_show_hidden = 1
 " Start searching from the directory that was opened in vim
