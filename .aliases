@@ -3,8 +3,8 @@ alias ea='vi ~/.aliases && reload'
 alias func='vi ~/.functions && reload'
 alias editvim='vi ~/.vimrc'
 
-# Use Vim installed with Homebrew
-alias vi='vim'
+# Use Neovim
+alias vi='nvim'
 
 # Terminal
 alias ..='cd ..'
