@@ -271,9 +271,6 @@ nnoremap <leader>/ :noh<CR>:<backspace>
 " ,w to quickly save the file
 nmap <leader>w :w!<CR>
 
-" Save the session
-nmap <leader>s :mksession!<CR>
-
 " Quickly choose between 2 or 4 tabs
 " TODO: Create toggle function
 nmap <leader>t2 :set tabstop=2 shiftwidth=2 softtabstop=2<CR>
@@ -449,6 +446,15 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " Matchit sometimes doesn't work with braces, this fixes it..
 let b:match_debug = 1
 
+" This should fix matchit to jump from <ul> to <li> instead of </ul>
+autocmd FileType html let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
+
+" Toggle hardmode
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 " Neovim specific setttings
 if has('nvim')
     " Exit terminal mode with leader e
@@ -464,12 +470,3 @@ if has('nvim')
     " Immediately go in insert mode when entering terminal
     autocmd WinEnter term://* startinsert
 endif
-
-" This should fix matchit to jump from <ul> to <li> instead of </ul>
-autocmd FileType html let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
-
-" Toggle hardmode
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
