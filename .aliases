@@ -6,6 +6,9 @@ alias editvim='vi ~/.vimrc'
 # Use Neovim
 alias vi='nvim'
 
+# Always open tmux in 256 color mode
+alias tmux="tmux -2"
+
 # Terminal
 alias ..='cd ..'
 alias ...='cd ../..'
