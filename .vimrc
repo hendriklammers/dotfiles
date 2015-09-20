@@ -36,6 +36,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'chrisbra/csv.vim'
+Plugin 'StanAngeloff/php.vim'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
@@ -84,7 +85,7 @@ set backspace=indent,eol,start
 
 " Use fancy symbols in Airline
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
+let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
 " These settings will only be used for vim with gui (Macvim)
