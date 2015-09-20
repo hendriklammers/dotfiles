@@ -37,6 +37,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'chrisbra/csv.vim'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 " enable detection, plugins and indenting in one step
 filetype plugin indent on
@@ -322,12 +323,6 @@ nnoremap <silent> <expr> $ ScreenMovement("$")
 
 " Better mark jumping (line + col)
 " nnoremap ' `
-
-" easier window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " Disable Ex mode
 nnoremap Q <nop>
