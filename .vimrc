@@ -37,6 +37,8 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'chrisbra/csv.vim'
 Plugin 'StanAngeloff/php.vim'
+
+" Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 " enable detection, plugins and indenting in one step
