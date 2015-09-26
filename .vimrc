@@ -453,6 +453,9 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+" Open help in new tab
+cabbrev help tab help
+
 " Neovim specific setttings
 if has('nvim')
     " Exit terminal mode with leader e
