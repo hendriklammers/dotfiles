@@ -1,9 +1,13 @@
+export DOTFILES=$HOME/dotfiles
+
 # Path
 PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 # Add global composer bin to PATH
 PATH=$HOME/.composer/vendor/bin:$PATH
 # Use locally installed node binaries instead of global ones
 PATH=./node_modules/.bin:$PATH
+# Custom scripts
+PATH=$DOTFILES/bin:$PATH
 
 # Set the default editor
 export VISUAL=nvim
