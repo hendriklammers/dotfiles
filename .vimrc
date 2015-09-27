@@ -461,7 +461,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let b:match_debug = 1
 
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
-autocmd FileType html let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
+autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
 
 " Toggle hardmode
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
