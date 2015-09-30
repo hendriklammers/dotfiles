@@ -425,6 +425,10 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>gr :Gread<CR>
 nmap <leader>gl :Glog<CR>
 
+" same bindings for merging diffs as in normal mode
+xnoremap dp :diffput<CR>
+xnoremap do :diffget<CR>
+
 " Open Gdiff in vertical splits
 set diffopt+=vertical
 
