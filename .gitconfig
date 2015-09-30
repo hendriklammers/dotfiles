@@ -12,7 +12,7 @@
     log = true
     tool = vimdiff
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 [difftool]
 	prompt = false
 [push]
