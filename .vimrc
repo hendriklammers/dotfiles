@@ -91,13 +91,19 @@ let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
+" let g:airline_section_z = '%l:%c'
+call airline#parts#define_raw('linenr', '%l')
+call airline#parts#define_accent('linenr', 'bold')
+let g:airline_section_z = airline#section#create(['%3p%% ',
+            \ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
+
 " Use Airline's tabline and customize it
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_tabs = 0
-let g:airline#extensions#tabline#buffer_min_count = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -468,9 +474,6 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
-
-" Open help in new tab
-cabbrev help tab help
 
 " Neovim specific setttings
 if has('nvim')
