@@ -37,6 +37,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'chrisbra/csv.vim'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'tommcdo/vim-exchange'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plugin 'christoomey/vim-tmux-navigator'
