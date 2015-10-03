@@ -197,8 +197,11 @@ set showmode
 " Start scrolling when 3 lines away from margins
 set scrolloff=3
 
-" Fold by syntax
-" set foldmethod=syntax
+" Fold settings
+set foldenable
+set foldmethod=indent
+set foldlevelstart=10 
+set foldnestmax=10
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
