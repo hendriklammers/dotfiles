@@ -200,7 +200,7 @@ set scrolloff=3
 " Fold settings
 set foldenable
 set foldmethod=indent
-set foldlevelstart=10 
+set foldlevelstart=10
 set foldnestmax=10
 
 " Open new split panes to right and bottom, which feels more natural
@@ -284,8 +284,9 @@ function! Auto_complete_opened()
     return ""
 endfunction
 
-inoremap <expr> <Nul> Auto_complete_string()
-inoremap <expr> <C-Space> Auto_complete_string()
+inoremap <Nul> <Space>
+" inoremap <expr> <Nul> Auto_complete_string()
+" inoremap <expr> <C-Space> Auto_complete_string()
 
 " Exit Insert mode
 imap jj <Esc>
