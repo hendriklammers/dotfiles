@@ -464,6 +464,9 @@ noremap <leader>c :CSScomb<CR>
 " Delete in insert mode
 inoremap <C-d> <Del>
 
+" Jump to middle of line
+map gm :call cursor(0, virtcol('$')/2)<CR>
+
 " Use arrow keys to resize window
 noremap <up> <C-W>+
 noremap <down> <C-W>-
@@ -478,6 +481,9 @@ let b:match_debug = 1
 
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
 autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
+
+" Wrap markdown files at 80 columns
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Toggle hardmode
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
