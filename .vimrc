@@ -39,6 +39,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'rizzatti/dash.vim'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plugin 'christoomey/vim-tmux-navigator'
