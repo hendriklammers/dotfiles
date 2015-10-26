@@ -394,7 +394,9 @@ let g:syntastic_html_tidy_ignore_errors = [
 " Add errors to location list
 let g:syntastic_always_populate_loc_list = 1
 
-let g:syntastic_javascript_checkers = ['jshint']
+" When a .eslintrc file is found lint js with eslint otherwise use jshint
+autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['jshint']
+
 let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
 
