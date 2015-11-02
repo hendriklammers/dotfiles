@@ -488,9 +488,6 @@ autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\
 " Wrap markdown files at 80 columns
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
-" Toggle hardmode
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
