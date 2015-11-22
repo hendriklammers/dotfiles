@@ -496,6 +496,17 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+" Close tab with QQ
+nnoremap QQ :QuitTab<cr>
+command! QuitTab call s:QuitTab()
+function! s:QuitTab()
+    try
+        tabclose
+    catch /E784/ " Can't close last tab
+        qall
+    endtry
+endfunction
+
 " Neovim specific setttings
 if has('nvim')
     " Exit terminal mode with leader e
