@@ -40,6 +40,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'rizzatti/dash.vim'
+Plugin 'AndrewRadev/switch.vim'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plugin 'christoomey/vim-tmux-navigator'
@@ -481,6 +482,10 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Matchit sometimes doesn't work with braces, this fixes it..
 let b:match_debug = 1
+
+" Map Switch plugin to leader s
+let g:switch_mapping = ""
+nmap <leader>s :Switch<CR>
 
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
 autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
