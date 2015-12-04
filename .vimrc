@@ -322,11 +322,12 @@ nnoremap <silent><leader>l :set relativenumber!<CR>
 " autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " autocmd BufWinLeave * call clearmatches()
 
-" Enable markdown syntax highlighting
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-" For ES6 support
+" Set correct filetypes
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown " Override
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+autocmd BufRead,BufNewFile *.jsbeautifyrc setfiletype json
+autocmd BufRead,BufNewFile *.eslintrc setfiletype json
+autocmd BufRead,BufNewFile *.babelrc setfiletype json
 
 " Remove trailing whitespace
 nnoremap <Leader>rw :%s/\s\+$//e<CR>
