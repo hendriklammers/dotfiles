@@ -31,7 +31,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'elzr/vim-json'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'csscomb/vim-csscomb'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'kchmck/vim-coffee-script'
@@ -462,9 +461,6 @@ function! QuickfixFilenames()
     endfor
     return join(values(buffer_numbers))
 endfunction
-
-" CSScomb orders CSS properties
-noremap <leader>c :CSScomb<CR>
 
 " Delete in insert mode
 inoremap <C-d> <Del>
