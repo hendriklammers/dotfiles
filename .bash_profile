@@ -6,6 +6,8 @@ PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 PATH=$HOME/.composer/vendor/bin:$PATH
 # Use locally installed node binaries instead of global ones
 PATH=./node_modules/.bin:$PATH
+# Cabal packages
+PATH="$HOME/.cabal/bin:$PATH"
 # Custom scripts
 PATH=$DOTFILES/bin:$PATH
 
