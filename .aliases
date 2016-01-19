@@ -11,6 +11,7 @@ alias tmux='tmux -2'
 
 # Open tmux session
 alias tma='tmux attach -t'
+alias tml='tmux ls'
 
 # Terminal
 alias ..='cd ..'
