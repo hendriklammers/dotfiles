@@ -451,6 +451,9 @@ nmap <leader>jd :JsDoc<CR>
 " Prompt for jsdoc parameter types & descriptions
 let g:jsdoc_allow_input_prompt = 1
 
+" Ensure that editorconfig works well with Fugitive plugin
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 " Use :Qargs to populate args with all files from quickfix list
 command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
 function! QuickfixFilenames()
