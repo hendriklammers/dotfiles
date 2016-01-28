@@ -85,10 +85,21 @@ set background=dark
 colorscheme solarized
 " More constrast colors in vimdiff
 let g:solarized_diffmode = 'high'
-let g:solarized_contrast = 'high'
 
-" Quickly toggle background
-call togglebg#map("<F5>")
+" Toggle Solarized background
+function! ToggleBackground()
+    if (w:solarized_style=="dark")
+        let w:solarized_style="light"
+        let g:solarized_contrast = 'high'
+        colorscheme solarized
+    else
+        let w:solarized_style="dark"
+        let g:solarized_contrast = 'normal'
+        colorscheme solarized
+    endif
+endfunction
+
+nnoremap <F5> :call ToggleBackground()<CR>
 
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
