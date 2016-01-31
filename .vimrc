@@ -82,6 +82,9 @@ set visualbell
 " Enable matchit.vim
 runtime macros/matchit.vim
 
+" Matchit sometimes doesn't work with braces, this fixes it..
+let b:match_debug = 1
+
 " Use dark background
 set background=dark
 
@@ -238,7 +241,6 @@ if executable('ag')
     \ --ignore node_modules
     \ --ignore jspm_packages
     \ --ignore .sass-cache
-    \ --ignore css
     \ --ignore img
     \ --ignore images
     \ --ignore fonts
@@ -486,9 +488,6 @@ noremap <right> 3<C-W>>
 
 " Exclude these from editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
-" Matchit sometimes doesn't work with braces, this fixes it..
-let b:match_debug = 1
 
 " Map Switch plugin to leader s
 let g:switch_mapping = ""
