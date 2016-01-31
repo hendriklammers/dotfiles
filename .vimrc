@@ -361,7 +361,7 @@ nnoremap <silent> <expr> ^ ScreenMovement("^")
 nnoremap <silent> <expr> $ ScreenMovement("$")
 
 " Better mark jumping (line + col)
-" nnoremap ' `
+nnoremap ' `
 
 " Disable Ex mode
 nnoremap Q <nop>
