@@ -408,7 +408,7 @@ autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;
 let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
 
-" Expand snippets with TAB
+" Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
