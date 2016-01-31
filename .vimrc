@@ -41,6 +41,10 @@ Plugin 'tikhomirov/vim-glsl'
 Plugin 'rizzatti/dash.vim'
 Plugin 'AndrewRadev/switch.vim'
 
+" TODO: Try these git browsers
+" Plugin 'junegunn/gv.vim'
+" Plugin 'gregsexton/gitv'
+
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
