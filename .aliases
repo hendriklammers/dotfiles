@@ -10,7 +10,7 @@ alias vi='nvim'
 alias tmux='tmux -2'
 
 # Open tmux session
-alias tma='tmux attach -t'
+alias tma='tmux attach'
 alias tml='tmux ls'
 
 # Terminal
