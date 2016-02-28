@@ -41,6 +41,7 @@ Plugin 'tommcdo/vim-exchange'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'rizzatti/dash.vim'
 Plugin 'AndrewRadev/switch.vim'
+Plugin 'dag/vim-fish'
 
 " TODO: Try these git browsers
 " Plugin 'junegunn/gv.vim'
@@ -404,6 +405,8 @@ let g:syntastic_html_tidy_ignore_errors = [
 
 " Add errors to location list
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
 
 " When a .eslintrc file is found lint js with eslint otherwise use jshint
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['jshint']
