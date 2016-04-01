@@ -42,6 +42,7 @@ Plugin 'tikhomirov/vim-glsl'
 Plugin 'rizzatti/dash.vim'
 Plugin 'AndrewRadev/switch.vim'
 Plugin 'dag/vim-fish'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " TODO: Try these git browsers
 " Plugin 'junegunn/gv.vim'
