@@ -407,8 +407,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 
-" When a .jshintrc file is found lint js with jshint otherwise use eslint
-autocmd FileType javascript let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
+" When a .eslintrc file is found lint js with eslint otherwise use jshint
+autocmd FileType javascript let b:syntastic_checkers = glob('.eslintrc*', '.;') != '' ? ['eslint'] : ['jshint']
 
 let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
