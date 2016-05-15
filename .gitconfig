@@ -4,7 +4,7 @@
 [color]
     ui = always
 [core]
-    editor = nvim
+    editor = vim
     excludesfile = ~/.gitignore
 	autocrlf = input
     filemode = false
@@ -28,4 +28,4 @@
 [credential]
 	helper = osxkeychain
 [mergetool]
-	path = nvim
+	path = vim

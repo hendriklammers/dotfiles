@@ -3,9 +3,6 @@ alias ea='vi ~/.aliases && reload'
 alias func='vi ~/.functions && reload'
 alias editvim='vi ~/.vimrc'
 
-# Use Neovim
-alias vi='nvim'
-
 # Always open tmux in 256 color mode
 alias tmux='tmux -2'
 
