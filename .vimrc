@@ -43,6 +43,7 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'AndrewRadev/switch.vim'
 Plugin 'dag/vim-fish'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'ElmCast/elm-vim'
 
 " TODO: Try these git browsers
 " Plugin 'junegunn/gv.vim'
@@ -302,9 +303,6 @@ inoremap <Nul> <Space>
 " inoremap <expr> <Nul> Auto_complete_string()
 " inoremap <expr> <C-Space> Auto_complete_string()
 
-" Exit Insert mode
-imap jj <Esc>
-
 " Map leader to comma key
 let mapleader = ","
 " Backslash now replaces comma
@@ -409,8 +407,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 
-" When a .eslintrc file is found lint js with eslint otherwise use jshint
-autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['jshint']
+" When a .jshintrc file is found lint js with jshint otherwise use eslint
+autocmd FileType javascript let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
 
 let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
