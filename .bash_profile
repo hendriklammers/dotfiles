@@ -12,10 +12,10 @@ PATH="$HOME/.cabal/bin:$PATH"
 PATH=$DOTFILES/bin:$PATH
 
 # Set the default editor
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR="$VISUAL"
 
-export GIT_EDITOR=nvim
+export GIT_EDITOR=vim
 
 # Larger bash history (default is 500)
 export HISTFILESIZE=10000
