@@ -538,5 +538,6 @@ autocmd FileType css,scss let b:switch_custom_definitions =
     \   ['none', 'block'],
     \   ['relative', 'absolute'],
     \   ['top', 'bottom'],
-    \   ['left', 'right']
+    \   ['left', 'right'],
+    \   ['width', 'height']
     \ ]
