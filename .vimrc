@@ -284,32 +284,10 @@ set omnifunc=csscomplete#CompleteCSS
 set omnifunc=htmlcomplete#CompleteTags
 set omnifunc=javascriptcomplete#CompleteJS
 
-" map omnicompletion to ctrl+space
-function! Auto_complete_string()
-    if pumvisible()
-        return "\<C-n>"
-    else
-        return "\<C-x>\<C-o>\<C-r>=Auto_complete_opened()\<CR>"
-    end
-endfunction
-
-function! Auto_complete_opened()
-    if pumvisible()
-        return "\<Down>"
-    end
-    return ""
-endfunction
-
-inoremap <Nul> <Space>
-" inoremap <expr> <Nul> Auto_complete_string()
-" inoremap <expr> <C-Space> Auto_complete_string()
-
 " Map leader to comma key
-let mapleader = ","
-" Backslash now replaces comma
-noremap \ ,
+let mapleader = "\<Space>""
 
-" ,/ hides last search highlighting
+" hide last search highlighting
 nnoremap <leader>/ :noh<CR>:<backspace>
 
 " ,w to quickly save the file
