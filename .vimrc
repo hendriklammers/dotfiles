@@ -284,7 +284,7 @@ set omnifunc=csscomplete#CompleteCSS
 set omnifunc=htmlcomplete#CompleteTags
 set omnifunc=javascriptcomplete#CompleteJS
 
-" Map leader to comma key
+" Map leader to space
 let mapleader = "\<Space>""
 
 " hide last search highlighting
