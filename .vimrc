@@ -297,6 +297,9 @@ nnoremap <leader>/ :noh<CR>:<backspace>
 " ,w to quickly save the file
 nmap <leader>w :w!<CR>
 
+" Move to end of line in insert mode
+imap <C-l> <Esc>A
+
 " Quickly choose between 2 or 4 tabs
 " TODO: Create toggle function
 nmap <leader>t2 :set tabstop=2 shiftwidth=2 softtabstop=2<CR>
@@ -369,6 +372,9 @@ nmap <leader>nt :NERDTreeToggle<CR>
 
 " Show current file in NERDTree
 nmap <leader>nf :NERDTreeFind<CR>
+
+" Toggle last buffer
+nmap <leader><leader> <C-^>
 
 " Show hidden files in NERDTree by default
 let g:NERDTreeShowHidden=1
@@ -515,6 +521,7 @@ if has('nvim')
     autocmd WinEnter term://* startinsert
 endif
 
+" Custom css definitions for Switch plugin
 autocmd FileType css,scss let b:switch_custom_definitions =
     \ [
     \   ['none', 'block'],
