@@ -98,7 +98,7 @@ colorscheme solarized
 let g:solarized_diffmode = 'high'
 
 " Toggle Solarized light/dark
-call togglebg#map("<F5>")
+call togglebg#map("<F3>")
 
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
