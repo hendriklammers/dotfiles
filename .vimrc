@@ -233,6 +233,10 @@ set wildmode=list:longest
 " patterns to ignore during file-navigation
 set wildignore+=.git,.svn,.sass-cache
 
+" Open CtrlP with leader o
+" let g:ctrlp_map = '<leader>o'
+nmap <leader>o :CtrlP<CR>
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
