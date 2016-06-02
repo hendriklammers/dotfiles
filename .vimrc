@@ -234,8 +234,8 @@ set wildmode=list:longest
 set wildignore+=.git,.svn,.sass-cache
 
 " Open CtrlP with leader o
-" let g:ctrlp_map = '<leader>o'
-nmap <leader>o :CtrlP<CR>
+let g:ctrlp_map = '<leader>o'
+" nmap <leader>o :CtrlP<CR>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
