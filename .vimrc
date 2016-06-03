@@ -183,7 +183,7 @@ set copyindent
 
 " TODO: Wrap settings
 " Max 80 characters per line
-" set textwidth=80
+set textwidth=80
 " Make sure vim doesn't break words
 set linebreak
 
@@ -235,7 +235,6 @@ set wildignore+=.git,.svn,.sass-cache
 
 " Open CtrlP with leader o
 let g:ctrlp_map = '<leader>o'
-" nmap <leader>o :CtrlP<CR>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -307,15 +306,6 @@ nmap <leader>t4 :set tabstop=4 shiftwidth=4 softtabstop=4<CR>
 
 " Toggle between relative and absolute line numbers
 nnoremap <silent><leader>l :set relativenumber!<CR>
-
-" Highlight trailing whitespace
-" match ErrorMsg '\s\+$'
-" highlight ExtraWhitespace ctermbg=red guibg=red
-" match ExtraWhitespace /\s\+$/
-" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-" autocmd BufWinLeave * call clearmatches()
 
 " Set correct filetypes
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown " Override
@@ -434,10 +424,6 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gr :Gread<CR>
 nmap <leader>gl :Glog<CR>
-
-" same bindings for merging diffs as in normal mode
-" xnoremap dp :diffput<CR>
-" xnoremap do :diffget<CR>
 
 " Open Gdiff in vertical splits
 set diffopt+=vertical
