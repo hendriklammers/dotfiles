@@ -471,6 +471,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:switch_mapping = ""
 nmap <leader>s :Switch<CR>
 
+" Search word under cursor in Dash app
+nmap <silent> <leader>d <Plug>DashSearch
+
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
 autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
 
