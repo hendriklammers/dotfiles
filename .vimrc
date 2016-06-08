@@ -424,6 +424,7 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gr :Gread<CR>
 nmap <leader>gl :Glog<CR>
+nmap <leader>gp :Gpush<CR>
 
 " Open Gdiff in vertical splits
 set diffopt+=vertical
