@@ -132,39 +132,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = '|'
 
-" These settings will only be used for vim with gui (Macvim)
-if has("gui_running")
-    " Set font and size
-    " set guifont=Inconsolata:h14
-    set guifont=Inconsolata\ for\ Powerline:h14
-
-    " Hide MacVim toolbar
-    set guioptions-=T
-
-    " Hide scrollbars
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=b
-
-    " Set window size
-    set lines=999
-    set columns=999
-
-    " Fill whole screen when in Fullscreen mode
-    set fuoptions=maxvert,maxhorz
-
-    " set guicursor=a:blinkon0   " turn off cursor blinking
-    set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
-
-    " Powerline separators for airline don't look too well in terminal
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-
-    " Cmd-Enter: Toggle Fullscreen
-    nmap <D-CR> :set invfu<cr>
-    vmap <D-CR> <Esc>:set invfu<cr>gv
-endif
-
 " Expand tabs by default
 set expandtab
 " Insert tabs at start of line according to shiftwidth
@@ -182,7 +149,6 @@ set autoindent
 " Copy previous indentation on autoindent
 set copyindent
 
-" TODO: Wrap settings
 " Max 80 characters per line
 set textwidth=80
 " Make sure vim doesn't break words
