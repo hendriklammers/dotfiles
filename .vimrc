@@ -43,6 +43,7 @@ Plugin 'tikhomirov/vim-glsl'
 Plugin 'AndrewRadev/switch.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ElmCast/elm-vim'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 
