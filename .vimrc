@@ -425,7 +425,7 @@ endfunction
 inoremap <C-d> <Del>
 
 " Jump to middle of line
-map gm :call cursor(0, virtcol('$')/2)<CR>
+map <silent> gm :call cursor(0, virtcol('$')/2)<CR>
 
 " Use arrow keys to resize window
 noremap <up> <C-W>+
