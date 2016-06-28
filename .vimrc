@@ -46,6 +46,7 @@ Plugin 'ElmCast/elm-vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'mxw/vim-jsx'
 
 " TODO: Try these git browsers
 " Plugin 'junegunn/gv.vim'
@@ -451,6 +452,9 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+" Allow jsx in .js files
+let g:jsx_ext_required = 0
 
 " Close tab with QQ
 nnoremap QQ :QuitTab<cr>
