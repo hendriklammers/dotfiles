@@ -452,9 +452,6 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
-" Allow jsx in .js files
-let g:jsx_ext_required = 0
-
 " Close tab with QQ
 nnoremap QQ :QuitTab<cr>
 command! QuitTab call s:QuitTab()
