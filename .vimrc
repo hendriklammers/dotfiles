@@ -156,10 +156,10 @@ set textwidth=80
 set linebreak
 
 " Highlight characters past 80 columns
-augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermbg=235 ctermfg=245 guibg=black
-    autocmd BufEnter * match OverLength /\%81v.*/
-augroup END
+" augroup vimrc_autocmds
+"     autocmd BufEnter * highlight OverLength ctermbg=235 ctermfg=245 guibg=black
+"     autocmd BufEnter * match OverLength /\%81v.*/
+" augroup END
 
 " Show line numbers
 set number
