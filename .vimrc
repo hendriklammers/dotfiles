@@ -483,6 +483,7 @@ endif
 autocmd FileType css,scss let b:switch_custom_definitions =
     \ [
     \   ['none', 'block'],
+    \   ['before', 'after'],
     \   ['relative', 'absolute'],
     \   ['top', 'bottom'],
     \   ['left', 'right'],
