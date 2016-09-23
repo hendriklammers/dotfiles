@@ -138,13 +138,13 @@ set expandtab
 " Insert tabs at start of line according to shiftwidth
 set smarttab
 " Number of spaces to use for autoindenting
-set shiftwidth=4
+set shiftwidth=2
 " use multiple of shiftwidth when indenting with '<' and '>'
 set shiftround
-" Tab is 4 spaces
-set tabstop=4
+" Tab is 2 spaces
+set tabstop=2
 " Remove tab when hitting <BS>
-set softtabstop=4
+set softtabstop=2
 " Always use autoindent
 set autoindent
 " Copy previous indentation on autoindent
