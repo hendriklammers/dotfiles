@@ -85,6 +85,9 @@ set lazyredraw
 " No sound
 set visualbell
 
+" Scroll Vim instead of tmux history
+set mouse=a
+
 " Enable matchit.vim
 runtime macros/matchit.vim
 
