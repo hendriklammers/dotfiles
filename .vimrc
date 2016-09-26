@@ -88,6 +88,9 @@ set visualbell
 " Scroll Vim instead of tmux history
 set mouse=a
 
+" Prevent delay when opening new line with O after pressing ESC
+set noesckeys
+
 " Enable matchit.vim
 runtime macros/matchit.vim
 
