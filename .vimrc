@@ -154,7 +154,7 @@ set autoindent
 set copyindent
 
 " Max 80 characters per line
-set textwidth=80
+" set textwidth=80
 " Make sure vim doesn't break words
 set linebreak
 
@@ -490,5 +490,6 @@ autocmd FileType css,scss let b:switch_custom_definitions =
     \   ['relative', 'absolute'],
     \   ['top', 'bottom'],
     \   ['left', 'right'],
-    \   ['width', 'height']
+    \   ['width', 'height'],
+    \   ['margin', 'padding']
     \ ]
