@@ -494,5 +494,7 @@ autocmd FileType css,scss let b:switch_custom_definitions =
     \   ['top', 'bottom'],
     \   ['left', 'right'],
     \   ['width', 'height'],
-    \   ['margin', 'padding']
+    \   ['margin', 'padding'],
+    \   ['horizontal', 'vertical'],
+    \   ['dark', 'light']
     \ ]
