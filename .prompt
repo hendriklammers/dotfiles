@@ -64,4 +64,4 @@ function parse_git_branch() {
 	fi
 }
 
-PS1="\[${CYAN}\]\u\[$BASE0\]@${CYAN}\]\h\[$BASE0\]: \[$BLUE\]\w \$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"
+PS1="\[${CYAN}\]\u\[$BASE0\]@${CYAN}\]\h\[$BASE0\]: \[$BLUE\]\w \$(parse_git_branch)\[$BASE0\]\nλ \[$RESET\]"
