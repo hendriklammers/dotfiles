@@ -1,62 +1,55 @@
 " Use Vim settings, rather then Vi settings
 set nocompatible
 
-" Use Vundle to install vim plugins
-filetype off
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-" Plugins from github
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'othree/html5.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/yajs.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-repeat'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'rizzatti/dash.vim'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'elzr/vim-json'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'chrisbra/csv.vim'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'AndrewRadev/switch.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'ElmCast/elm-vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'godlygeek/tabular'
-
-" TODO: Try these git browsers
-" Plugin 'junegunn/gv.vim'
-" Plugin 'gregsexton/gitv'
+" Plugins are installed with vim-plug: https://github.com/junegunn/vim-plug
+" TODO: Use on-demand loading for some of the plugins
+call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'othree/html5.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'scrooloose/syntastic'
+Plug 'tomtom/tcomment_vim'
+Plug 'SirVer/ultisnips'
+Plug 'mattn/emmet-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tommcdo/vim-exchange'
+Plug 'rizzatti/dash.vim'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'elzr/vim-json'
+Plug 'digitaltoad/vim-jade'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'suan/vim-instant-markdown'
+Plug 'kchmck/vim-coffee-script'
+Plug 'chrisbra/csv.vim'
+Plug 'StanAngeloff/php.vim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'AndrewRadev/switch.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'ElmCast/elm-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'ternjs/tern_for_vim'
+Plug 'mxw/vim-jsx'
+Plug 'godlygeek/tabular'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
-Plugin 'christoomey/vim-tmux-navigator'
-call vundle#end()
-" enable detection, plugins and indenting in one step
-filetype plugin indent on
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
+
+" TODO: Try these git browsers
+" Plug 'junegunn/gv.vim'
+" Plug 'gregsexton/gitv'
 
 " Keep 1000 lines in history instead of 20 default
 set history=1000
@@ -198,9 +191,6 @@ set foldnestmax=10
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
-" Show syntax highlighting
-syntax on
 
 " Enable wildmenu completion
 set wildmenu

@@ -12,3 +12,5 @@ Thumbs.db
 
 .vim/.netrwhist
 .vim/bundle/
+.vim/autoload/
+.vim/plugged/
