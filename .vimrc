@@ -46,6 +46,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'godlygeek/tabular'
 
 " TODO: Try these git browsers
 " Plugin 'junegunn/gv.vim'
