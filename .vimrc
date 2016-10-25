@@ -38,7 +38,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim'
 Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
