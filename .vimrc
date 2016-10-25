@@ -51,6 +51,9 @@ call plug#end()
 " Plug 'junegunn/gv.vim'
 " Plug 'gregsexton/gitv'
 
+" Make sure syntax highlighting is on
+set syntax
+
 " Keep 1000 lines in history instead of 20 default
 set history=1000
 
