@@ -52,7 +52,7 @@ call plug#end()
 " Plug 'gregsexton/gitv'
 
 " Make sure syntax highlighting is on
-set syntax
+syntax on
 
 " Keep 1000 lines in history instead of 20 default
 set history=1000
