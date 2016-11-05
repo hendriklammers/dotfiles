@@ -410,17 +410,6 @@ let g:jsdoc_allow_input_prompt = 1
 " Ensure that editorconfig works well with Fugitive plugin
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" Use :Qargs to populate args with all files from quickfix list
-command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
-function! QuickfixFilenames()
-    " Building a hash ensures we get each buffer only once
-    let buffer_numbers = {}
-    for quickfix_item in getqflist()
-        let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-    endfor
-    return join(values(buffer_numbers))
-endfunction
-
 " Delete in insert mode
 inoremap <C-d> <Del>
 
