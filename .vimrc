@@ -51,11 +51,11 @@ call plug#end()
 " Plug 'junegunn/gv.vim'
 " Plug 'gregsexton/gitv'
 
-" Make sure syntax highlighting is on
-syntax on
-
 " Keep 1000 lines in history instead of 20 default
 set history=1000
+" sdaf
+" Hallo allemaal
+" Dit is een test
 
 " Turn backup and swapfiles off, since most stuff is in git anyway...
 set nobackup
@@ -104,6 +104,9 @@ let g:solarized_diffmode = 'high'
 
 " Toggle Solarized light/dark
 call togglebg#map("<F3>")
+
+" Show syntax highlighting
+syntax on
 
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
