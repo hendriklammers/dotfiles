@@ -139,6 +139,9 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = '|'
 
+" Allow jsx syntax also for *.js files
+let g:jsx_ext_required = 0
+
 " Expand tabs by default
 set expandtab
 " Insert tabs at start of line according to shiftwidth
