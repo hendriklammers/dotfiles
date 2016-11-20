@@ -42,6 +42,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': './npm install' }
 Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
@@ -71,6 +72,9 @@ endif
 
 " Reload files changed outside of VIM
 set autoread
+
+" Write automatically when calling :make
+set autowrite
 
 " Allow Vim to manage multiple buffers effectively.
 " i.e. Edit multiple unsaved files at the same time.
@@ -487,3 +491,11 @@ autocmd FileType css,scss let b:switch_custom_definitions =
     \   ['horizontal', 'vertical'],
     \   ['dark', 'light']
     \ ]
+
+" Setting up Vim Golang development
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>i <Plug>(go-imports)
+
+" Show everything in quickfix list
+let g:go_list_type = "quickfix"
