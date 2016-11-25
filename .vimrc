@@ -174,6 +174,9 @@ set linebreak
 "     autocmd BufEnter * match OverLength /\%81v.*/
 " augroup END
 
+" Add ↪ in front of wrapped lines
+set showbreak=↪
+
 " Show line numbers
 set number
 " Show relative line numbers
