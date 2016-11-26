@@ -502,3 +502,6 @@ autocmd FileType go nmap <leader>i <Plug>(go-imports)
 
 " Show everything in quickfix list
 let g:go_list_type = "quickfix"
+
+" Run goimports when saving a file (While still formatting)
+let g:go_fmt_command = "goimports"
