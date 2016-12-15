@@ -451,6 +451,9 @@ autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\
 " Wrap markdown files at 80 columns
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
+" Use jsx syntax also for files without jsx extension
+let g:jsx_ext_required = 0
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
