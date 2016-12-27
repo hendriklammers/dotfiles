@@ -38,7 +38,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': './npm install' }
 Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
@@ -372,6 +372,9 @@ autocmd FileType javascript let b:syntastic_checkers = glob('.jshintrc', '.;') !
 
 let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger="<c-j>"
