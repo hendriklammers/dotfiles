@@ -48,6 +48,9 @@ fi
 # Vi mode
 set -o vi
 
+# Add Yarn binaries to path
+export PATH="$PATH:`yarn global bin`"
+
 # Needed for React Native
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
