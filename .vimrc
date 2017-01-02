@@ -185,6 +185,9 @@ set relativenumber
 " Highlight current line
 set cursorline
 
+" Make current line number stand out a bit more
+highlight CursorLineNr ctermfg=grey
+
 " Always show status line
 set laststatus=2
 " Format status line
