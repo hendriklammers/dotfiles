@@ -29,3 +29,5 @@
 	helper = osxkeychain
 [mergetool]
 	path = vim
+[tag]
+	sort = version:refname
