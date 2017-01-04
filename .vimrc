@@ -188,6 +188,10 @@ set cursorline
 " Make current line number stand out a bit more
 highlight CursorLineNr ctermfg=grey
 
+" Show whitespace
+set list
+set listchars=trail:•
+
 " Always show status line
 set laststatus=2
 " Format status line
