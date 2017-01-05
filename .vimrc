@@ -38,6 +38,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': './npm install' }
 Plug 'mxw/vim-jsx'
@@ -187,6 +188,9 @@ set cursorline
 
 " Make current line number stand out a bit more
 highlight CursorLineNr ctermfg=grey
+
+" Show line at 80 columns
+set colorcolumn=80
 
 " Show whitespace
 set list
