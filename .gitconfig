@@ -1,33 +1,33 @@
 [user]
-    name = Hendrik Lammers
-    email = lammers@gmail.com
+  name = Hendrik Lammers
+  email = lammers@gmail.com
 [color]
-    ui = always
+  ui = always
 [core]
-    editor = vim
-    excludesfile = ~/.gitignore
-	autocrlf = input
-    filemode = false
+  editor = vim
+  excludesfile = ~/.gitignore
+  autocrlf = input
+  filemode = false
 [merge]
-    log = true
-    tool = vimdiff
+  log = true
+  tool = vimdiff
 [diff]
-	tool = vimdiff
+  tool = vimdiff
 [difftool]
-	prompt = false
+  prompt = false
 [push]
-	default = simple
+  default = simple
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	s = status -s
-	d = difftool
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  s = status -s
+  d = difftool
 [pull]
-	rebase = true
+  rebase = true
 [rerere]
-	enabled = true
+  enabled = true
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [mergetool]
-	path = vim
+  path = vim
 [tag]
-	sort = version:refname
+  sort = version:refname
