@@ -189,9 +189,6 @@ set cursorline
 " Make current line number stand out a bit more
 highlight CursorLineNr ctermfg=grey
 
-" Show line at 80 columns
-set colorcolumn=80
-
 " Show whitespace
 set list
 set listchars=trail:•
