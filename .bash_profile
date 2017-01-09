@@ -28,9 +28,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
 # bash git completion is installed with homebrew
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # This loads NVMexport PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
@@ -41,6 +39,8 @@ fi
 [[ -s "$HOME/.functions" ]] && source "$HOME/.functions"
 # Aliases
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
+# Extra settings, not checked into the git repo
+[[ -s "$HOME/.extra" ]] && source "$HOME/.extra"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
