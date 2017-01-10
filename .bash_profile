@@ -8,6 +8,9 @@ PATH=$HOME/.composer/vendor/bin:$PATH
 PATH=./node_modules/.bin:$PATH
 # Cabal packages
 PATH="$HOME/.cabal/bin:$PATH"
+PATH="$HOME/Library/Haskell/bin:$PATH"
+# Stack places Haskell binaries in .local
+PATH="$HOME/.local/bin:$PATH"
 # Custom scripts
 PATH=$DOTFILES/bin:$PATH
 
