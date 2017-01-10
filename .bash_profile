@@ -30,10 +30,14 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Export pkconfig folder
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
+# Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
+
 # bash git completion is installed with homebrew
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-# This loads NVMexport PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+# This loads NVM
+export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
 # Custom prompt
