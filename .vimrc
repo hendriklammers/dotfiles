@@ -188,8 +188,7 @@ set cursorline
 highlight CursorLineNr ctermfg=grey
 
 " Show whitespace
-set list
-set listchars=trail:•
+set list listchars=tab:\ \ ,trail:·
 
 " Always show status line
 set laststatus=2
