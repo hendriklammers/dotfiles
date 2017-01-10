@@ -239,6 +239,7 @@ if executable('ag')
     \ --ignore images
     \ --ignore fonts
     \ --ignore compiled
+    \ --ignore plugged
     \ -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
