@@ -1,3 +1,5 @@
+# TODO: Cleanup this file, it's starting to get messy
+
 export DOTFILES=$HOME/dotfiles
 
 # Path
