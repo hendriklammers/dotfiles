@@ -381,9 +381,7 @@ autocmd FileType javascript let b:syntastic_checkers = glob('.jshintrc', '.;') !
 
 let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
-
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_go_checkers = ['go', 'golint', 'govet']
 
 " Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger="<c-j>"
