@@ -368,6 +368,9 @@ let g:syntastic_html_tidy_ignore_errors = [
     \"discarding unexpected"
 \]
 
+" Show all errors when multiple checkers are used
+let g:syntastic_aggregate_errors = 1
+
 " Add errors to location list
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_error_symbol = '✗'
