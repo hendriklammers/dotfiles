@@ -40,11 +40,12 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': './npm install' }
 Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
@@ -381,7 +382,10 @@ autocmd FileType javascript let b:syntastic_checkers = glob('.jshintrc', '.;') !
 
 let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
-let g:syntastic_go_checkers = ['go', 'golint', 'govet']
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+
+" Not auto check for go files
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -512,9 +516,16 @@ autocmd FileType css,scss let b:switch_custom_definitions =
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>i <Plug>(go-imports)
+autocmd FileType go nmap <leader>m <Plug>(go-metalinter)
 
 " Show everything in quickfix list
 let g:go_list_type = "quickfix"
 
 " Run goimports when saving a file (While still formatting)
 let g:go_fmt_command = "goimports"
+
+" Lint Go files on save
+let g:go_metalinter_autosave = 1
+
+" Autocompletion for unimported packages
+let g:go_gocode_unimported_packages = 1
