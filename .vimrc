@@ -191,6 +191,9 @@ highlight CursorLineNr ctermfg=grey
 " Show whitespace
 set list listchars=tab:\ \ ,trail:·
 
+" Disable welcome screen
+set shortmess=I
+
 " Always show status line
 set laststatus=2
 " Format status line
