@@ -163,16 +163,8 @@ set autoindent
 " Copy previous indentation on autoindent
 set copyindent
 
-" Max 80 characters per line
-" set textwidth=80
 " Make sure vim doesn't break words
 set linebreak
-
-" Highlight characters past 80 columns
-" augroup vimrc_autocmds
-"     autocmd BufEnter * highlight OverLength ctermbg=235 ctermfg=245 guibg=black
-"     autocmd BufEnter * match OverLength /\%81v.*/
-" augroup END
 
 " Add ↪ in front of wrapped lines
 set showbreak=↪\ 
