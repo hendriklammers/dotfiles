@@ -175,7 +175,7 @@ set linebreak
 " augroup END
 
 " Add ↪ in front of wrapped lines
-set showbreak=↪
+set showbreak=↪\ 
 
 " Show line numbers
 set number
