@@ -432,9 +432,6 @@ nmap <leader>jd :JsDoc<CR>
 " Prompt for jsdoc parameter types & descriptions
 let g:jsdoc_allow_input_prompt = 1
 
-" Ensure that editorconfig works well with Fugitive plugin
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
 " Delete in insert mode
 inoremap <C-d> <Del>
 
