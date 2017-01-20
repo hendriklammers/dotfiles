@@ -218,9 +218,6 @@ set wildignore+=.git,.svn,.sass-cache
 " Open CtrlP with leader o
 let g:ctrlp_map = '<leader>o'
 
-" Open CtrlP in buffermode with leader p
-nmap <leader>p :CtrlPBuffer<CR>
-
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -524,3 +521,6 @@ let g:go_metalinter_autosave = 1
 
 " Autocompletion for unimported packages
 let g:go_gocode_unimported_packages = 1
+
+" Open CtrlP in buffermode with leader p
+nmap <leader>b :CtrlPBuffer<CR>
