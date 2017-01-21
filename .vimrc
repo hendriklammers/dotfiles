@@ -426,6 +426,9 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 let g:jsdoc_default_mapping= 0
 nmap <leader>jd :JsDoc<CR>
 
+" console.log the word under the cursor
+nmap <leader>cl yiwoconsole.log('<c-r>"', <c-r>");<esc>^
+
 " Prompt for jsdoc parameter types & descriptions
 let g:jsdoc_allow_input_prompt = 1
 
