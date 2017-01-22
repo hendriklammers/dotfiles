@@ -11,6 +11,9 @@ alias tmux='tmux -2'
 alias tma='tmux attach'
 alias tml='tmux ls'
 
+# Make sure the right color profile is used when using ssh
+alias ssh="TERM=xterm-256color ssh"
+
 # Terminal
 alias ..='cd ..'
 alias ...='cd ../..'
