@@ -180,6 +180,9 @@ set cursorline
 " Make current line number stand out a bit more
 highlight CursorLineNr ctermfg=grey
 
+" Show comments in italics
+highlight Comment cterm=italic
+
 " Show whitespace
 set list listchars=tab:\ \ ,trail:·
 
