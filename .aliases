@@ -1,7 +1,6 @@
 alias reload='source ~/.bash_profile'
 alias ea='vim ~/.aliases && reload'
 alias func='vim ~/.functions && reload'
-alias editvim='vim ~/.vimrc'
 alias vi='vim'
 
 # Always open tmux in 256 color mode
@@ -78,7 +77,6 @@ alias dot='cd ~/dotfiles'
 alias dl='cd ~/Downloads'
 alias dt='cd ~/Desktop'
 alias drop='cd ~/Dropbox'
-alias htdocs='cd ~/htdocs'
 alias work='cd ~/work'
 alias pro='cd ~/Projects'
 alias code='cd ~/code'
