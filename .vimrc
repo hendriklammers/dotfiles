@@ -510,6 +510,7 @@ autocmd FileType css,scss let b:switch_custom_definitions =
     \   ['width', 'height'],
     \   ['margin', 'padding'],
     \   ['horizontal', 'vertical'],
+    \   ['odd', 'even'],
     \   ['dark', 'light']
     \ ]
 
