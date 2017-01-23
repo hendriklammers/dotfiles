@@ -183,6 +183,9 @@ set cursorline
 " Make current line number stand out a bit more
 highlight CursorLineNr ctermfg=grey
 
+" Make tilde in front of nonexisting lines less bright
+highlight EndOfBuffer ctermfg=bg
+
 " Show comments in italics
 highlight Comment cterm=italic
 
