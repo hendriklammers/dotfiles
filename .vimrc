@@ -163,6 +163,9 @@ set autoindent
 " Copy previous indentation on autoindent
 set copyindent
 
+" don't add extra space after ., !, etc. when joining
+set nojoinspaces
+
 " Make sure vim doesn't break words
 set linebreak
 
