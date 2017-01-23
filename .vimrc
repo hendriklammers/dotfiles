@@ -202,8 +202,8 @@ set statusline=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n
 " Make command line two lines high
 set ch=2
 
-" Show current mode
-set showmode
+" Don't display the current mode in the status line.
+set noshowmode
 
 " Start scrolling when 3 lines away from margins
 set scrolloff=3
