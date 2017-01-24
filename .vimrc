@@ -189,6 +189,9 @@ highlight EndOfBuffer ctermfg=bg
 " Show comments in italics
 highlight Comment cterm=italic
 
+" No background color for special characters like tabs, trail etc.
+highlight SpecialKey ctermbg=NONE
+
 " Show whitespace
 set list listchars=tab:\ \ ,trail:·
 
