@@ -542,3 +542,6 @@ let g:go_gocode_unimported_packages = 1
 
 " Open CtrlP in buffermode with leader p
 nmap <leader>b :CtrlPBuffer<CR>
+
+" grep/Ag with leader a
+nnoremap <leader>a :grep<space>
