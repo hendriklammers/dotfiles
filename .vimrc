@@ -348,8 +348,8 @@ let delimitMate_expand_cr=1
 " Edit vimrc in a new tab
 nmap <leader>ve :tabedit $MYVIMRC<CR>
 
-" Reload vimrc
-nnoremap <leader>vr :source $MYVIMRC<CR>
+" Reload vimrc and refresh airline
+nnoremap <leader>vr :source $MYVIMRC<CR>:AirlineRefresh<CR>
 
 " Shortcut for NERDTreeToggle
 nmap <leader>nt :NERDTreeToggle<CR>
