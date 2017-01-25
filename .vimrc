@@ -1,3 +1,5 @@
+" TODO: Organise and cleanup file
+
 " Use Vim settings, rather then Vi settings
 set nocompatible
 
@@ -466,8 +468,11 @@ nmap <silent> <leader>d <Plug>DashSearch
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
 autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
 
-" Wrap markdown files at 80 columns
-au BufRead,BufNewFile *.md setlocal textwidth=80
+" Wrap markdown files at 80 columns and enable spellcheck
+au BufRead,BufNewFile *.md setlocal spell textwidth=80
+
+" Wrap git commit messages at 72 columns and enable spellcheck
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Use jsx syntax also for files without jsx extension
 let g:jsx_ext_required = 0
