@@ -343,14 +343,11 @@ nnoremap Q <nop>
 " Add a return with indent, like in Textmate
 let delimitMate_expand_cr=1
 
-" Automatically reload vimrc when it changes
-augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,.nvimrc,_nvimrc,nvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
-
 " Edit vimrc in a new tab
-nmap <leader>ev :tabedit $MYVIMRC<CR>
+nmap <leader>ve :tabedit $MYVIMRC<CR>
+
+" Reload vimrc
+nnoremap <leader>vr :source $MYVIMRC<CR>
 
 " Shortcut for NERDTreeToggle
 nmap <leader>nt :NERDTreeToggle<CR>
