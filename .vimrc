@@ -363,6 +363,9 @@ nmap <leader><leader> <C-^>
 " Show hidden files in NERDTree by default
 let g:NERDTreeShowHidden=1
 
+" Don't ask for confirmation to remove buffer
+let NERDTreeAutoDeleteBuffer=1
+
 " Syntastic settings
 " Most of this is needed when using Angularjs
 let g:syntastic_html_tidy_ignore_errors = [
