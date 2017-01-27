@@ -291,15 +291,15 @@ let mapleader = "\<Space>""
 nnoremap <leader>/ :noh<CR>:<backspace>
 
 " ,w to quickly save the file
-nmap <leader>w :w!<CR>
+nnoremap <leader>w :w!<CR>
 
 " Move to end of line in insert mode
-imap <C-l> <Esc>A
+inoremap <C-l> <Esc>A
 
 " Quickly choose between 2 or 4 tabs
 " TODO: Create toggle function
-nmap <leader>t2 :set tabstop=2 shiftwidth=2 softtabstop=2<CR>
-nmap <leader>t4 :set tabstop=4 shiftwidth=4 softtabstop=4<CR>
+nnoremap <leader>t2 :set tabstop=2 shiftwidth=2 softtabstop=2<CR>
+nnoremap <leader>t4 :set tabstop=4 shiftwidth=4 softtabstop=4<CR>
 
 " Toggle between relative and absolute line numbers
 nnoremap <silent><leader>l :set relativenumber!<CR>
@@ -349,19 +349,19 @@ nnoremap <S-k> <nop>
 let delimitMate_expand_cr=1
 
 " Edit vimrc in a new tab
-nmap <leader>ve :tabedit $MYVIMRC<CR>
+nnoremap <leader>ve :tabedit $MYVIMRC<CR>
 
 " Reload vimrc and refresh airline
 nnoremap <leader>vr :source $MYVIMRC<CR>:AirlineRefresh<CR>
 
 " Shortcut for NERDTreeToggle
-nmap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
 
 " Show current file in NERDTree
-nmap <leader>nf :NERDTreeFind<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
 
 " Toggle last buffer
-nmap <leader><leader> <C-^>
+nnoremap <leader><leader> <C-^>
 
 " Show hidden files in NERDTree by default
 let g:NERDTreeShowHidden=1
@@ -407,7 +407,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Open :UltiSnipsEdit in a vertical split
 let g:UltiSnipsEditSplit="vertical"
 " Edit UltiSnips snippets
-nmap <leader>ue :UltiSnipsEdit<CR>
+nnoremap <leader>ue :UltiSnipsEdit<CR>
 
 " Not a fan of emmets default <C-y> leader
 let g:user_emmet_leader_key = '<C-e>'
@@ -423,15 +423,15 @@ let g:user_emmet_leader_key = '<C-e>'
 let g:html_exclude_tags = ['html']
 
 " Git shortcuts used for Fugitive plugin
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>gg :Gbrowse<CR>
-nmap <leader>gb :Gblame<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gw :Gwrite<CR>
-nmap <leader>gr :Gread<CR>
-nmap <leader>gl :Glog<CR>
-nmap <leader>gp :Gpush<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gg :Gbrowse<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gl :Glog<CR>
+nnoremap <leader>gp :Gpush<CR>
 
 " Open Gdiff in vertical splits
 set diffopt+=vertical
@@ -441,10 +441,10 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Disable default jsdoc mapping to <C-l>, use <leader>jd instead
 let g:jsdoc_default_mapping= 0
-nmap <leader>jd :JsDoc<CR>
+nnoremap <leader>jd :JsDoc<CR>
 
 " console.log the word under the cursor
-nmap <leader>cl yiwoconsole.log('<c-r>"', <c-r>");<esc>^
+nnoremap <leader>cl yiwoconsole.log('<c-r>"', <c-r>");<esc>^
 
 " Prompt for jsdoc parameter types & descriptions
 let g:jsdoc_allow_input_prompt = 1
@@ -453,7 +453,7 @@ let g:jsdoc_allow_input_prompt = 1
 inoremap <C-d> <Del>
 
 " Jump to middle of line
-map <silent> gm :call cursor(0, virtcol('$')/2)<CR>
+noremap <silent> gm :call cursor(0, virtcol('$')/2)<CR>
 
 " Use arrow keys to resize window
 noremap <up> <C-W>+
@@ -466,10 +466,10 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Map Switch plugin to leader s
 let g:switch_mapping = ""
-nmap <leader>s :Switch<CR>
+nnoremap <leader>s :Switch<CR>
 
 " Search word under cursor in Dash app
-nmap <silent> <leader>d <Plug>DashSearch
+nnoremap <silent> <leader>d <Plug>DashSearch
 
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
 autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
@@ -529,10 +529,10 @@ autocmd FileType css,scss let b:switch_custom_definitions =
     \ ]
 
 " Setting up Vim Golang development
-autocmd FileType go nmap <leader>b <Plug>(go-build)
-autocmd FileType go nmap <leader>r <Plug>(go-run)
-autocmd FileType go nmap <leader>i <Plug>(go-imports)
-autocmd FileType go nmap <leader>m <Plug>(go-metalinter)
+autocmd FileType go nnoremap <leader>b <Plug>(go-build)
+autocmd FileType go nnoremap <leader>r <Plug>(go-run)
+autocmd FileType go nnoremap <leader>i <Plug>(go-imports)
+autocmd FileType go nnoremap <leader>m <Plug>(go-metalinter)
 
 " Show everything in quickfix list
 let g:go_list_type = "quickfix"
@@ -547,7 +547,7 @@ let g:go_metalinter_autosave = 1
 let g:go_gocode_unimported_packages = 1
 
 " Open CtrlP in buffermode with leader p
-nmap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " grep/Ag with leader a
 nnoremap <leader>a :grep<space>
