@@ -342,6 +342,9 @@ nnoremap ' `
 " Disable Ex mode
 nnoremap Q <nop>
 
+" Prevent vim opening man when accidentally
+nnoremap <S-k> <nop>
+
 " Add a return with indent, like in Textmate
 let delimitMate_expand_cr=1
 
