@@ -475,7 +475,7 @@ nnoremap <silent> <leader>d <Plug>DashSearch
 autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
 
 " Wrap markdown files at 80 columns and enable spellcheck
-au BufRead,BufNewFile *.md setlocal spell textwidth=80
+autocmd BufRead,BufNewFile *.md setlocal spell textwidth=80
 
 " Wrap git commit messages at 72 columns and enable spellcheck
 autocmd Filetype gitcommit setlocal spell textwidth=72
