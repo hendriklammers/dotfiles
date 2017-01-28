@@ -546,7 +546,7 @@ let g:go_metalinter_autosave = 1
 " Autocompletion for unimported packages
 let g:go_gocode_unimported_packages = 1
 
-" Open CtrlP in buffermode with leader p
+" Open CtrlP in buffermode with leader b
 nnoremap <leader>b :CtrlPBuffer<CR>
 
 " grep/Ag with leader a
