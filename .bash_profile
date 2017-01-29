@@ -26,6 +26,11 @@ export GIT_EDITOR=vim
 export HISTFILESIZE=10000
 export HISTSIZE=10000
 
+# No duplicates in history
+HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+
 # Set folder where brew cask puts the application symlinks
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
