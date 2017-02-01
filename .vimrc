@@ -303,7 +303,7 @@ nnoremap <leader>t2 :set tabstop=2 shiftwidth=2 softtabstop=2<CR>
 nnoremap <leader>t4 :set tabstop=4 shiftwidth=4 softtabstop=4<CR>
 
 " Toggle between relative and absolute line numbers
-nnoremap <silent><leader>l :set relativenumber!<CR>
+" nnoremap <silent><leader>l :set relativenumber!<CR>
 
 " Set correct filetypes
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown " Override
