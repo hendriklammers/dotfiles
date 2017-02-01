@@ -27,7 +27,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tommcdo/vim-exchange'
-Plug 'rizzatti/dash.vim'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'elzr/vim-json'
 Plug 'digitaltoad/vim-jade'
@@ -468,9 +467,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " Map Switch plugin to leader s
 let g:switch_mapping = ""
 nnoremap <leader>s :Switch<CR>
-
-" Search word under cursor in Dash app
-nnoremap <silent> <leader>d <Plug>DashSearch
 
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
 autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
