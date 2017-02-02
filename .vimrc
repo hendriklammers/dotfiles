@@ -19,7 +19,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color', {'for': ['css', 'scss']}
+Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
