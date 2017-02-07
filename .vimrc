@@ -444,7 +444,10 @@ let g:jsdoc_default_mapping= 0
 nnoremap <leader>jd :JsDoc<CR>
 
 " console.log the word under the cursor
-nnoremap <leader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>^
+nnoremap <leader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>
+
+" console.log visual selection
+vnoremap <leader>l yoconsole.log('<c-r>"', <c-r>")<esc>
 
 " Prompt for jsdoc parameter types & descriptions
 let g:jsdoc_allow_input_prompt = 1
