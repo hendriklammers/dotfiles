@@ -24,6 +24,10 @@ alias l.='ls -d .[^.]*' # List hidden
 alias lsd='ls -l | grep "^d"' # List directories
 alias cl='clear' #clear screen
 
+# Always use verbose for these commands
+alias mv='mv -v'
+alias cp='cp -v'
+
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
