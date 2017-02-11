@@ -271,10 +271,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Always use 'very magic' when searching with regex
-" noremap / /\v
-" noremap ? ?\v
-
 " Make Y consistent with C and D.
 nnoremap Y y$
 
@@ -290,7 +286,7 @@ let mapleader = "\<Space>""
 " hide last search highlighting
 nnoremap <leader>/ :noh<CR>:<backspace>
 
-" ,w to quickly save the file
+" Quickly save the file
 nnoremap <leader>w :w!<CR>
 
 " Move to end of line in insert mode
@@ -300,9 +296,6 @@ inoremap <C-l> <Esc>A
 " TODO: Create toggle function
 nnoremap <leader>t2 :set tabstop=2 shiftwidth=2 softtabstop=2<CR>
 nnoremap <leader>t4 :set tabstop=4 shiftwidth=4 softtabstop=4<CR>
-
-" Toggle between relative and absolute line numbers
-" nnoremap <silent><leader>l :set relativenumber!<CR>
 
 " Set correct filetypes
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown " Override
@@ -396,7 +389,7 @@ let g:syntastic_php_checkers=['php']
 let g:syntastic_css_checkers=[]
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 
-" Not auto check for go files
+" No auto check for go files
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " Expand snippets with ctrl + j
