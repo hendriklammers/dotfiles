@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Check if yarn is installed, otherwise exit
+command -v yarn >/dev/null 2>&1 ||
+  { echo >&2 "Please make sure yarn package manager is installed. Aborting."; exit 1; }
+
+# Ask for project title and description
+read -p "Project title: " projectTitle
+read -p "Project description: " projectDescription
+
+# Create new directory
+if [ -d $projectTitle ]; then
+  echo "Directory with this title already exists"
+  exit 1
+fi
+echo "Create directory"
+
+# Clone project boilerplate
+git clone git@github.com:hendriklammers/init-project.git $projectTitle
+
+# Add title and description to package.json and index.html
+sed -i "s/PROJECT_TITLE/$projectTitle/g;
+  s/PROJECT_DESCRIPTION/$projectDescription/g" package.json public/index.html
+
+# Install dev dependencies with yarn
+# yarn add -D webpack@2 webpack-dev-server@2 eslint babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-stage-0
+
+# Remove .git directory we want to start with a clean repo
+if [ -d ".git" ]; then
+  rm -rf .git
+fi
+
+# Initialize new git repo and add everything
+git init && git add . && git commit -m "Init! 🚀"
