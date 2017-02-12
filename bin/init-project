@@ -1,19 +1,26 @@
-#!/bin/sh
+#!/bin/bash
 
 # Check if yarn is installed, otherwise exit
 command -v yarn >/dev/null 2>&1 ||
   { echo >&2 "Please make sure yarn package manager is installed. Aborting."; exit 1; }
 
 # Ask for project title and description
-read -p "Project title: " projectTitle
-read -p "Project description: " projectDescription
+read -p "Project title: " title
+read -p "Project description: " description
+
+# Validate title
+titlePattern="^[a-zA-Z0-9-]{3,}$"
+if [[ ! $title =~ $titlePattern ]]; then
+  echo "Invalid project title!"; exit 1
+fi
 
 # Create new directory
-if [ -d $projectTitle ]; then
-  echo "Directory with this title already exists"
-  exit 1
+if [ -d $title ]; then
+  echo "Directory with this title already exists"; exit 1
+else
+  mkdir -p "$title"
+  cd "$title" 
 fi
-echo "Create directory"
 
 # Clone project boilerplate
 git clone git@github.com:hendriklammers/init-project.git $projectTitle
