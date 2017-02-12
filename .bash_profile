@@ -44,7 +44,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # This loads NVM
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
 # Custom prompt
