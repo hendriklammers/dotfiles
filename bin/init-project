@@ -50,4 +50,4 @@ fi
 
 # TODO: Add option to also create a new repo on Github
 # Initialize new git repo and add everything
-git init && git add . && git commit -m "Init! 🚀"
+git init && git add . && git commit -m "🚀"
