@@ -4,6 +4,7 @@
 command -v yarn >/dev/null 2>&1 ||
   { echo >&2 "Please make sure yarn package manager is installed. Aborting."; exit 1; }
 
+# TODO: Allow to add title & description as cli parameters
 # Ask for project title and description
 read -p "Project title: " title
 read -p "Project description: " description
@@ -26,15 +27,16 @@ fi
 git clone git@github.com:hendriklammers/init-project.git .
 
 # Add title and description to package.json and index.html
-sed -i "s/PROJECT_TITLE/$title/g;" package.json public/index.html
+sed -i "s/PROJECT_TITLE/$title/g; s/PROJECT_DESCRIPTION/$description/g;"\
+  package.json public/index.html
 
 # Install dev dependencies with yarn
-# yarn add -D webpack webpack-dev-server eslint babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-stage-0
+yarn add -D webpack webpack-dev-server eslint babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-stage-0
 
-# Remove .git directory we want to start with a clean repo
-# if [ -d ".git" ]; then
-#   rm -rf .git
-# fi
+# Remove .git directory, we want to start with a clean repo
+if [ -d ".git" ]; then
+  rm -rf .git
+fi
 
 # Initialize new git repo and add everything
-# git init && git add . && git commit -m "Init! 🚀"
+git init && git add . && git commit -m "Init! 🚀"
