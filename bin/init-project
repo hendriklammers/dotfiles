@@ -11,31 +11,30 @@ read -p "Project description: " description
 # Validate title
 titlePattern="^[a-zA-Z0-9-]{3,}$"
 if [[ ! $title =~ $titlePattern ]]; then
-  echo "Invalid project title!"; exit 1
+  echo "Invalid project title. Aborting."; exit 1
 fi
 
 # Create new directory
 if [ -d $title ]; then
-  echo "Directory with this title already exists"; exit 1
+  echo "Directory with this title already exists. Aborting"; exit 1
 else
   mkdir -p "$title"
   cd "$title" 
 fi
 
 # Clone project boilerplate
-git clone git@github.com:hendriklammers/init-project.git $projectTitle
+git clone git@github.com:hendriklammers/init-project.git .
 
 # Add title and description to package.json and index.html
-sed -i "s/PROJECT_TITLE/$projectTitle/g;
-  s/PROJECT_DESCRIPTION/$projectDescription/g" package.json public/index.html
+sed -i "s/PROJECT_TITLE/$title/g;" package.json public/index.html
 
 # Install dev dependencies with yarn
-# yarn add -D webpack@2 webpack-dev-server@2 eslint babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-stage-0
+# yarn add -D webpack webpack-dev-server eslint babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-stage-0
 
 # Remove .git directory we want to start with a clean repo
-if [ -d ".git" ]; then
-  rm -rf .git
-fi
+# if [ -d ".git" ]; then
+#   rm -rf .git
+# fi
 
 # Initialize new git repo and add everything
-git init && git add . && git commit -m "Init! 🚀"
+# git init && git add . && git commit -m "Init! 🚀"
