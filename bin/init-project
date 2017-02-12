@@ -31,7 +31,15 @@ sed -i "s/PROJECT_TITLE/$title/g; s/PROJECT_DESCRIPTION/$description/g;"\
   package.json public/index.html
 
 # Install dev dependencies with yarn
-yarn add -D webpack webpack-dev-server eslint babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-stage-0
+yarn add -D \
+  webpack \
+  webpack-dev-server \
+  eslint \
+  babel-core \
+  babel-loader \
+  babel-polyfill \
+  babel-preset-es2015 \
+  babel-preset-stage-0
 
 # Remove .git directory, we want to start with a clean repo
 if [ -d ".git" ]; then
