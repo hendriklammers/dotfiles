@@ -4,10 +4,11 @@
 command -v yarn >/dev/null 2>&1 ||
   { echo >&2 "Please make sure yarn package manager is installed. Aborting."; exit 1; }
 
-# TODO: Allow to add title & description as cli parameters
 # Ask for project title and description
-read -p "Project title: " title
-read -p "Project description: " description
+if [ ! -z "$1" ]; then title=$1;
+else read -p "Project title: " title; fi
+if [ ! -z "$2" ]; then description="$2";
+else read -p "Project description: " description; fi
 
 # Validate title
 titlePattern="^[a-zA-Z0-9-]{3,}$"
