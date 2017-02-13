@@ -40,8 +40,10 @@ export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# bash git completion is installed with homebrew
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# bash completion is installed with homebrew
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 # This loads NVM
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
