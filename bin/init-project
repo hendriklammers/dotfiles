@@ -42,7 +42,9 @@ yarn add -D \
   babel-loader \
   babel-polyfill \
   babel-preset-es2015 \
-  babel-preset-stage-0
+  babel-preset-stage-0 \
+  css-loader \
+  style-loader
 
 # Remove .git directory, we want to start with a clean repo
 if [ -d ".git" ]; then
