@@ -506,8 +506,8 @@ if has('nvim')
     autocmd WinEnter term://* startinsert
 endif
 
-" Custom css definitions for Switch plugin
-autocmd FileType css,scss let b:switch_custom_definitions =
+" Custom definitions for Switch plugin
+let g:switch_custom_definitions =
     \ [
     \   ['none', 'block'],
     \   ['before', 'after'],
@@ -518,7 +518,8 @@ autocmd FileType css,scss let b:switch_custom_definitions =
     \   ['margin', 'padding'],
     \   ['horizontal', 'vertical'],
     \   ['odd', 'even'],
-    \   ['dark', 'light']
+    \   ['dark', 'light'],
+    \   ['const', 'let']
     \ ]
 
 " Setting up Vim Golang development
