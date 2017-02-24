@@ -519,7 +519,8 @@ let g:switch_custom_definitions =
     \   ['horizontal', 'vertical'],
     \   ['odd', 'even'],
     \   ['dark', 'light'],
-    \   ['const', 'let']
+    \   ['const', 'let'],
+    \   ['+', '-']
     \ ]
 
 " Setting up Vim Golang development
