@@ -6,5 +6,5 @@
   "libs": [
     "browser"
   ],
-  "ecmaVersion": 6
+  "loadEagerly": []
 }
