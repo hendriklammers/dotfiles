@@ -28,6 +28,7 @@ fi
 git clone git@github.com:hendriklammers/init-project.git .
 
 # Add title and description to package.json and index.html
+# FIXME: Doesn't seem to work on my own Macbook
 sed -i "s/PROJECT_TITLE/$title/g; s/PROJECT_DESCRIPTION/$description/g;"\
   package.json \
   public/index.html \
@@ -53,4 +54,4 @@ fi
 
 # TODO: Add option to also create a new repo on Github
 # Initialize new git repo and add everything
-git init && git add . && git commit -m "🚀"
+git init && git add . && git commit -m "Initial commit 🚀"
