@@ -382,6 +382,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 
+" Jump to first found error
+let g:syntastic_auto_jump=1
+
 " When a .jshint file is found lint js with jshint otherwise use eslint
 autocmd FileType javascript let b:syntastic_checkers = glob('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
 
