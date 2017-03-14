@@ -280,6 +280,9 @@ set omnifunc=javascriptcomplete#CompleteJS
 " Map leader to space
 let mapleader = "\<Space>""
 
+" Local leader
+let maplocalleader = ","
+
 " hide last search highlighting
 nnoremap <leader>/ :noh<CR>:<backspace>
 
