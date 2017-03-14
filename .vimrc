@@ -523,6 +523,7 @@ let g:switch_custom_definitions =
     \   ['odd', 'even'],
     \   ['dark', 'light'],
     \   ['const', 'let'],
+    \   ['TODO', 'FIXME'],
     \   ['+', '-']
     \ ]
 
