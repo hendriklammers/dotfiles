@@ -40,7 +40,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-Plug 'ternjs/tern_for_vim', { 'do': './npm install' }
+" Plug 'ternjs/tern_for_vim', { 'do': './npm install' }
 Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
 Plug 'AndrewRadev/splitjoin.vim'
