@@ -514,6 +514,7 @@ let g:switch_custom_definitions =
     \   ['relative', 'absolute'],
     \   ['top', 'bottom'],
     \   ['left', 'right'],
+    \   ['max', 'min'],
     \   ['width', 'height'],
     \   ['margin', 'padding'],
     \   ['horizontal', 'vertical'],
