@@ -61,10 +61,11 @@ function parse_git_branch() {
 }
 
 # Show node version when directory contains package.json
+# FIXME: This gives problems when a command takes multiple lines
 function node_version() {
   if [ -f "package.json" ]; then
     echo -n "$BASE0("$BASE2$(node -v)"$BASE0) "
   fi
 }
 
-PS1="\[$BASE2\]\[${CYAN}\]\u\[$BASE0\]@${CYAN}\]\h\[$BASE0\]: \[$BLUE\]\w \$(parse_git_branch)\n\$(node_version)\[$BASE2\]👉  \[$RESET\]"
+PS1="\[$BASE2\]\[${CYAN}\]\u\[$BASE0\]@${CYAN}\]\h\[$BASE0\]: \[$BLUE\]\w \$(parse_git_branch)\n\[$BASE2\]👉  \[$RESET\]"
