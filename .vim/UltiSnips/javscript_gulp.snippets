@@ -1,0 +1,22 @@
+snippet gut "gulp task" b
+gulp.task('${1:name}', function() {
+	$2
+});
+endsnippet
+
+snippet gus "gulp src" b
+gulp.task('${1:name}', function() {
+	return gulp.src('${2:path}')
+		.pipe(${3:plugin}($4))$5
+});
+endsnippet
+
+snippet guw "gulp watch" b
+gulp.task('watch', function() {
+	gulp.watch('${1:path}', ['${2:task}']);$3
+});
+endsnippet
+
+snippet gup "gulp pipe"
+.pipe(${1:plugin}($2))$0
+endsnippet

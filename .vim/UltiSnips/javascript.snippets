@@ -4,7 +4,7 @@ snippet /** "Comment block" b
  */
 endsnippet
 
-snippet str "Use jshint/jslint strict mode"
+snippet str "Use strict mode"
 'use strict'$1
 endsnippet
 
@@ -50,10 +50,6 @@ for (let ${1:i} = 0; $1 < ${2:amount}; $1++) {
 }
 endsnippet
 
-snippet ret "return"
-return $1;$0
-endsnippet
-
 snippet req "Require node/commonjs module"
 require('$1')$0
 endsnippet
@@ -79,26 +75,14 @@ snippet @ret "@return {Type} Description"
 @return {${1:Type}} ${2:Description}
 endsnippet
 
-# Gulp snippets
-snippet gut "gulp task" b
-gulp.task('${1:name}', function() {
-	$2
-});
+# ES6 import
+snippet im
+import ${1:module} from '${2:library}'$0
 endsnippet
 
-snippet gus "gulp src" b
-gulp.task('${1:name}', function() {
-	return gulp.src('${2:path}')
-		.pipe(${3:plugin}($4))$5
-});
-endsnippet
-
-snippet guw "gulp watch" b
-gulp.task('watch', function() {
-	gulp.watch('${1:path}', ['${2:task}']);$3
-});
-endsnippet
-
-snippet gup "gulp pipe"
-.pipe(${1:plugin}($2))$0
+# For of loop
+snippet forof
+for (let ${1:s} of ${2:sequence}) {
+	${3}
+}
 endsnippet

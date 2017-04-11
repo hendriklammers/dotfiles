@@ -1,0 +1,32 @@
+snippet rc "React Component" b
+import React, { Component } from 'react'
+
+class ${1:MyComponent} extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {}
+	}
+
+	render() {
+		return (
+			<div>
+				$0
+			</div>
+		)
+	}
+}
+
+export default $1
+endsnippet
+
+snippet rf "React functional Component" b
+import React from 'react'
+
+const ${1:MyComponent} = (${2:props}) => {
+	return (
+		$0
+	)
+}
+
+export default $1
+endsnippet
