@@ -30,3 +30,7 @@ const ${1:MyComponent} = (${2:props}) => {
 
 export default $1
 endsnippet
+
+snippet rbind "React bind methods to this" b
+this.${1:method} = this.$1.bind(this)$0
+endsnippet
