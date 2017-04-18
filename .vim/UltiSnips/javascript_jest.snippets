@@ -1,0 +1,17 @@
+snippet desc "Jest - describe" b
+describe('${1:description}', () => {
+	$0
+})
+endsnippet
+
+snippet test "Jest - test"
+test('${1:name}', () => {
+	${2:expect()}
+})
+endsnippet
+
+snippet it "Jest - it"
+it('${1:name}', () => {
+	${2:expect()}
+})
+endsnippet
