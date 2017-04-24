@@ -6,8 +6,6 @@ export DOTFILES=$HOME/dotfiles
 PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 # Add global composer bin to PATH
 PATH=$HOME/.composer/vendor/bin:$PATH
-# Use locally installed node binaries instead of global ones
-PATH=./node_modules/.bin:$PATH
 # Cabal packages
 PATH="$HOME/.cabal/bin:$PATH"
 PATH="$HOME/Library/Haskell/bin:$PATH"
@@ -65,6 +63,9 @@ set -o vi
 
 # Add Yarn binaries to path
 export PATH="$PATH:`yarn global bin`"
+
+# Use locally installed node binaries instead of global ones
+PATH=./node_modules/.bin:$PATH
 
 # Needed for React Native
 export ANDROID_HOME=~/Library/Android/sdk
