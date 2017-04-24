@@ -1,10 +1,8 @@
 {
   "plugins": {
-    "node": {},
-    "es_modules": {}
+    "node": {}
   },
   "libs": [
     "browser"
-  ],
-  "loadEagerly": []
+  ]
 }
