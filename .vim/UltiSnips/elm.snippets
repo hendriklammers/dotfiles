@@ -1,0 +1,35 @@
+snippet mod "module" b
+module ${1:`!p snip.rv = snip.basename`} exposing (${2:..})
+
+$0
+endsnippet
+
+snippet im "import" b
+import ${1:List} exposing (${2:..})
+endsnippet
+
+snippet case "case pattern matching"
+case $1 of
+	$2 ->
+		$0
+endsnippet
+
+snippet if "if else" b
+if $1 then
+	$2
+else
+	$0
+endsnippet
+
+snippet let "let in" b
+let
+	$1 =
+		$2
+in
+	$0
+endsnippet
+
+snippet tya "type alias" b
+type alias $1 =
+	$2
+endsnippet
