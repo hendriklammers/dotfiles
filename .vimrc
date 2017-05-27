@@ -45,6 +45,7 @@ Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
+Plug 'sophacles/vim-processing'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
