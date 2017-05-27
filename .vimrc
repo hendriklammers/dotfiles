@@ -91,6 +91,9 @@ set mouse=a
 " Prevent delay when opening new line with O after pressing ESC
 set noesckeys
 
+" Always use global flag (for substitute command)
+set gdefault
+
 " Enable matchit.vim
 runtime macros/matchit.vim
 
