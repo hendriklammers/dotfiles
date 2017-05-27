@@ -1,16 +1,6 @@
-# Folder view configuration files
 .DS_Store
-Desktop.ini
-
-# Thumbnail cache files
-._*
-Thumbs.db
-
-# Files that might appear on external disks
-.Spotlight-V100
-.Trashes
-
 .vim/.netrwhist
 .vim/bundle/
 # .vim/autoload/
 .vim/plugged/
+.vim/view/
