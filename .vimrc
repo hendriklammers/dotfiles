@@ -550,3 +550,12 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 
 " grep/Ag with leader a
 nnoremap <leader>a :grep<space>
+
+" Run elm-format when saving elm files
+let g:elm_format_autosave = 1
+
+" Show Elm warnings
+let g:elm_syntastic_show_warnings = 1
+
+" Use 4 spaces indenting for Elm files
+autocmd FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4
