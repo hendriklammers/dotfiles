@@ -546,12 +546,6 @@ let g:go_fmt_command = "goimports"
 " Lint Go files on save
 let g:go_metalinter_autosave = 1
 
-" Autocompletion for unimported packages
-let g:go_gocode_unimported_packages = 1
-
-" Open CtrlP in buffermode with leader b
-nnoremap <leader>b :CtrlPBuffer<CR>
-
 " grep/Ag with leader a
 nnoremap <leader>a :grep<space>
 
