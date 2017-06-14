@@ -33,3 +33,11 @@ snippet tya "type alias" b
 type alias $1 =
 	$2
 endsnippet
+
+snippet style "Style definition" b
+${1:name}Style : List ( String, String )
+$1Style =
+		[ ( "$2", "$3" )
+		, ( "$4", "$5" )$0
+		]
+endsnippet
