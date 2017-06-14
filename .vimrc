@@ -361,6 +361,9 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 " Toggle last buffer
 nnoremap <leader><leader> <C-^>
 
+" :make
+nnoremap <leader>m :make<CR>
+
 " Show hidden files in NERDTree by default
 let g:NERDTreeShowHidden=1
 
@@ -533,10 +536,10 @@ let g:switch_custom_definitions =
     \ ]
 
 " Setting up Vim Golang development
-autocmd FileType go nnoremap <leader>b <Plug>(go-build)
-autocmd FileType go nnoremap <leader>r <Plug>(go-run)
-autocmd FileType go nnoremap <leader>i <Plug>(go-imports)
-autocmd FileType go nnoremap <leader>m <Plug>(go-metalinter)
+autocmd FileType go nnoremap <localleader>b <Plug>(go-build)
+autocmd FileType go nnoremap <localleader>r <Plug>(go-run)
+autocmd FileType go nnoremap <localleader>i <Plug>(go-imports)
+autocmd FileType go nnoremap <localleader>m <Plug>(go-metalinter)
 
 " Show everything in quickfix list
 let g:go_list_type = "quickfix"
