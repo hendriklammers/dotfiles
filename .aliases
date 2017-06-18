@@ -7,8 +7,7 @@ alias vi='vim'
 alias tmux='tmux -2'
 
 # Open tmux session
-alias tma='tmux attach'
-alias tml='tmux ls'
+alias tma='tmux attach || tmux'
 
 # Make sure the right color profile is used when using ssh
 alias ssh="TERM=xterm-256color ssh"
