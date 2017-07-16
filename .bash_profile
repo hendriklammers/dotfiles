@@ -64,7 +64,7 @@ fi;
 set -o vi
 
 # Add Yarn binaries to path
-export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$(yarn global bin)"
 
 # Use locally installed node binaries instead of global ones
 PATH=./node_modules/.bin:$PATH
