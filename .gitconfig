@@ -2,7 +2,7 @@
   name = Hendrik Lammers
   email = lammers@gmail.com
 [color]
-  ui = always
+	ui = true
 [core]
   editor = vim
   excludesfile = ~/.gitignore
@@ -32,3 +32,15 @@
   path = vim
 [tag]
   sort = version:refname
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 227
+	frag = magenta bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
