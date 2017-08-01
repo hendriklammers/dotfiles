@@ -532,6 +532,8 @@ let g:switch_custom_definitions =
     \   ['add', 'remove'],
     \   ['first', 'last'],
     \   ['TODO', 'FIXME'],
+    \   ['cos', 'sin'],
+    \   ['input', 'output'],
     \   ['+', '-']
     \ ]
 
