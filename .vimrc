@@ -40,12 +40,12 @@ Plug 'leafgarland/typescript-vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-" Plug 'ternjs/tern_for_vim', { 'do': './npm install' }
 Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'sophacles/vim-processing'
+Plug 'terryma/vim-multiple-cursors'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
@@ -360,9 +360,6 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 
 " Toggle last buffer
 nnoremap <leader><leader> <C-^>
-
-" :make
-nnoremap <leader>m :make<CR>
 
 " Show hidden files in NERDTree by default
 let g:NERDTreeShowHidden=1
