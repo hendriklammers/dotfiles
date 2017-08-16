@@ -1,40 +1,31 @@
 # Angular snippets
-snippet nga "ng-app"
-ng-app="${1:appName}"$0
+snippet ngClass
+	[ngClass]="{${1:#:cssClass}: ${2:#:expression}}"
 endsnippet
 
-snippet ngm "ng-model"
-ng-model="${1:model}"$0
+snippet ngFor
+	*ngFor="let ${1:#:item} of ${2:#:list}"
 endsnippet
 
-snippet ngc "ng-controller"
-ng-controller="${1:controller}"$0
+snippet ngIf
+	*ngIf="${1:#:expression}""
 endsnippet
 
-snippet ngcl "ng-class"
-ng-class="${1:className}"$0
+snippet ngModel
+	[(ngModel)]="${1:#:binding}""
 endsnippet
 
-snippet ngch "ng-change"
-ng-change="$1"$0
+snippet routerLink
+	[routerLink]="['${1:#:routeName}']""
 endsnippet
 
-snippet ngr "ng-repeat"
-ng-repeat="$1"$0
+snippet ngStyle
+	[ngStyle]="{${1:#:style}: ${2:#:expression}}""
 endsnippet
 
-snippet ngi "ng-if"
-ng-if="$1"$0
-endsnippet
-
-snippet ngs "ng-show"
-ng-show="$1"$0
-endsnippet
-
-snippet ngv "ng-view"
-ng-view$0
-endsnippet
-
-snippet uiv "ui-view" b
-<div ui-view></div>$0
+snippet ngSwitch
+	<div [ngSwitch]="${1:#:conditionExpression}">
+		<div *ngSwitchWhen="${2:#:expression}"></div>
+		<div *ngSwitchDefault>${3:#:output2}</div>
+	</div>
 endsnippet
