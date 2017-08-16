@@ -9,13 +9,13 @@ snippet str "Use strict mode"
 endsnippet
 
 snippet log "console.log()"
-console.log($1)
+console.log($1)$0
 endsnippet
 
 snippet iife "immediately-invoked function expression"
 (function() {
 	$1
-}());
+}())
 endsnippet
 
 snippet fun "function"
@@ -57,7 +57,7 @@ endsnippet
 snippet mod "node/commonjs module" b
 module.exports = function($1) {
 	$2
-};
+}
 endsnippet
 
 # JSDoc snippets
@@ -76,7 +76,7 @@ snippet @ret "@return {Type} Description"
 endsnippet
 
 # ES6 import
-snippet im
+snippet /imp?/ "ES6+ module import" br
 import ${1:module} from '${2:library}'$0
 endsnippet
 
@@ -85,4 +85,8 @@ snippet forof
 for (let ${1:s} of ${2:sequence}) {
 	${3}
 }
+endsnippet
+
+snippet => "arrow function declaration" b
+const ${1:name} = (${2:args}) => ${3:\{\}}
 endsnippet
