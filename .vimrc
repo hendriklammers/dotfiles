@@ -11,7 +11,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
@@ -367,35 +367,11 @@ let g:NERDTreeShowHidden=1
 " Don't ask for confirmation to remove buffer
 let NERDTreeAutoDeleteBuffer=1
 
-" Syntastic settings
-" Most of this is needed when using Angularjs
-let g:syntastic_html_tidy_ignore_errors = [
-    \"trimming empty <",
-    \"unescaped &",
-    \"lacks \"src\" attribute",
-    \"lacks \"action",
-    \"proprietary attribute",
-    \"is not recognized!",
-    \"discarding unexpected"
-\]
-
-" Show all errors when multiple checkers are used
-let g:syntastic_aggregate_errors = 1
-
-" Add errors to location list
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-
-" When a .jshint file is found lint js with jshint otherwise use eslint
-autocmd FileType javascript let b:syntastic_checkers = glob('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
-
-let g:syntastic_php_checkers=['php']
-let g:syntastic_css_checkers=[]
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-
-" No auto check for go files
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" ALE (Asynchronous Lint Engine) settings
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+" No live linting, on run linter when file is opened and saved
+let g:ale_lint_on_text_changed = 'never'
 
 " Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -555,8 +531,31 @@ nnoremap <leader>a :grep<space>
 " Run elm-format when saving elm files
 let g:elm_format_autosave = 1
 
-" Show Elm warnings
-let g:elm_syntastic_show_warnings = 1
+" Show type signatures in completion menu
+let g:elm_detailed_complete = 1
 
 " Use 4 spaces indenting for Elm files
 autocmd FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4
+
+" Only show cursor line for active buffer
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
+" Syntax highlighting for html inside template strings
+autocmd FileType typescript JsPreTmpl html
+autocmd FileType typescript syn clear foldBraces
+
+augroup filetypedetect
+    au BufRead,BufNewFile *.gohtml setfiletype html
+augroup END
+
+" Remove background color from signs column
+highlight clear SignColumn
+
+" Enabled ALE linters
+let g:ale_linters = {
+\   'html': ['htmlhint'],
+\}
