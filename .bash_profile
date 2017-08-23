@@ -63,9 +63,6 @@ fi;
 # Vi mode
 set -o vi
 
-# Add Yarn binaries to path
-export PATH="$PATH:$(yarn global bin)"
-
 # Use locally installed node binaries instead of global ones
 PATH=./node_modules/.bin:$PATH
 
@@ -78,6 +75,9 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export GOPATH="${HOME}/code/go"
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# Add Yarn binaries to path
+export PATH="$PATH:$(yarn global bin)"
 
 # Set hub as alias for git
 eval "$(hub alias -s)"
