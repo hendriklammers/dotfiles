@@ -76,6 +76,12 @@ set autoread
 " Write automatically when calling :make
 set autowrite
 
+" The encoding displayed
+set encoding=utf-8
+
+" The encoding written to file
+set fileencoding=utf-8
+
 " Allow Vim to manage multiple buffers effectively.
 " i.e. Edit multiple unsaved files at the same time.
 set hidden
