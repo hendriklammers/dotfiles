@@ -564,4 +564,5 @@ highlight clear SignColumn
 " Enabled ALE linters
 let g:ale_linters = {
 \   'html': ['htmlhint'],
+\   'javascript': ['eslint'],
 \}
