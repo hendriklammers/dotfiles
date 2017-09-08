@@ -501,6 +501,7 @@ let g:switch_custom_definitions =
     \   ['relative', 'absolute'],
     \   ['top', 'bottom'],
     \   ['left', 'right'],
+    \   ['up', 'down'],
     \   ['max', 'min'],
     \   ['width', 'height'],
     \   ['margin', 'padding'],
@@ -513,6 +514,9 @@ let g:switch_custom_definitions =
     \   ['TODO', 'FIXME'],
     \   ['cos', 'sin'],
     \   ['input', 'output'],
+    \   ['column', 'row'],
+    \   ['fff', '000'],
+    \   ['ffffff', '000000'],
     \   ['+', '-']
     \ ]
 
