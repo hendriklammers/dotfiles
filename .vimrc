@@ -569,4 +569,5 @@ highlight clear SignColumn
 let g:ale_linters = {
 \   'html': ['htmlhint'],
 \   'javascript': ['eslint'],
+\   'css': [],
 \}
