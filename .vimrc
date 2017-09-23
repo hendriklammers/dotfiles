@@ -191,7 +191,7 @@ set relativenumber
 set cursorline
 
 " Make current line number stand out a bit more
-highlight CursorLineNr ctermfg=grey
+highlight CursorLineNr ctermfg=LightGray
 
 " Make tilde in front of nonexisting lines less bright
 highlight EndOfBuffer ctermfg=bg
