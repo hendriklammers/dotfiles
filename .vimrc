@@ -46,6 +46,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'sophacles/vim-processing'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'mbbill/undotree'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
@@ -363,6 +364,9 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 
 " Show current file in NERDTree
 nnoremap <leader>nf :NERDTreeFind<CR>
+
+" Toggle undo-tree
+nnoremap <leader>ut :UndotreeToggle<CR>
 
 " Toggle last buffer
 nnoremap <leader><leader> <C-^>
