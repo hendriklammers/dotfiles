@@ -64,6 +64,12 @@ set nobackup
 set nowb
 set noswapfile
 
+" Use persistent undo when available
+if has("persistent_undo")
+  set undodir=~/.vim/undo/
+  set undofile
+endif
+
 " Yank to clipboard by default
 if has('unnamedplus')
   set clipboard=unnamedplus
