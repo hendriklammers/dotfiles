@@ -389,6 +389,26 @@ let g:ale_sign_warning = '⚠'
 " No live linting, on run linter when file is opened and saved
 let g:ale_lint_on_text_changed = 'never'
 
+" Enabled ALE linters
+let g:ale_linters = {
+\   'html': ['htmlhint'],
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver'],
+\   'css': [],
+\}
+
+" Use prettier (when available) to format js/ts files
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\}
+
+" Format on save
+let g:ale_fix_on_save = 1
+
+" Personal preferences for prettier
+let g:ale_javascript_prettier_options = '--trailing-comma --no-semi'
+
 " Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -574,10 +594,3 @@ augroup END
 
 " Remove background color from signs column
 highlight clear SignColumn
-
-" Enabled ALE linters
-let g:ale_linters = {
-\   'html': ['htmlhint'],
-\   'javascript': ['eslint'],
-\   'css': [],
-\}
