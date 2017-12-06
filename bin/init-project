@@ -41,6 +41,7 @@ yarn add -D \
   webpack \
   webpack-dev-server \
   eslint \
+  prettier \
   babel-loader@8.0.0-beta.0 \
   @babel/core \
   @babel/preset-env \
@@ -56,4 +57,4 @@ fi
 
 # TODO: Add option to also create a new repo on Github
 # Initialize new git repo and add everything
-git init && git add . && git commit -m "Initial commit 🚀"
+git init && git add . && git commit -m "Initial commit 🎉"
