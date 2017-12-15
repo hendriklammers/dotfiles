@@ -33,8 +33,6 @@ fi;
 brew install reattach-to-user-namespace
 
 brew install ack
-brew install boost
-brew install cairo
 brew install diff-so-fancy
 brew install elm
 brew install fish
@@ -47,21 +45,14 @@ brew install htop
 brew install httpie
 brew install hub
 brew install imagemagick --with-webp
-brew install less
-brew install libsass
 brew install macvim --with-override-system-vim
 brew install mongodb
-brew install mysql
 brew install neovim/neovim/neovim
 brew install pandoc
-brew install homebrew/php/php70
-brew install homebrew/php/composer
-brew install pngquant
 brew install postgresql
 brew install python
 brew install python3
-brew install rabbitmq
-brew install speedtest_cli
+brew install speedtest-cli
 brew install ssh-copy-id
 brew install the_silver_searcher
 brew install tmux
