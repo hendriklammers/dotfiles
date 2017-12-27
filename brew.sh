@@ -29,9 +29,6 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash;
 fi;
 
-# Needed to get clipboard working in tmux
-brew install reattach-to-user-namespace
-
 brew install ack
 brew install diff-so-fancy
 brew install elm
