@@ -63,9 +63,6 @@ fi;
 # Vi mode
 set -o vi
 
-# Use locally installed node binaries instead of global ones
-PATH=./node_modules/.bin:$PATH
-
 # Needed for React Native
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
