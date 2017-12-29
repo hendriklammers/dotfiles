@@ -69,4 +69,4 @@ function node_version() {
   fi
 }
 
-PS1="\[$BASE2\]\[${CYAN}\]\u\[$BASE0\]@${CYAN}\]\h\[$BASE0\]: \[$BLUE\]\w \$(parse_git_branch)\n\[$BASE0\]\$(node_version)\[$BASE2\]\$ \[$RESET\]"
+PS1="\[$BASE2\]\[${CYAN}\]\u\[$BASE0\]: \[$BLUE\]\w \$(parse_git_branch)\n\[$BASE0\]\$(node_version)\[$BASE2\]\$ \[$RESET\]"
