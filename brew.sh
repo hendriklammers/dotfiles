@@ -59,6 +59,8 @@ brew install watchman
 brew install wget --with-iri
 brew install yarn
 brew install youtube-dl
+brew install fzf
+brew install ripgrep
 
 # Use Cask to install MacOS applications
 brew install caskroom/cask/brew-cask
