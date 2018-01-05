@@ -103,7 +103,9 @@ set visualbell
 set mouse=a
 
 " Prevent delay when opening new line with O after pressing ESC
-set noesckeys
+if !has('nvim')
+  set noesckeys
+endif
 
 " Always use global flag (for substitute command)
 set gdefault
