@@ -401,7 +401,7 @@ let g:ale_linters = {
 
 " Use prettier (when available) to format js/ts files
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
+\   'javascript': ['prettier-standard'],
 \   'typescript': ['prettier'],
 \}
 
