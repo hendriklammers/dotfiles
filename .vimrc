@@ -525,6 +525,7 @@ if has('nvim')
     autocmd WinEnter term://* startinsert
 endif
 
+" TODO: Figure out if possible to make definitions case insensitive
 " Custom definitions for Switch plugin
 let g:switch_custom_definitions =
     \ [
@@ -549,7 +550,10 @@ let g:switch_custom_definitions =
     \   ['column', 'row'],
     \   ['fff', '000'],
     \   ['ffffff', '000000'],
-    \   ['+', '-']
+    \   ['+', '-'],
+    \   ['to', 'from'],
+    \   ['pause', 'play'],
+    \   ['Pause', 'Play']
     \ ]
 
 " Setting up Vim Golang development
