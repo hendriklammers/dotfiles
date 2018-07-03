@@ -38,13 +38,11 @@ brew install git-extras
 brew install git-flow-avh
 brew install graphicsmagick
 brew install haskell-stack
-brew install htop
 brew install httpie
 brew install hub
 brew install imagemagick --with-webp
-brew install macvim --with-override-system-vim
 brew install mongodb
-brew install neovim/neovim/neovim
+brew install neovim --HEAD
 brew install pandoc
 brew install postgresql
 brew install python

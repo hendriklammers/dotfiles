@@ -15,7 +15,7 @@ PATH="$HOME/.local/bin:$PATH"
 PATH=$DOTFILES/bin:$PATH
 
 # Set the default editor
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 export GIT_EDITOR=vim

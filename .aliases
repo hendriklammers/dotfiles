@@ -1,7 +1,8 @@
 alias reload='source ~/.bash_profile'
-alias ea='vim ~/.aliases && reload'
-alias func='vim ~/.functions && reload'
-alias vi='vim'
+alias ea='nvim ~/.aliases && reload'
+alias func='nvim ~/.functions && reload'
+alias vim='nvim'
+alias vi='nvim'
 
 # Always open tmux in 256 color mode
 alias tmux='tmux -2'
