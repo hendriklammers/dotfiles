@@ -27,7 +27,6 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'chrisbra/csv.vim'
 Plug 'AndrewRadev/switch.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'godlygeek/tabular'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
@@ -35,6 +34,10 @@ Plug 'sophacles/vim-processing'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 call plug#end()
 
 " Keep 1000 lines in history instead of 20 default
@@ -495,18 +498,21 @@ endfunction
 
 " Neovim specific setttings
 if has('nvim')
-    " Exit terminal mode with leader e
-    tnoremap <Leader>e <C-\><C-n>
-    tnoremap <esc><esc> <C-\><C-n>
+  " Exit terminal mode with leader e
+  tnoremap <Leader>e <C-\><C-n>
+  tnoremap <esc><esc> <C-\><C-n>
 
-    " move from the neovim terminal window to somewhere else
-    tnoremap <C-h> <C-\><C-n><C-w>h
-    tnoremap <C-j> <C-\><C-n><C-w>j
-    tnoremap <C-k> <C-\><C-n><C-w>k
-    tnoremap <C-l> <C-\><C-n><C-w>l
+  " move from the neovim terminal window to somewhere else
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+  tnoremap <C-l> <C-\><C-n><C-w>l
 
-    " Immediately go in insert mode when entering terminal
-    autocmd WinEnter term://* startinsert
+  " Immediately go in insert mode when entering terminal
+  autocmd WinEnter term://* startinsert
+
+  " Use deoplete.
+  let g:deoplete#enable_at_startup = 1
 endif
 
 " TODO: Figure out if possible to make definitions case insensitive
