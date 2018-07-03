@@ -6,11 +6,10 @@ set nocompatible
 " Plugins are installed with vim-plug: https://github.com/junegunn/vim-plug
 " TODO: Use on-demand loading for some of the plugins
 call plug#begin('~/.vim/plugged')
+Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'w0rp/ale'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
@@ -18,35 +17,21 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tommcdo/vim-exchange'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'elzr/vim-json'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'chrisbra/csv.vim'
-Plug 'StanAngeloff/php.vim'
-Plug 'tikhomirov/vim-glsl'
 Plug 'AndrewRadev/switch.vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'ElmCast/elm-vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'sophacles/vim-processing'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'mbbill/undotree'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
@@ -201,6 +186,9 @@ set cursorline
 
 " Make current line number stand out a bit more
 highlight CursorLineNr ctermfg=LightGray
+
+" Remove background color from signs column
+highlight clear SignColumn
 
 " Make tilde in front of nonexisting lines less bright
 highlight EndOfBuffer ctermfg=bg
@@ -597,6 +585,3 @@ autocmd FileType typescript syn clear foldBraces
 augroup filetypedetect
     au BufRead,BufNewFile *.gohtml setfiletype html
 augroup END
-
-" Remove background color from signs column
-highlight clear SignColumn
