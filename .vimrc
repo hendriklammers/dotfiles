@@ -7,7 +7,6 @@ set nocompatible
 " TODO: Use on-demand loading for some of the plugins
 call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
@@ -31,6 +30,8 @@ Plug 'godlygeek/tabular'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'sophacles/vim-processing'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
@@ -233,39 +234,11 @@ set wildmode=list:longest
 " patterns to ignore during file-navigation
 set wildignore+=.git,.svn,.sass-cache
 
-" Open CtrlP with leader o
-let g:ctrlp_map = '<leader>o'
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup --hidden
-    \ --ignore .svn
-    \ --ignore .git
-    \ --ignore bower_components
-    \ --ignore node_modules
-    \ --ignore jspm_packages
-    \ --ignore .sass-cache
-    \ --ignore img
-    \ --ignore images
-    \ --ignore fonts
-    \ --ignore compiled
-    \ --ignore plugged
-    \ -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+" Use rg over grep
+if executable('rg')
+  set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
+  set grepformat=%f:%l:%c:%m
 endif
-
-" Ignores for ctrlp plugin
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|jspm_packages|target|output|bower_components|dist|compiled)|(\.(swp|hg|git|svn))$'
-" Be able to open hidden files with ctrlp
-let g:ctrlp_show_hidden = 1
-" Start searching from the directory that was opened in vim
-let g:ctrlp_working_path_mode = 0
 
 " Enable search highlighting
 set hlsearch
@@ -587,3 +560,22 @@ autocmd FileType typescript syn clear foldBraces
 augroup filetypedetect
     au BufRead,BufNewFile *.gohtml setfiletype html
 augroup END
+
+" command! -bang -nargs=* Rg
+"     \ call fzf#vim#grep(
+"     \   'rg --column --line-number --no-heading --color=always --ignore-case '.shellescape(<q-args>), 1,
+"     \   <bang>0 ? fzf#vim#with_preview('up:60%')
+"     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+"     \   <bang>0)
+"
+" nnoremap <C-p>a :Rg
+
+" let g:rg_command = '
+"   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+"   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+"   \ -g "!{.git,node_modules,vendor}/*" '
+"
+" command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+nnoremap <leader>p :Buffers<CR>
+nnoremap <leader>o :Files<CR>

@@ -7,9 +7,6 @@ alias vi='nvim'
 # Always open tmux in 256 color mode
 alias tmux='tmux -2'
 
-# Open tmux session
-alias tma='tmux attach || tmux'
-
 # Make sure the right color profile is used when using ssh
 alias ssh="TERM=xterm-256color ssh"
 
@@ -36,8 +33,8 @@ alias showhidden="defaults write com.apple.Finder AppleShowAllFiles -bool true &
 alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
 
 # Processes
-alias tu='top -o cpu' # cpu
-alias tm='top -o vsize' # memory
+alias topu='top -o cpu' # cpu
+alias topm='top -o vsize' # memory
 
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -67,6 +64,7 @@ alias grm='git rm'
 alias grc='git rm --cached'
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+# TODO: Check why upgrade doesn't work
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
 
 # npm ls without nested deps

@@ -1,27 +1,36 @@
 # Create new directory and open it
-function md() { 
-    mkdir -p "$1"
-    cd "$1" 
+function md() {
+  mkdir -p "$1"
+  cd "$1"
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
-    local port="${1:-8000}"
-    open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port"
+  local port="${1:-8000}"
+  open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port"
 }
 
 # GIT
 # Commit pending changes and quote all args as message
-function gg() { 
-    git commit -v -a -m "$*"
+function gg() {
+  git commit -v -a -m "$*"
 }
 
 # Change directory to the current Finder directory
 function cdf() {
-    target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-    if [ "$target" != "" ]; then
-        cd "$target"; pwd
-    else
-        echo 'No Finder window found' >&2
-    fi
+  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+  if [ "$target" != "" ]; then
+    cd "$target"; pwd
+  else
+    echo 'No Finder window found' >&2
+  fi
+}
+
+# Attach to tmux session if it exists otherwise open fzf
+function tm() {
+  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+  if [ $1 ]; then
+    tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+  fi
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
