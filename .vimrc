@@ -13,8 +13,7 @@ Plug 'w0rp/ale'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
@@ -118,34 +117,38 @@ syntax on
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
-" Use fancy symbols in Airline
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_skip_empty_sections = 1
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename' ] ]
+      \ },
+      \ 'component': {
+      \   'lineinfo': ' %3l:%-2v',
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \   'fugitive': 'LightlineFugitive',
+      \ },
+      \ }
 
-" let g:airline_section_z = '%l:%c'
-call airline#parts#define_raw('linenr', '%l')
-call airline#parts#define_accent('linenr', 'bold')
-let g:airline_section_z = airline#section#create(['%3p%% ',
-            \ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
 
-" Use Airline's tabline and customize it
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+function! LightlineReadonly()
+  return &readonly ? '' : ''
+endfunction
 
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = '|'
+function! LightlineFugitive()
+  if exists('*fugitive#head')
+    let branch = fugitive#head()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return ''
+endfunction
 
 " Allow jsx syntax also for *.js files
 let g:jsx_ext_required = 0
@@ -324,8 +327,8 @@ let delimitMate_expand_cr=1
 " Edit vimrc in a new tab
 nnoremap <leader>ve :tabedit $MYVIMRC<CR>
 
-" Reload vimrc and refresh airline
-nnoremap <leader>vr :source $MYVIMRC<CR>:AirlineRefresh<CR>
+" Reload vimrc
+nnoremap <leader>vr :source $MYVIMRC<CR>
 
 " Shortcut for NERDTreeToggle
 nnoremap <leader>nt :NERDTreeToggle<CR>
@@ -344,6 +347,9 @@ let g:NERDTreeShowHidden=1
 
 " Don't ask for confirmation to remove buffer
 let NERDTreeAutoDeleteBuffer=1
+
+" Removes help text
+let g:NERDTreeMinimalUI = 1
 
 " ALE (Asynchronous Lint Engine) settings
 let g:ale_sign_error = '✗'
@@ -577,5 +583,5 @@ augroup END
 "
 " command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
-nnoremap <leader>p :Buffers<CR>
-nnoremap <leader>o :Files<CR>
+nnoremap <silent> <leader>p :Buffers<CR>
+nnoremap <silent> <leader>o :Files<CR>
