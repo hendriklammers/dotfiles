@@ -3,17 +3,16 @@
 " Use Vim settings, rather then Vi settings
 set nocompatible
 
-" Plugins are installed with vim-plug: https://github.com/junegunn/vim-plug
-" TODO: Use on-demand loading for some of the plugins
 call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
+Plug 'maximbaz/lightline-ale'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
-Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
@@ -122,12 +121,15 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
+      \             [ 'fugitive' ],
+      \             [ 'filename' ] ]
       \ },
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
       \   'fugitive': 'LightlineFugitive',
       \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '·' },
       \ }
 
 function! LightlineFilename()
