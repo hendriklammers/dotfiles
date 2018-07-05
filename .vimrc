@@ -117,11 +117,12 @@ syntax on
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
+" Lightline configuration
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename' ] ]
+      \             [ 'fugitive', 'filename' ] ]
       \ },
       \ 'component': {
       \   'lineinfo': ' %3l:%-2v',
@@ -133,13 +134,31 @@ let g:lightline = {
       \ }
 
 function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' +' : ''
-  return filename . modified
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
 function! LightlineReadonly()
-  return &readonly ? '' : ''
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightlineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
 endfunction
 
 function! LightlineFugitive()
