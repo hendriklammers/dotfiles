@@ -310,7 +310,7 @@ let mapleader = "\<Space>""
 let maplocalleader = ","
 
 " hide last search highlighting
-nnoremap <leader>/ :noh<CR>:<backspace>
+nnoremap <leader>\ :noh<CR>:<backspace>
 
 " Quickly save the file
 nnoremap <leader>w :w!<CR>
