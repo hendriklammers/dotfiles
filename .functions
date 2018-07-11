@@ -34,3 +34,29 @@ function tm() {
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
+
+# Interactively searching and installing brew packages
+# Makes use of FZF
+function brew() {
+  brew=$(which brew)
+  case "$1" in
+    find)
+      choice=$(brew search | fzf --multi --preview "brew info {}")
+      if [ $? -eq 0 ] && [ -n "$choice" ]; then
+        already_installed=$(echo "$choice" | rg -F -x -f <(brew list) -)
+        if [ $? -eq 0 ] && [ -n "$already_installed" ]; then
+          echo "The following formulae are already installed:"
+          echo $already_installed
+        fi
+
+        to_install=$(echo "$choice" | rg -F -x -v -f <(brew list) -)
+        if [ $? -eq 0 ] && [ -n "$to_install" ]; then
+          brew install $to_install
+        else
+          echo "No new formulae to install."
+        fi
+      fi
+      ;;
+    *) $brew "$@" ;;
+  esac
+}
