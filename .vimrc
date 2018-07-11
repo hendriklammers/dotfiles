@@ -125,7 +125,7 @@ let g:lightline = {
       \             [ 'filename' ] ],
       \   'right': [[ 'linter_errors', 'linter_warnings'],
       \             [ 'lineinfo' ],
-      \             [ 'fileformat', 'fileencoding', 'filetype' ]]
+      \             [ 'fileencoding', 'filetype' ]]
       \ },
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
@@ -134,8 +134,14 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '·' },
       \ 'tabline': {
-      \   'right': [ [] ]
-      \ }
+      \   'right': [ [] ],
+      \ },
+      \ 'tabline_separator': { 'left': '' },
+      \ 'tabline_subseparator': { 'left': '' },
+      \ 'tab': {
+      \   'active': ['filename', 'modified'],
+      \   'inactive': ['filename', 'modified']
+      \ },
       \ }
 
 let g:lightline.component_expand = {
