@@ -379,9 +379,6 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 " Show current file in NERDTree
 nnoremap <leader>nf :NERDTreeFind<CR>
 
-" Toggle undo-tree
-nnoremap <leader>ut :UndotreeToggle<CR>
-
 " Toggle last buffer
 nnoremap <leader><leader> <C-^>
 
