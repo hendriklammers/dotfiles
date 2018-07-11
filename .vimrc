@@ -580,9 +580,6 @@ let g:go_fmt_command = "goimports"
 " Lint Go files on save
 let g:go_metalinter_autosave = 1
 
-" grep/Ag with leader a
-nnoremap <leader>a :grep<space>
-
 " Run elm-format when saving elm files
 let g:elm_format_autosave = 1
 
@@ -607,21 +604,14 @@ augroup filetypedetect
     au BufRead,BufNewFile *.gohtml setfiletype html
 augroup END
 
-" command! -bang -nargs=* Rg
-"     \ call fzf#vim#grep(
-"     \   'rg --column --line-number --no-heading --color=always --ignore-case '.shellescape(<q-args>), 1,
-"     \   <bang>0 ? fzf#vim#with_preview('up:60%')
-"     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-"     \   <bang>0)
-"
-" nnoremap <C-p>a :Rg
+command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always --ignore-case --hidden '.shellescape(<q-args>), 1,
+    \   <bang>0 ? fzf#vim#with_preview('up:60%')
+    \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \   <bang>0)
 
-" let g:rg_command = '
-"   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
-"   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
-"   \ -g "!{.git,node_modules,vendor}/*" '
-"
-" command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+nnoremap <leader>/ :Rg
 
-nnoremap <silent> <leader>p :Buffers<CR>
 nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>l :Lines<CR>
