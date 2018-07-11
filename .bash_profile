@@ -84,7 +84,10 @@ eval "$(hub alias -s)"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Use bfs as ripgrep doesn't natively support searching directories
-export FZF_ALT_C_COMMAND="cd ~/; bfs -type d -nohidden | sed s/^\./~/"
+# TODO: Try to get this working from $HOME dir
+export FZF_ALT_C_COMMAND="bfs -type d -nohidden"
+
+# Open fzf to search file and open it with Vim
 bind -x '"\C-p": vim $(fzf);'
 
 # added by travis gem
