@@ -60,6 +60,8 @@ brew install youtube-dl
 brew install fzf
 brew install ripgrep
 brew install tavianator/tap/bfs
+brew install rust
+brew install fd
 
 # Use Cask to install MacOS applications
 brew install caskroom/cask/brew-cask
