@@ -619,5 +619,6 @@ command! -bang -nargs=* Rg
 
 nnoremap <leader>/ :Rg
 
-nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>o :GFiles<CR>
+nnoremap <silent> <leader>p :Files<CR>
 nnoremap <silent> <leader>l :Lines<CR>
