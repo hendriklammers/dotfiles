@@ -60,6 +60,18 @@ snippet m! "default ( Model, Cmd Msg )" b
 model ! []
 endsnippet
 
+snippet test "test"
+test "${1}" <|
+	\_ ->
+		$0
+endsnippet
+
+snippet desc "Describe test"
+describe "${1}"
+	[ $0
+	]
+endsnippet
+
 snippet elm "Elm Architecture boilerplate" b
 module Main exposing (..)
 
