@@ -131,7 +131,7 @@ let g:lightline = {
       \   'filename': 'LightlineFilename',
       \   'fugitive': 'LightlineFugitive',
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
+      \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '·' },
       \ 'tabline': {
       \   'right': [ [] ],
