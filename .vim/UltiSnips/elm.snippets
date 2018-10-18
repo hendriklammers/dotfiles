@@ -43,8 +43,8 @@ type alias $1 =
 endsnippet
 
 snippet view "Html view" b
-view${1:Name} : ${2:Model} -> Html Msg
-view$1 ${3:model} =
+view${1:Name} : ${2:Model} -> Html ${3:Msg}
+view$1 ${4:model} =
     $0
 endsnippet
 
@@ -72,17 +72,49 @@ describe "${1}"
 	]
 endsnippet
 
+snippet m! "default ( Model, Cmd Msg )" b
+model ! []
+endsnippet
+
+snippet test "test"
+test "${1}" <|
+	\_ ->
+		$0
+endsnippet
+
+snippet desc "Describe test"
+describe "${1}"
+	[ $0
+	]
+endsnippet
+
 snippet elm "Elm Architecture boilerplate" b
-module Main exposing (..)
+module Main exposing (main)
 
-import Html exposing (Html, text, program)
+import Browser
+import Html exposing (Html, text)
 
 
--- Model
+
+-- MAIN
+
+
+main : Program () Model Msg
+main =
+    Browser.element
+        { init = \_ -> ( initialModel, Cmd.none )
+        , subscriptions = subscriptions
+        , update = update
+        , view = view
+        }
+
+
+
+-- MODEL
 
 
 type alias Model =
-    String$0
+    String
 
 
 initialModel : Model
@@ -91,7 +123,7 @@ initialModel =
 
 
 
--- Update
+-- UPDATE
 
 
 type Msg
@@ -102,11 +134,11 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         NoOp ->
-            model ! []
+            ( model, Cmd.none )
 
 
 
--- Subscriptions
+-- SUBSCRIPTIONS
 
 
 subscriptions : Model -> Sub Msg
@@ -115,24 +147,10 @@ subscriptions model =
 
 
 
--- View
+-- VIEW
 
 
 view : Model -> Html Msg
 view model =
     text model
-
-
-
--- Main
-
-
-main : Program Never Model Msg
-main =
-    program
-        { init = ( initialModel, Cmd.none )
-        , subscriptions = subscriptions
-        , update = update
-        , view = view
-        }
 endsnippet
