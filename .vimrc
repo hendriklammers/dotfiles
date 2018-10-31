@@ -35,7 +35,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 if has('nvim')
+  Plug 'pbogut/deoplete-elm'
+  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
 endif
 call plug#end()
 
@@ -535,9 +538,6 @@ if has('nvim')
 
   " Immediately go in insert mode when entering terminal
   autocmd WinEnter term://* startinsert
-
-  " Use deoplete.
-  let g:deoplete#enable_at_startup = 1
 endif
 
 " TODO: Figure out if possible to make definitions case insensitive
@@ -601,10 +601,6 @@ augroup CursorLine
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
 augroup END
-
-" Syntax highlighting for html inside template strings
-autocmd FileType typescript JsPreTmpl html
-autocmd FileType typescript syn clear foldBraces
 
 augroup filetypedetect
     au BufRead,BufNewFile *.gohtml setfiletype html
