@@ -568,7 +568,9 @@ let g:switch_custom_definitions =
     \   ['+', '-'],
     \   ['to', 'from'],
     \   ['pause', 'play'],
-    \   ['Pause', 'Play']
+    \   ['Pause', 'Play'],
+    \   ['production', 'development'],
+    \   ['>>', '<<']
     \ ]
 
 " Setting up Vim Golang development
