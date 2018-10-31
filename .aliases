@@ -63,9 +63,8 @@ alias grm='git rm'
 # Add file to .gitignore, then do: grc filename
 alias grc='git rm --cached'
 
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-# TODO: Check why upgrade doesn't work
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+# Update homebrew
+alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
 # npm ls without nested deps
 alias npmls='npm ls --depth=0'
