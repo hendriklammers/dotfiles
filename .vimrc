@@ -610,13 +610,13 @@ augroup END
 
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep(
-    \   'rg --column --line-number --no-heading --color=always --ignore-case --hidden '.shellescape(<q-args>), 1,
+    \   'rg --column --line-number --no-heading --color=always --ignore-case --hidden -g "!{.git,node_modules}/*" -g "!yarn.lock" '.shellescape(<q-args>), 1,
     \   <bang>0 ? fzf#vim#with_preview('up:60%')
     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
     \   <bang>0)
 
-nnoremap <leader>/ :Rg
+nnoremap <leader>/ :grep
 
 nnoremap <silent> <leader>o :GFiles<CR>
-nnoremap <silent> <leader>p :Files<CR>
+nnoremap <silent> <c-p> :Files<CR>
 nnoremap <silent> <leader>l :Lines<CR>
