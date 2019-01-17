@@ -35,9 +35,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Export pkconfig folder
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
-# Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Add tab completion for bash completion 2
 if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
   source "$(brew --prefix)/share/bash-completion/bash_completion";
@@ -56,9 +53,6 @@ fi;
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
 # Extra settings, not checked into the git repo
 [[ -s "$HOME/.extra" ]] && source "$HOME/.extra"
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Vi mode
 set -o vi
@@ -81,7 +75,7 @@ eval "$(hub alias -s)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,elm-stuff}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Use fd as ripgrep doesn't natively support searching directories
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
