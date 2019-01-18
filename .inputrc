@@ -6,3 +6,6 @@ set show-all-if-ambiguous on
 
 # Add trailing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
+
+# Expand on completion
+set expand-tilde on
