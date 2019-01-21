@@ -1,8 +1,11 @@
 # Vi mode
 set -o vi
 
+# Dotfiles location
+export DOTFILES=$HOME/dotfiles
+
 # Custom scripts
-export PATH="$HOME/dotfiles/bin:$PATH"
+export PATH="$DOTFILES/bin:$PATH"
 # Go binaries
 export GOPATH="${HOME}/code/go"
 export GOROOT="$(brew --prefix golang)/libexec"
