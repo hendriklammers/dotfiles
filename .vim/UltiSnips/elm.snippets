@@ -56,6 +56,14 @@ $1Style =
 		]
 endsnippet
 
+snippet mc "Default (model, cmd) return" b
+( model, Cmd.none )$0
+endsnippet
+
+snippet mcu "update model inside (model, cmd)" b
+( { model | $0 }, Cmd.none )
+endsnippet
+
 snippet test "test"
 test "${1}" <|
 	\_ ->
