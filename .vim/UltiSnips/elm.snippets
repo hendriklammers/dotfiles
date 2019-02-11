@@ -4,7 +4,7 @@ module ${1:`!p snip.rv = snip.basename`} exposing (${2:..})
 $0
 endsnippet
 
-snippet im "import" b
+snippet /imp?/  "import" br
 import ${1:Html}
 endsnippet
 
@@ -45,7 +45,15 @@ endsnippet
 snippet view "Html view" b
 view${1:Name} : ${2:Model} -> Html ${3:Msg}
 view$1 ${4:model} =
-    $0
+		$0
+endsnippet
+
+snippet update "update function" b
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+	case msg of
+		$1 ->
+			( model$0, Cmd.none )
 endsnippet
 
 snippet style "Style definition" b
@@ -89,12 +97,12 @@ import Html exposing (Html, text)
 
 main : Program () Model Msg
 main =
-    Browser.element
-        { init = \_ -> ( initialModel, Cmd.none )
-        , subscriptions = subscriptions
-        , update = update
-        , view = view
-        }
+	Browser.element
+		{ init = \_ -> ( initialModel, Cmd.none )
+		, subscriptions = subscriptions
+		, update = update
+		, view = view
+		}
 
 
 
@@ -102,12 +110,12 @@ main =
 
 
 type alias Model =
-    String
+	String
 
 
 initialModel : Model
 initialModel =
-    "Hello Elm"
+	"Hello Elm"
 
 
 
@@ -115,14 +123,14 @@ initialModel =
 
 
 type Msg
-    = NoOp
+	= NoOp
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    case msg of
-        NoOp ->
-            ( model, Cmd.none )
+	case msg of
+		NoOp ->
+			( model, Cmd.none )
 
 
 
@@ -131,7 +139,7 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+	Sub.none
 
 
 
@@ -140,5 +148,5 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    text model
+	text model
 endsnippet
