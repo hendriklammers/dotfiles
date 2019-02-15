@@ -31,8 +31,9 @@ fi;
 
 brew install ack
 brew install diff-so-fancy
-brew install elm
+brew install fd
 brew install fish
+brew install fzf
 brew install git
 brew install git-extras
 brew install git-flow-avh
@@ -47,21 +48,18 @@ brew install pandoc
 brew install postgresql
 brew install python
 brew install python3
+brew install rename
+brew install ripgrep
 brew install speedtest-cli
 brew install ssh-copy-id
+brew install tavianator/tap/bfs
 brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install unrar
-brew install watchman
 brew install wget --with-iri
 brew install yarn
 brew install youtube-dl
-brew install fzf
-brew install ripgrep
-brew install tavianator/tap/bfs
-brew install rust
-brew install fd
 
 # Use Cask to install MacOS applications
 brew install caskroom/cask/brew-cask
