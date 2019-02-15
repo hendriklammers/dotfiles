@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Sort directories by the date of their last git commit
+
+function git_dirs() {
+  for dir in */; do
+    cd "$dir"
+    if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) ]; then
+      # Get last commit and remove day from date
+      date=$(git log -1 --format=%cd | sed 's/^\w\{3\}\s//')
+      echo "$date" $(echo "$dir" | sed 's/\///')
+    fi
+    cd ..
+  done
+}
+
+git_dirs | sort -k4n -k1M -k2n -k3 | cat
