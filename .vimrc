@@ -33,6 +33,7 @@ Plug 'junegunn/fzf.vim'
 
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'freitass/todo.txt-vim'
 
 if has('nvim')
   Plug 'pbogut/deoplete-elm'
@@ -619,4 +620,11 @@ nnoremap <leader>/ :grep
 
 nnoremap <silent> <leader>o :GFiles<CR>
 nnoremap <silent> <c-p> :Files<CR>
-nnoremap <silent> <leader>l :Lines<CR>
+" nnoremap <silent> <leader>l :Lines<CR>
+
+nnoremap <silent> <leader>? :ALEDetail<CR>
+
+" Edit general todo list in new tab
+nnoremap <leader>tl :tabedit ~/Dropbox/todo/todo.txt<CR>
+nnoremap <leader>ta :!todo.sh add 
+nnoremap <leader>td :!todo.sh do 

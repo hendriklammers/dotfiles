@@ -2,7 +2,10 @@
 set -o vi
 
 # Dotfiles location
-export DOTFILES=$HOME/dotfiles
+export DOTFILES="$HOME/dotfiles"
+
+# Location of todo list
+export TODO="$HOME/Dropbox/todo/todo.txt"
 
 # Custom scripts
 export PATH="$DOTFILES/bin:$PATH"
