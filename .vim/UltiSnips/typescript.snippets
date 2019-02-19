@@ -1,1 +1,17 @@
 extends javascript
+
+snippet sfc "React Stateless Functional Component" b
+import React from 'react'
+
+type $1Props = {
+	$2: $3
+}
+
+const ${1:Component}: React.SFC<$1Props> = ( {$2} ) => {
+	return (
+		$0
+	)
+}
+
+export default $1
+endsnippet

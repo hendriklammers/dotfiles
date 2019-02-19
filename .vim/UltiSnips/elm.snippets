@@ -84,6 +84,10 @@ describe "${1}"
 	]
 endsnippet
 
+snippet log "Debug.log"
+Debug.log "$1" $0
+endsnippet
+
 snippet elm "Elm Architecture boilerplate" b
 module Main exposing (main)
 
@@ -91,62 +95,42 @@ import Browser
 import Html exposing (Html, text)
 
 
-
--- MAIN
-
-
 main : Program () Model Msg
 main =
-	Browser.element
-		{ init = \_ -> ( initialModel, Cmd.none )
-		, subscriptions = subscriptions
-		, update = update
-		, view = view
-		}
-
-
-
--- MODEL
+    Browser.element
+        { init = init
+        , subscriptions = subscriptions
+        , update = update
+        , view = view
+        }
 
 
 type alias Model =
-	String
+    String
 
 
-initialModel : Model
-initialModel =
-	"Hello Elm"
-
-
-
--- UPDATE
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( "Hello", Cmd.none )
 
 
 type Msg
-	= NoOp
+    = Ignore
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-	case msg of
-		NoOp ->
-			( model, Cmd.none )
-
-
-
--- SUBSCRIPTIONS
+    case msg of
+        Ignore ->
+            ( model, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-	Sub.none
-
-
-
--- VIEW
+    Sub.none
 
 
 view : Model -> Html Msg
 view model =
-	text model
+    text model
 endsnippet
