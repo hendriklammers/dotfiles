@@ -30,7 +30,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'sophacles/vim-processing'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'freitass/todo.txt-vim'
@@ -336,9 +335,8 @@ nnoremap <leader>t4 :set tabstop=4 shiftwidth=4 softtabstop=4<CR>
 " Set correct filetypes
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown " Override
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
-autocmd BufRead,BufNewFile *.jsbeautifyrc setfiletype json
-autocmd BufRead,BufNewFile *.eslintrc setfiletype json
-autocmd BufRead,BufNewFile *.babelrc setfiletype json
+autocmd BufRead,BufNewFile *.eslintrc,*.babelrc,*.prettierrc setfiletype json
+autocmd BufRead,BufNewFile *.prompt,*.functions,*.extra,*.aliases setfiletype sh
 
 " Remove trailing whitespace
 nnoremap <Leader>rw :%s/\s\+$//e<CR>
@@ -411,9 +409,12 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
 \   'html': ['htmlhint'],
 \   'javascript': ['eslint'],
-\   'typescript': ['tsserver'],
+\   'typescript': ['tslint', 'tsserver'],
 \   'css': [],
 \}
+
+" Just use ALE tslint for linting typescript
+let g:nvim_typescript#diagnostics_enable = 0
 
 " Use prettier (when available) to format js/ts files
 let g:ale_fixers = {
@@ -425,7 +426,7 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " Personal preferences for prettier
-let g:ale_javascript_prettier_options = '--trailing-comma --no-semi'
+let g:ale_javascript_prettier_options = '--trailing-comma --no-semi --single-quote'
 
 " Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -439,6 +440,12 @@ nnoremap <leader>ue :UltiSnipsEdit<CR>
 
 " Not a fan of emmets default <C-y> leader
 let g:user_emmet_leader_key = '<C-e>'
+
+let g:user_emmet_settings = {
+  \ 'typescript' : {
+  \     'extends' : 'jsx',
+  \ },
+  \}
 
 " let g:user_emmet_expandabbr_key = '<Tab>'
 " let g:user_emmet_complete_tag = 1
@@ -611,7 +618,7 @@ augroup END
 
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep(
-    \   'rg --column --line-number --no-heading --color=always --ignore-case --hidden -g "!{.git,node_modules}/*" -g "!yarn.lock" '.shellescape(<q-args>), 1,
+    \   'rg --column --line-number --no-heading --color=always --ignore-case --hidden -g "!{.git,node_modules,elm-stuff}/*" -g "!yarn.lock" '.shellescape(<q-args>), 1,
     \   <bang>0 ? fzf#vim#with_preview('up:60%')
     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
     \   <bang>0)
