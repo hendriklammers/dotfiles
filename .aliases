@@ -67,8 +67,8 @@ alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 # npm ls without nested deps
 alias npmls='npm ls --depth=0'
 
-# todo.txt
-alias todo='todo.sh'
+# todo.txt cli
+alias t='todo.sh'
 
 # Shortcuts
 alias dot='cd ~/dotfiles'
