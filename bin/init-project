@@ -37,29 +37,33 @@ cd "$projectTitle"
 
 case "$projectType" in
   "elm")
-    repo=git@github.com:hendriklammers/elm-project.git
+    repo=git@github.com:hendriklammers/elm-project-starter.git
     ;;
   "node")
-    repo=git@github.com:hendriklammers/node-project.git
+    repo=git@github.com:hendriklammers/node-project-starter.git
     ;;
   *) echo "No repo available for this project type"; exit 1
 esac
 git clone "$repo" .
 
-# TODO: See if something like this would be better:
-# https://github.com/thoughtbot/dotfiles/blob/master/bin/replace
-#
-# Add title and description to package.json and index.html
-# sed -i"" "s/PROJECT_TITLE/$title/g; s/PROJECT_DESCRIPTION/$description/g;"\
-#   package.json \
-#   public/index.html \
-#   README.md
+# Use install script from repo to install dependencies
+if [[ -f "install.sh" ]]; then
+  echo "Installing dependencies"
+  ./install.sh
+  rm install.sh
+fi
 
-# Remove .git directory, we want to start with a clean repo
-# if [ -d ".git" ]; then
-#   rm -rf .git
-# fi
+for file in package.json package-lock.json index.html README.md; do
+  if [[ -f "$file" ]]; then
+    sed -i"" "s/PROJECT_TITLE/$projectTitle/g; \
+      s/PROJECT_DESCRIPTION/$projectDescription/g;" $file
+  fi
+done
+
+# Start with a fresh git repo
+if [ -d ".git" ]; then
+  rm -rf .git
+fi
+git init && git add . && git commit -m "Initial commit"
 
 # TODO: Add option to also create a new repo on Github
-# Initialize new git repo and add everything
-git init && git add . && git commit -m "Initial commit"
