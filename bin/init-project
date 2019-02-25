@@ -1,60 +1,65 @@
 #!/bin/bash
+#
+# Starts a new project
 
-# Check if yarn is installed, otherwise exit
-command -v yarn >/dev/null 2>&1 ||
-  { echo >&2 "Please make sure yarn package manager is installed. Aborting."; exit 1; }
+PS3='Project type: '
+select opt in Elm Node
+do
+  case $opt in
+    "Elm")
+      projectType="elm"
+      break
+      ;;
+    "Node")
+      projectType="node"
+      break
+      ;;
+    *) echo "invalid option $REPLY";;
+  esac
+done
 
-# Ask for project title and description
-if [ ! -z "$1" ]; then title=$1;
-else read -p "Project title: " title; fi
-if [ ! -z "$2" ]; then description="$2";
-else read -p "Project description: " description; fi
+while [ -z "$projectTitle" ]
+do
+  read -p "Project title: " input;
+  if [[ ! "$input" =~ ^[a-zA-Z0-9-]{3,}$ ]]; then
+    echo "Invalid project title";
+  elif [ -d "$input" ]; then
+    echo "Directory with this title already exists";
+  else
+    projectTitle="$input"
+  fi
+done
 
-# Validate title
-titlePattern="^[a-zA-Z0-9-]{3,}$"
-if [[ ! $title =~ $titlePattern ]]; then
-  echo "Invalid project title. Aborting."; exit 1
-fi
+read -p "Project description: " projectDescription;
 
-# Create new directory
-if [ -d $title ]; then
-  echo "Directory with this title already exists. Aborting"; exit 1
-else
-  mkdir -p "$title"
-  cd "$title"
-fi
+mkdir -p "$projectTitle"
+cd "$projectTitle"
 
-# Clone project boilerplate
-git clone git@github.com:hendriklammers/init-project.git .
+case "$projectType" in
+  "elm")
+    repo=git@github.com:hendriklammers/elm-project.git
+    ;;
+  "node")
+    repo=git@github.com:hendriklammers/node-project.git
+    ;;
+  *) echo "No repo available for this project type"; exit 1
+esac
+git clone "$repo" .
 
 # TODO: See if something like this would be better:
 # https://github.com/thoughtbot/dotfiles/blob/master/bin/replace
 #
 # Add title and description to package.json and index.html
-sed -i"" "s/PROJECT_TITLE/$title/g; s/PROJECT_DESCRIPTION/$description/g;"\
-  package.json \
-  public/index.html \
-  README.md
-
-# Install dev dependencies with yarn
-yarn add -D \
-  webpack \
-  webpack-dev-server \
-  eslint \
-  prettier \
-  babel-loader@8.0.0-beta.0 \
-  @babel/core \
-  @babel/preset-env \
-  @babel/preset-stage-0 \
-  @babel/polyfill \
-  css-loader \
-  style-loader
+# sed -i"" "s/PROJECT_TITLE/$title/g; s/PROJECT_DESCRIPTION/$description/g;"\
+#   package.json \
+#   public/index.html \
+#   README.md
 
 # Remove .git directory, we want to start with a clean repo
-if [ -d ".git" ]; then
-  rm -rf .git
-fi
+# if [ -d ".git" ]; then
+#   rm -rf .git
+# fi
 
 # TODO: Add option to also create a new repo on Github
 # Initialize new git repo and add everything
-git init && git add . && git commit -m "Initial commit 🎉"
+git init && git add . && git commit -m "Initial commit"
