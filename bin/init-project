@@ -20,7 +20,7 @@ done
 
 while [ -z "$projectTitle" ]
 do
-  read -p "Project title: " input;
+  read -p "Title: " input;
   if [[ ! "$input" =~ ^[a-zA-Z0-9-]{3,}$ ]]; then
     echo "Invalid project title";
   elif [ -d "$input" ]; then
@@ -30,7 +30,18 @@ do
   fi
 done
 
-read -p "Project description: " projectDescription;
+read -p "Description: " projectDescription;
+
+while [ -z $githubRepo ]
+do
+  read -p "Create a new repository on Github? [Y/n]" -n 1 choice
+  case $choice in
+    y|Y|"") githubRepo=true;;
+    n|N) githubRepo=false;;
+    *) echo " invalid option";;
+  esac
+done
+echo ""
 
 mkdir -p "$projectTitle"
 cd "$projectTitle"
@@ -42,9 +53,10 @@ case "$projectType" in
   "node")
     repo=git@github.com:hendriklammers/node-project-starter.git
     ;;
-  *) echo "No repo available for this project type"; exit 1
+  *) echo >&2 "No repo available for this project type"; exit 1
 esac
 git clone "$repo" .
+echo ""
 
 # Use install script from repo to install dependencies
 if [[ -f "install.sh" ]]; then
@@ -65,5 +77,12 @@ if [ -d ".git" ]; then
   rm -rf .git
 fi
 git init && git add . && git commit -m "Initial commit"
+echo ""
 
-# TODO: Add option to also create a new repo on Github
+if [ "$githubRepo" = true ]; then
+  if ! [ -x $(command -v hub) ]; then
+    echo >&2 "hub is not installed."; exit 1
+  fi
+  hub create -p $projectTitle -d "$projectDescription"
+  # git push -u origin master
+fi
