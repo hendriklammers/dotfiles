@@ -48,6 +48,9 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 # Open fzf to search file and open it with Vim
 bind -x '"\C-p": vim $(fzf);'
 
+# rg config, containing ignore globs
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
 # Source scripts
 [ -s "$HOME/.prompt" ] && source "$HOME/.prompt"
 [ -s "$HOME/.functions" ] && source "$HOME/.functions"

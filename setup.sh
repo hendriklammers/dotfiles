@@ -9,6 +9,7 @@ links=(
   ".gitconfig"
   ".inputrc"
   ".prompt"
+  ".ripgreprc"
   ".tern-config"
   ".tmux.conf"
   ".vim"

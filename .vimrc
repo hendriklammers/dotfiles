@@ -291,7 +291,7 @@ set wildignore+=.git,.svn,.sass-cache
 
 " Use rg over grep
 if executable('rg')
-  set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
+  set grepprg=rg\ --no-heading\ --vimgrep
   set grepformat=%f:%l:%c:%m
 endif
 
@@ -618,7 +618,7 @@ augroup END
 
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep(
-    \   'rg --column --line-number --no-heading --color=always --ignore-case --hidden -g "!{.git,node_modules,elm-stuff}/*" -g "!yarn.lock" '.shellescape(<q-args>), 1,
+    \   'rg --column --line-number --no-heading --color=always --hidden '.shellescape(<q-args>), 1,
     \   <bang>0 ? fzf#vim#with_preview('up:60%')
     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
     \   <bang>0)

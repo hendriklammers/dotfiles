@@ -1,0 +1,6 @@
+# Case insensitive, except when using capital letters
+--smart-case
+
+# Ignore
+--glob=!{.git,node_modules,elm-stuff}/*
+--glob=!{package-lock.json,yarn.lock}
