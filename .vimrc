@@ -5,7 +5,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
@@ -371,9 +371,6 @@ nnoremap Q <nop>
 
 " Prevent vim opening man when accidentally
 nnoremap <S-k> <nop>
-
-" Add a return with indent, like in Textmate
-let delimitMate_expand_cr=1
 
 " Edit vimrc in a new tab
 nnoremap <leader>ve :tabedit $MYVIMRC<CR>
