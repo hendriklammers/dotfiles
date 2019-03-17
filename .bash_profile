@@ -41,7 +41,7 @@ elif [ -f /etc/bash_completion ]; then
 fi;
 
 # http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,elm-stuff}/*" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Use fd as ripgrep doesn't natively support searching directories
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
