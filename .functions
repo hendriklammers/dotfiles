@@ -70,3 +70,9 @@ function license() {
 function editorconfig() {
   curl https://gist.githubusercontent.com/hendriklammers/2b09d9c5d6dada7a12ee311a65b6ca60/raw/8dec201982cc2b6c4dd37cd028b71bfc876d3763/.editorconfig -o .editorconfig -s
 }
+
+# Install npm package with separate types package
+function nit() {
+  npm install -S "$1"
+  npm install -D @types/"$1"
+}

@@ -64,8 +64,9 @@ alias grc='git rm --cached'
 # Update homebrew
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
-# npm ls without nested deps
-alias npmls='npm ls --depth=0'
+# npm
+alias nls='npm ls --depth=0'
+alias ni='npm install'
 
 # todo.txt cli
 alias t='todo.sh'
@@ -78,3 +79,4 @@ alias drop='cd ~/Dropbox'
 alias work='cd ~/work'
 alias pro='cd ~/Projects'
 alias code='cd ~/code'
+alias doc='cd ~/Documents'
