@@ -13,20 +13,20 @@ console.log($1)$0
 endsnippet
 
 snippet iife "immediately-invoked function expression"
-(function() {
+(() => {
 	$1
-}())
+})()
+endsnippet
+
+snippet aiife "async immediately-invoked function expression"
+(async () => {
+	$1
+})()
 endsnippet
 
 snippet fun "function"
 function ${1:functionName}(${2:arguments}) {
 	${3:// body...}
-}
-endsnippet
-
-snippet af "anonymous function" w
-function($1) {
-	$0
 }
 endsnippet
 
@@ -75,18 +75,38 @@ snippet @ret "@return {Type} Description"
 @return {${1:Type}} ${2:Description}
 endsnippet
 
-# ES6 import
 snippet /imp?/ "ES6 module import" br
 import ${1:module} from '${2:$1}'$0
 endsnippet
 
-# For of loop
-snippet forof
+snippet forof "for of loop"
 for (let ${1:s} of ${2:sequence}) {
 	${3}
 }
 endsnippet
 
-snippet => "arrow function declaration" b
-const ${1:name} = (${2:args}) => ${3:\{\}}
+snippet af "arrow function"
+($1) => ${2:\{$0\}}
+endsnippet
+
+snippet async "async function"
+async ($1) => ${2:\{$0\}}
+endsnippet
+
+snippet prom "Promise"
+new Promise((resolve, reject) => {
+	$0
+})
+endsnippet
+
+snippet try "try/catch" b
+try {
+	$0
+} catch (err) {
+	console.error(err)
+}
+endsnippet
+
+snippet #! "shebang"
+#!/usr/bin/env node
 endsnippet
