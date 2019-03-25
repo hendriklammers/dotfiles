@@ -24,7 +24,7 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'chrisbra/csv.vim'
 Plug 'AndrewRadev/switch.vim'
-Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'sophacles/vim-processing'
@@ -33,6 +33,7 @@ Plug 'junegunn/fzf.vim'
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'freitass/todo.txt-vim'
+Plug 'alx741/vim-hindent'
 
 if has('nvim')
   Plug 'pbogut/deoplete-elm'
@@ -399,7 +400,7 @@ let g:NERDTreeMinimalUI = 1
 " ALE (Asynchronous Lint Engine) settings
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
-" No live linting, on run linter when file is opened and saved
+" No live linting, only run linter when file is opened and saved
 let g:ale_lint_on_text_changed = 'never'
 
 " Enabled ALE linters
@@ -408,6 +409,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tslint', 'tsserver'],
 \   'css': [],
+\   'haskell': ['hlint', 'stack_ghc'],
 \}
 
 " Just use ALE tslint for linting typescript
@@ -467,6 +469,12 @@ nnoremap <leader>gp :Gpush<CR>
 
 " Open Gdiff in vertical splits
 set diffopt+=vertical
+"
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -599,8 +607,11 @@ let g:elm_format_autosave = 1
 " Show type signatures in completion menu
 let g:elm_detailed_complete = 1
 
-" Use 4 spaces indenting for Elm files
-autocmd FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4
+" Use 4 spaces indenting for Elm and Haskell
+autocmd FileType elm,haskell setlocal tabstop=4 shiftwidth=4 softtabstop=4
+
+" Haskell indentation
+let g:hindent_indent_size = 4
 
 " Only show cursor line for active buffer
 augroup CursorLine
