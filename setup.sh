@@ -6,6 +6,7 @@ links=(
   ".bash_profile"
   ".bashrc"
   ".functions"
+  ".ghci"
   ".gitconfig"
   ".inputrc"
   ".prompt"
