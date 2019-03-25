@@ -33,12 +33,23 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Set hub as alias for git
 eval "$(hub alias -s)"
 
-# Add tab completion for bash completion 2
-if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-  source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-  source /etc/bash_completion;
-fi;
+# Bash completions installed with Homebrew
+if type brew &>/dev/null; then
+  for COMPLETION in $(brew --prefix)/etc/bash_completion.d/*
+  do
+    [[ -f $COMPLETION ]] && source "$COMPLETION"
+  done
+  if [[ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]];
+  then
+    source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+  fi
+fi
+
+# Completion for nvm
+[[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
+
+# stack completions
+eval "$(stack --bash-completion-script stack)"
 
 # http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow 2> /dev/null'
