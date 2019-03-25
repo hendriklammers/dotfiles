@@ -8,11 +8,16 @@ export DOTFILES="$HOME/dotfiles"
 export TODO="$HOME/Dropbox/todo/todo.txt"
 
 # Custom scripts
-export PATH="$DOTFILES/bin:$PATH"
+PATH="$DOTFILES/bin:$PATH"
+
+# Haskell binaries
+PATH="$HOME/.cabal/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+
 # Go binaries
 export GOPATH="${HOME}/code/go"
 export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Set the default editor
 export VISUAL=nvim
