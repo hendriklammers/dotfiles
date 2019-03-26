@@ -1,1 +1,2 @@
 :set prompt "\ESC[0;37mλ \ESC[m"
+:def cl const $ return ":!clear"
