@@ -163,7 +163,7 @@ let g:lightline.component_type = {
       \ }
 
 let g:lightline#ale#indicator_checking = ""
-let g:lightline#ale#indicator_warnings = "⚠ "
+let g:lightline#ale#indicator_warnings = "•"
 let g:lightline#ale#indicator_errors = "✗"
 let g:lightline#ale#indicator_ok = ""
 
@@ -399,7 +399,10 @@ let g:NERDTreeMinimalUI = 1
 
 " ALE (Asynchronous Lint Engine) settings
 let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_warning = '•'
+" Change color of warning sign to yellow
+highlight ALEWarningSign ctermfg=3
+
 " No live linting, only run linter when file is opened and saved
 let g:ale_lint_on_text_changed = 'never'
 
