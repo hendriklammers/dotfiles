@@ -1,4 +1,5 @@
 #!/usr/bin/env osascript
+#
 # Returns the current playing song in Spotify for OSX
 
 tell application "Spotify"
@@ -6,13 +7,18 @@ tell application "Spotify"
     if player state is playing then
       set track_name to name of current track
       set artist_name to artist of current track
+      set combined_name to artist_name & " - " & track_name
+      set max_length to 40
+
+      if length of combined_name > max_length then
+        set combined_name to ((characters 1 thru max_length of combined_name) as string) & "…"
+      end if
 
       if artist_name > 0
-        # If the track has an artist set and is therefore most likely a song rather than an advert
-        "#[fg=colour254]🎵 #[bg=black,fg=colour61]" & artist_name & " - " & track_name
+        "#[fg=colour254]🎵 #[fg=colour61]"& combined_name
       else
-        # If the track doesn't have an artist set and is therefore most likely an advert rather than a song
-        "~ " & track_name
+        # Advertisement
+        " #[fg=colour61]~ " & track_name
       end if
     end if
   end if
