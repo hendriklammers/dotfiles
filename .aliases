@@ -71,6 +71,10 @@ alias ni='npm install'
 # todo.txt cli
 alias t='todo.sh'
 
+# Stack
+alias ghci="stack ghci"
+alias runghc="stack runghc"
+
 # Shortcuts
 alias dot='cd ~/dotfiles'
 alias dl='cd ~/Downloads'
