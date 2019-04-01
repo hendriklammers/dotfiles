@@ -24,7 +24,7 @@ brew tap homebrew/versions
 brew install bash-completion2
 
 # Switch to using brew-installed bash as default shell
-if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
+if ! grep -F -q '/usr/local/bin/bash' /etc/shells; then
   echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
   chsh -s /usr/local/bin/bash;
 fi;
@@ -39,6 +39,7 @@ brew install git-extras
 brew install git-flow-avh
 brew install graphicsmagick
 brew install haskell-stack
+brew install htop
 brew install httpie
 brew install hub
 brew install imagemagick --with-webp
@@ -50,11 +51,13 @@ brew install python
 brew install python3
 brew install rename
 brew install ripgrep
+brew install shellcheck
 brew install speedtest-cli
 brew install ssh-copy-id
 brew install tavianator/tap/bfs
 brew install the_silver_searcher
 brew install tmux
+brew install todo-txt
 brew install tree
 brew install unrar
 brew install wget --with-iri
@@ -64,11 +67,8 @@ brew install youtube-dl
 # Use Cask to install MacOS applications
 brew install caskroom/cask/brew-cask
 brew cask install 1password
-brew cask install adobe-creative-cloud
-brew cask install adobe-reader
 brew cask install alfred
 brew cask install android-file-transfer
-brew cask install android-studio
 brew cask install appcleaner
 brew cask install dash
 brew cask install divvy
@@ -94,7 +94,6 @@ brew cask install transmission
 brew cask install transmit
 brew cask install tunnelblick
 brew cask install unrarx
-brew cask install virtualbox
 brew cask install vlc
 
 # Remove outdated versions from the cellar
