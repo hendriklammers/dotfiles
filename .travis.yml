@@ -1,0 +1,4 @@
+language: generic
+script:
+  - shopt -s extglob
+  - shellcheck *.sh bin/!(tmux-spotify)
