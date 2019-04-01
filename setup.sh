@@ -11,7 +11,6 @@ links=(
   ".inputrc"
   ".prompt"
   ".ripgreprc"
-  ".tern-config"
   ".tmux.conf"
   ".vim"
   ".vimrc"
