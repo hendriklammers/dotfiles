@@ -1,0 +1,41 @@
+snippet readme "README template" b
+# ${1:title} [![Build Status](https://travis-ci.org/hendriklammers/$1.svg?branch=master)](https://travis-ci.org/hendriklammers/$1)
+
+${2:description}
+
+
+## Install
+
+\`\`\`
+$3
+\`\`\`
+
+## Usage
+
+\`\`\`
+$0
+\`\`\`
+
+## License
+
+MIT
+endsnippet
+
+snippet link "Link to url"
+[${1:${VISUAL:text}}](${3:https://${2:www.url.com}})$0
+endsnippet
+
+snippet travis "Travis CI badge"
+[![Build Status](https://travis-ci.org/hendriklammers/${1}.svg?branch=master)](https://travis-ci.org/hendriklammers/$1)$0
+endsnippet
+
+snippet code "Codeblock" b
+\`\`\`
+$1
+\`\`\`
+$0
+endsnippet
+
+snippet img "Image"
+![${1:alt text}](${2:href}${3/.+/ "/}${3:title}${3/.+/"/})$0
+endsnippet
