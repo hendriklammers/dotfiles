@@ -310,10 +310,10 @@ set omnifunc=htmlcomplete#CompleteTags
 set omnifunc=javascriptcomplete#CompleteJS
 
 " Map leader to space
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " Local leader
-let maplocalleader = ','
+let g:maplocalleader = ','
 
 " hide last search highlighting
 nnoremap <leader>\ :noh<CR>:<backspace>
