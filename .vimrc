@@ -67,6 +67,7 @@ set autowrite
 
 " The encoding displayed
 set encoding=utf-8
+scriptencoding utf-8
 
 " The encoding written to file
 set fileencoding=utf-8
