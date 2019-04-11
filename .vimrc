@@ -1,8 +1,5 @@
 " TODO: Organise and cleanup file
 
-" Use Vim settings, rather then Vi settings
-set nocompatible
-
 call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
@@ -46,11 +43,11 @@ set history=1000
 
 " Turn backup and swapfiles off, since most stuff is in git anyway...
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile
 
 " Use persistent undo when available
-if has("persistent_undo")
+if has('persistent_undo')
   set undodir=~/.vim/undo/
   set undofile
 endif
@@ -110,7 +107,7 @@ colorscheme solarized
 let g:solarized_diffmode = 'high'
 
 " Toggle Solarized light/dark
-call togglebg#map("<F3>")
+call togglebg#map('<F3>')
 
 " Show syntax highlighting
 syntax on
@@ -160,36 +157,36 @@ let g:lightline.component_type = {
       \     'linter_ok': 'left',
       \ }
 
-let g:lightline#ale#indicator_checking = ""
-let g:lightline#ale#indicator_warnings = "•"
-let g:lightline#ale#indicator_errors = "✗"
-let g:lightline#ale#indicator_ok = ""
+let g:lightline#ale#indicator_checking = ''
+let g:lightline#ale#indicator_warnings = '•'
+let g:lightline#ale#indicator_errors = '✗'
+let g:lightline#ale#indicator_ok = ''
 
 function! LightlineFilename()
-  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+  return ('' !=# LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ ('' !=# expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' !=# LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
 function! LightlineReadonly()
-  if &filetype == "help"
-    return ""
+  if &filetype ==# 'help'
+    return ''
   elseif &readonly
-    return ""
+    return ''
   else
-    return ""
+    return ''
   endif
 endfunction
 
 function! LightlineModified()
-  if &filetype == "help"
-    return ""
+  if &filetype ==# 'help'
+    return ''
   elseif &modified
-    return "+"
+    return '+'
   elseif &modifiable
-    return ""
+    return ''
   else
-    return ""
+    return ''
   endif
 endfunction
 
@@ -264,7 +261,7 @@ set laststatus=2
 " Format status line
 set statusline=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n
 " Make command line two lines high
-set ch=2
+set cmdheight=2
 
 " Don't display the current mode in the status line.
 set noshowmode
@@ -312,10 +309,10 @@ set omnifunc=htmlcomplete#CompleteTags
 set omnifunc=javascriptcomplete#CompleteJS
 
 " Map leader to space
-let mapleader = "\<Space>""
+let mapleader = "\<Space>"
 
 " Local leader
-let maplocalleader = ","
+let maplocalleader = ','
 
 " hide last search highlighting
 nnoremap <leader>\ :noh<CR>:<backspace>
@@ -346,7 +343,7 @@ set pastetoggle=<F2>
 " mapping to make movements operate on 1 screen line in wrap mode
 function! ScreenMovement(movement)
    if &wrap
-      return "g" . a:movement
+      return 'g' . a:movement
    else
       return a:movement
    endif
@@ -429,12 +426,12 @@ let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_options = '--trailing-comma --no-semi --single-quote'
 
 " Expand snippets with ctrl + j
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 " Open :UltiSnipsEdit in a vertical split
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit='vertical'
 " Edit UltiSnips snippets
 nnoremap <leader>ue :UltiSnipsEdit<CR>
 
@@ -502,7 +499,7 @@ noremap <right> 3<C-W>>
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Map Switch plugin to leader s
-let g:switch_mapping = ""
+let g:switch_mapping = ''
 nnoremap <leader>s :Switch<CR>
 
 " This should fix matchit to jump from <ul> to <li> instead of </ul>
@@ -587,10 +584,10 @@ autocmd FileType go nnoremap <localleader>i <Plug>(go-imports)
 autocmd FileType go nnoremap <localleader>m <Plug>(go-metalinter)
 
 " Show everything in quickfix list
-let g:go_list_type = "quickfix"
+let g:go_list_type = 'quickfix'
 
 " Run goimports when saving a file (While still formatting)
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
 
 " Lint Go files on save
 let g:go_metalinter_autosave = 1
