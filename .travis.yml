@@ -1,3 +1,9 @@
-language: generic
+language: python
+python:
+  - '2.7'
+  - '3.7'
+install:
+  - pip install vim-vint
 script:
   - shellcheck *.sh
+  - vint .vimrc
