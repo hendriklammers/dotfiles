@@ -329,11 +329,35 @@ inoremap <C-l> <Esc>A
 nnoremap <leader>t2 :set tabstop=2 shiftwidth=2 softtabstop=2<CR>
 nnoremap <leader>t4 :set tabstop=4 shiftwidth=4 softtabstop=4<CR>
 
-" Set correct filetypes
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown " Override
-autocmd BufRead,BufNewFile *.es6 setfiletype javascript
-autocmd BufRead,BufNewFile *.eslintrc,*.babelrc,*.prettierrc setfiletype json
-autocmd BufRead,BufNewFile *.prompt,*.functions,*.extra,*.aliases setfiletype sh
+" Group all autocmd
+augroup vimrc
+  " Set correct filetypes
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+  autocmd BufRead,BufNewFile *.eslintrc,*.babelrc,*.prettierrc setfiletype json
+  autocmd BufRead,BufNewFile *.prompt,*.functions,*.extra,*.aliases setfiletype sh
+
+  " This should fix matchit to jump from <ul> to <li> instead of </ul>
+  autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
+
+  " Wrap markdown files at 80 columns and enable spellcheck
+  autocmd BufRead,BufNewFile *.md setlocal spell textwidth=80
+
+  " Wrap git commit messages at 72 columns and enable spellcheck
+  autocmd Filetype gitcommit setlocal spell textwidth=72
+
+  " Setting up Vim Golang development
+  autocmd FileType go nnoremap <localleader>b <Plug>(go-build)
+  autocmd FileType go nnoremap <localleader>r <Plug>(go-run)
+  autocmd FileType go nnoremap <localleader>i <Plug>(go-imports)
+  autocmd FileType go nnoremap <localleader>m <Plug>(go-metalinter)
+
+  " Use 4 spaces indenting for Elm
+  autocmd FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4
+
+  " Haskell settings
+  autocmd FileType haskell setlocal tabstop=4 shiftwidth=4 softtabstop=4 formatprg=hindent
+augroup END
 
 " Remove trailing whitespace
 nnoremap <Leader>rw :%s/\s\+$//e<CR>
@@ -503,15 +527,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:switch_mapping = ''
 nnoremap <leader>s :Switch<CR>
 
-" This should fix matchit to jump from <ul> to <li> instead of </ul>
-autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
-
-" Wrap markdown files at 80 columns and enable spellcheck
-autocmd BufRead,BufNewFile *.md setlocal spell textwidth=80
-
-" Wrap git commit messages at 72 columns and enable spellcheck
-autocmd Filetype gitcommit setlocal spell textwidth=72
-
 " Use jsx syntax also for files without jsx extension
 let g:jsx_ext_required = 0
 
@@ -542,7 +557,7 @@ if has('nvim')
   tnoremap <C-l> <C-\><C-n><C-w>l
 
   " Immediately go in insert mode when entering terminal
-  autocmd WinEnter term://* startinsert
+  autocmd vimrc WinEnter term://* startinsert
 endif
 
 " TODO: Figure out if possible to make definitions case insensitive
@@ -578,12 +593,6 @@ let g:switch_custom_definitions =
     \   ['>>', '<<']
     \ ]
 
-" Setting up Vim Golang development
-autocmd FileType go nnoremap <localleader>b <Plug>(go-build)
-autocmd FileType go nnoremap <localleader>r <Plug>(go-run)
-autocmd FileType go nnoremap <localleader>i <Plug>(go-imports)
-autocmd FileType go nnoremap <localleader>m <Plug>(go-metalinter)
-
 " Show everything in quickfix list
 let g:go_list_type = 'quickfix'
 
@@ -598,12 +607,6 @@ let g:elm_format_autosave = 1
 
 " Show type signatures in completion menu
 let g:elm_detailed_complete = 1
-
-" Use 4 spaces indenting for Elm
-autocmd FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4
-
-" Haskell settings
-autocmd FileType haskell setlocal tabstop=4 shiftwidth=4 softtabstop=4 formatprg=hindent
 
 " Only show cursor line for active buffer
 augroup CursorLine
