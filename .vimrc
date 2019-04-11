@@ -324,11 +324,6 @@ nnoremap <leader>w :w!<CR>
 " Move to end of line in insert mode
 inoremap <C-l> <Esc>A
 
-" Quickly choose between 2 or 4 tabs
-" TODO: Create toggle function
-nnoremap <leader>t2 :set tabstop=2 shiftwidth=2 softtabstop=2<CR>
-nnoremap <leader>t4 :set tabstop=4 shiftwidth=4 softtabstop=4<CR>
-
 " Group all autocmd
 augroup vimrc
   " Set correct filetypes
