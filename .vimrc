@@ -20,7 +20,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tommcdo/vim-exchange'
-Plug 'heavenshell/vim-jsdoc'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'chrisbra/csv.vim'
 Plug 'AndrewRadev/switch.vim'
@@ -481,18 +480,11 @@ nmap ga <Plug>(EasyAlign)
 " Select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" Disable default jsdoc mapping to <C-l>, use <leader>jd instead
-let g:jsdoc_default_mapping= 0
-nnoremap <leader>jd :JsDoc<CR>
-
 " console.log the word under the cursor
 nnoremap <leader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>
 
 " console.log visual selection
 vnoremap <leader>l yoconsole.log('<c-r>"', <c-r>")<esc>
-
-" Prompt for jsdoc parameter types & descriptions
-let g:jsdoc_allow_input_prompt = 1
 
 " Delete in insert mode
 inoremap <C-d> <Del>
