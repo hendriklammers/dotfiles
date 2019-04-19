@@ -1,7 +1,8 @@
-#!/usr/bin/env osascript
+#!/bin/bash
 #
-# Returns the current playing song in Spotify for OSX
+# Returns the current playing song in Spotify (OSX only)
 
+osascript <<'END'
 tell application "Spotify"
   if it is running then
     if player state is playing then
@@ -23,3 +24,4 @@ tell application "Spotify"
     end if
   end if
 end tell
+END
