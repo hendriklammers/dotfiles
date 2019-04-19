@@ -1,7 +1,6 @@
 " TODO: Organise and cleanup file
 
 call plug#begin('~/.vim/plugged')
-Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
@@ -23,7 +22,8 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
-Plug 'sophacles/vim-processing'
+Plug 'elmcast/elm-vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
@@ -324,7 +324,6 @@ nnoremap <leader>w :w!<CR>
 " Move to end of line in insert mode
 inoremap <C-l> <Esc>A
 
-" Group all autocmd
 augroup vimrc
   " Set correct filetypes
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -437,6 +436,7 @@ let g:nvim_typescript#diagnostics_enable = 0
 let g:ale_fixers = {
 \   'javascript': ['prettier-standard'],
 \   'typescript': ['prettier'],
+\   'elm': ['elm-format'],
 \}
 
 " Format on save
@@ -597,8 +597,11 @@ let g:go_fmt_command = 'goimports'
 " Lint Go files on save
 let g:go_metalinter_autosave = 1
 
-" Run elm-format when saving elm files
-let g:elm_format_autosave = 1
+" Use elm-vim
+let g:polyglot_disabled = ['elm']
+
+" Use ALE fixer instead to prevend Fugitive problems in diff mode
+let g:elm_format_autosave = 0
 
 " Show type signatures in completion menu
 let g:elm_detailed_complete = 1
