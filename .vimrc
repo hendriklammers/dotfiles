@@ -501,12 +501,6 @@ nmap ga <Plug>(EasyAlign)
 " Select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" console.log the word under the cursor
-nnoremap <leader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>
-
-" console.log visual selection
-vnoremap <leader>l yoconsole.log('<c-r>"', <c-r>")<esc>
-
 " Delete in insert mode
 inoremap <C-d> <Del>
 
