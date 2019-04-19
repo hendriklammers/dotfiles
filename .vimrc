@@ -94,6 +94,9 @@ endif
 " Always use global flag (for substitute command)
 set gdefault
 
+" Don't show command on bottom of screen
+set noshowcmd
+
 " Enable matchit.vim
 runtime macros/matchit.vim
 
