@@ -65,12 +65,16 @@ if [[ -f "install.sh" ]]; then
   rm install.sh
 fi
 
+# Add project title and description
 for file in package.json package-lock.json index.html README.md; do
   if [[ -f "$file" ]]; then
     sed -i"" "s/PROJECT_TITLE/$projectTitle/g; \
       s/PROJECT_DESCRIPTION/$projectDescription/g;" $file
   fi
 done
+
+# Add license
+npx license mit > LICENSE
 
 # Start with a fresh git repo
 if [ -d ".git" ]; then
