@@ -1,78 +1,52 @@
 # Create new directory and open it
-function md() {
+md() {
   mkdir -p "$1"
-  cd "$1"
+  cd "$1" || exit 1
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
-function server() {
-  local port="${1:-8000}"
-  open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port"
+server() {
+  (port="${1:-8000}"
+  open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port")
 }
 
 # GIT
 # Commit pending changes and quote all args as message
-function gg() {
+gg() {
   git commit -v -a -m "$*"
 }
 
 # Change directory to the current Finder directory
-function cdf() {
-  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+cdf() {
+  target=$(osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)')
   if [ "$target" != "" ]; then
-    cd "$target"; pwd
+    cd "$target" || exit 1; pwd
   else
     echo 'No Finder window found' >&2
   fi
 }
 
 # Attach to tmux session if it exists otherwise open fzf
-function tm() {
-  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
-  if [ $1 ]; then
-    tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+tm() {
+  [ -n "$TMUX" ] && change="switch-client" || change="attach-session"
+  if [ "$1" ]; then
+    tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s "$1" && tmux $change -t "$1"); return
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
-# Interactively searching and installing brew packages
-# Makes use of FZF
-function brew() {
-  brew=$(which brew)
-  case "$1" in
-    find)
-      choice=$(brew search | fzf --multi --preview "brew info {}")
-      if [ $? -eq 0 ] && [ -n "$choice" ]; then
-        already_installed=$(echo "$choice" | rg -F -x -f <(brew list) -)
-        if [ $? -eq 0 ] && [ -n "$already_installed" ]; then
-          echo "The following formulae are already installed:"
-          echo $already_installed
-        fi
-
-        to_install=$(echo "$choice" | rg -F -x -v -f <(brew list) -)
-        if [ $? -eq 0 ] && [ -n "$to_install" ]; then
-          brew install $to_install
-        else
-          echo "No new formulae to install."
-        fi
-      fi
-      ;;
-    *) $brew "$@" ;;
-  esac
-}
-
 # Create new LICENSE file
-function license() {
-  npx license $(npm get init.license) -o $(npm get init.author.name) > LICENSE
+license() {
+  npx license "$(npm get init.license)" -o "$(npm get init.author.name)" > LICENSE
 }
 
 # .editorconfig file
-function editorconfig() {
+editorconfig() {
   curl https://gist.githubusercontent.com/hendriklammers/2b09d9c5d6dada7a12ee311a65b6ca60/raw/8dec201982cc2b6c4dd37cd028b71bfc876d3763/.editorconfig -o .editorconfig -s
 }
 
 # Install npm package with separate types package
-function nit() {
+nit() {
   npm install -S "$1"
   npm install -D @types/"$1"
 }
