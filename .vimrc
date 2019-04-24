@@ -487,7 +487,7 @@ nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gl :Glog<CR>
+nnoremap <leader>gl :0Glog<CR>
 nnoremap <leader>gp :Gpush<CR>
 
 " Open Gdiff in vertical splits
