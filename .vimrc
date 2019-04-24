@@ -625,8 +625,10 @@ command! -bang -nargs=* Rg
 
 nnoremap <leader>/ :grep
 
-nnoremap <expr> <leader>o (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
-" nnoremap <silent> <leader>l :Lines<CR>
+" FZF mappings
+nnoremap <silent> <expr> <leader>o (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
+nnoremap <silent> <leader>O :Files<CR>
+nnoremap <silent> <leader>l :Lines<CR>
 
 nnoremap <silent> <leader>? :ALEDetail<CR>
 
