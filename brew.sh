@@ -29,21 +29,22 @@ if ! grep -F -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash;
 fi;
 
-brew install ack
 brew install diff-so-fancy
 brew install fd
-brew install fish
 brew install fzf
 brew install git
 brew install git-extras
 brew install git-flow-avh
 brew install graphicsmagick
+brew install hadolint
 brew install haskell-stack
 brew install htop
 brew install httpie
 brew install hub
 brew install imagemagick --with-webp
+brew install jq
 brew install mongodb
+brew install neofetch
 brew install neovim --HEAD
 brew install pandoc
 brew install postgresql
@@ -92,7 +93,6 @@ brew cask install spotify
 brew cask install sublime-text
 brew cask install transmission
 brew cask install transmit
-brew cask install tunnelblick
 brew cask install unrarx
 brew cask install vlc
 
