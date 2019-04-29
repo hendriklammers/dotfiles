@@ -18,7 +18,7 @@ GREEN=$(tput setaf 2)
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 
-function parse_git_branch() {
+parse_git_branch() {
   local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
   if [ -n "${branch}" ]; then
     [ "${branch}" == "HEAD" ] && local branch=$(git rev-parse --short HEAD 2>/dev/null)
@@ -30,10 +30,10 @@ function parse_git_branch() {
 }
 
 # Show node version when directory contains package.json
-function node_version() {
+node_version() {
   if [ -f "package.json" ]; then
-    echo -n "$(node -v) "
+    echo "$(node -v) "
   fi
 }
 
-PS1="\[$BASE2\]\[${CYAN}\]\u \[$BLUE\]\w \$(parse_git_branch)\n\[$BASE0\]\$(node_version)\[$BASE2\]\$ \[$RESET\]"
+PS1="\[$BLUE\]\w \$(parse_git_branch)\n\[$YELLOW\]\$(node_version)\[$BASE2\]\$ \[$RESET\]"
