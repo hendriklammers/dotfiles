@@ -23,7 +23,8 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
-Plug 'elmcast/elm-vim'
+" Plug 'elmcast/elm-vim'
+Plug 'Zaptic/elm-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -627,8 +628,8 @@ nnoremap <leader>/ :grep
 
 " FZF mappings
 nnoremap <silent> <expr> <leader>o (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
-nnoremap <silent> <leader>O :Files<CR>
-nnoremap <silent> <leader>l :Lines<CR>
+nnoremap <leader>O :Files<CR>
+nnoremap <leader>l :Lines<CR>
 
 nnoremap <silent> <leader>? :ALEDetail<CR>
 
