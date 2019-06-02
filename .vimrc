@@ -520,7 +520,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Map Switch plugin to leader s
 let g:switch_mapping = ''
-nnoremap <leader>s :Switch<CR>
+nnoremap <leader>x :Switch<CR>
 
 " Use jsx syntax also for files without jsx extension
 let g:jsx_ext_required = 0
