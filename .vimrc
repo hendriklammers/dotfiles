@@ -28,6 +28,7 @@ Plug 'Zaptic/elm-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'jpalardy/vim-slime'
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -605,6 +606,19 @@ let g:elm_format_autosave = 0
 
 " Show type signatures in completion menu
 let g:elm_detailed_complete = 1
+
+" Send to code to tmux
+let g:slime_target = 'tmux'
+
+" Use right tmux pane
+let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{right-of}'}
+
+" Always use defaults
+let g:slime_dont_ask_default = 1
+
+" vim-slime mappings
+xnoremap <leader>s <Plug>SlimeRegionSend
+nnoremap <leader>s <Plug>SlimeParagraphSend
 
 " Only show cursor line for active buffer
 augroup CursorLine
