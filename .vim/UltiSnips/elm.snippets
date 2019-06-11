@@ -88,7 +88,12 @@ snippet log "Debug.log"
 Debug.log "$1" $0
 endsnippet
 
-snippet elm "Elm Architecture boilerplate" b
+snippet doc "Documentation block" b
+{-| $0
+-}
+endsnippet
+
+snippet program "Program using the Elm Architecture" b
 module Main exposing (main)
 
 import Browser
