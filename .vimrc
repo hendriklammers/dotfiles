@@ -617,8 +617,8 @@ let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{right-o
 let g:slime_dont_ask_default = 1
 
 " vim-slime mappings
-xnoremap <leader>s <Plug>SlimeRegionSend
-nnoremap <leader>s <Plug>SlimeParagraphSend
+xmap <leader>s <Plug>SlimeRegionSend
+nmap <leader>s <Plug>SlimeParagraphSend
 
 " Only show cursor line for active buffer
 augroup CursorLine
