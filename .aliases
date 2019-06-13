@@ -39,6 +39,10 @@ alias topm='top -o vsize' # memory
 # IP address
 alias ip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 
+# Turn wifi on/off
+# Usage: wifi off
+alias wifi="networksetup -setairportpower Wi-Fi"
+
 # Git
 # Probably belongs in .gitconfig
 alias gb='git branch'
