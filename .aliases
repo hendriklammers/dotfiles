@@ -73,7 +73,6 @@ alias nls='npm ls --depth=0'
 alias ni='npm install'
 
 # todo.txt cli
-alias t='todo.sh'
 alias todo='todo.sh'
 
 # Stack
