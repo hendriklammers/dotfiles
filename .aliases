@@ -74,6 +74,8 @@ alias ni='npm install'
 
 # todo.txt cli
 alias todo='todo.sh'
+# Enable completions for alias
+complete -o default -o nospace -F _todo todo
 
 # Stack
 alias ghci="stack ghci"
