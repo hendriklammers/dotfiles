@@ -44,10 +44,6 @@ if type brew &>/dev/null; then
   do
     [[ -f $COMPLETION ]] && source "$COMPLETION"
   done
-  if [[ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]];
-  then
-    source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-  fi
 fi
 
 # Completion for nvm
