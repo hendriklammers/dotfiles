@@ -35,7 +35,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'freitass/todo.txt-vim'
 
 if has('nvim')
-  Plug 'pbogut/deoplete-elm'
   Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
