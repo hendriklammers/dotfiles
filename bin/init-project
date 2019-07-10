@@ -21,7 +21,7 @@ done
 while [ -z "$projectTitle" ]
 do
   read -rp "Title: " input;
-  if [[ ! "$input" =~ ^[a-zA-Z0-9-]{3,}$ ]]; then
+  if [[ ! "$input" =~ ^[a-z0-9-]{3,}$ ]]; then
     echo "Invalid project title";
   elif [ -d "$input" ]; then
     echo "Directory with this title already exists";
