@@ -2,12 +2,35 @@
 #
 # Starts a new project
 
+# Uses install script from repo to install dependencies
+installDeps() {
+  if [[ -f "install.sh" ]]; then
+    echo "Installing dependencies"
+    ./install.sh
+    rm install.sh
+  fi
+}
+
+# Adds project title and description
+addTitles() {
+  for file in package.json package-lock.json index.html README.md; do
+    if [[ -f "$file" ]]; then
+      sed -i"" "s/PROJECT_TITLE/$projectTitle/g; \
+        s/PROJECT_DESCRIPTION/$projectDescription/g;" $file
+    fi
+  done
+}
+
 PS3='Project type: '
-select opt in Elm Node
+select opt in Elm Node React
 do
   case $opt in
     "Elm")
       projectType="elm"
+      break
+      ;;
+    "React")
+      projectType="react"
       break
       ;;
     "Node")
@@ -46,35 +69,36 @@ echo ""
 mkdir -p "$projectTitle"
 cd "$projectTitle" || exit 1
 
+# Project type specific actions
 case "$projectType" in
   "elm")
-    repo=git@github.com:hendriklammers/elm-project-starter.git
+    git clone git@github.com:hendriklammers/elm-project-starter.git .
+    installDeps
+    addTitles
     ;;
   "node")
-    repo=git@github.com:hendriklammers/node-project-starter.git
+    git clone git@github.com:hendriklammers/node-project-starter.git .
+    installDeps
+    addTitles
     ;;
-  *) echo >&2 "No repo available for this project type"; exit 1
+  "react")
+    npx create-react-app . --typescript
+
+    # Add eslint config to package.json to enable linting in editor
+    if [[ -f "package.json" ]]; then
+      mv package.json temp.json
+      jq -r '. + {eslintConfig: { extends: "react-app" } }' temp.json > package.json
+      rm temp.json
+    fi
+    ;;
+  *) echo >&2 "Invalid project type"; exit 1
 esac
-git clone "$repo" .
 echo ""
 
-# Use install script from repo to install dependencies
-if [[ -f "install.sh" ]]; then
-  echo "Installing dependencies"
-  ./install.sh
-  rm install.sh
-fi
-
-# Add project title and description
-for file in package.json package-lock.json index.html README.md; do
-  if [[ -f "$file" ]]; then
-    sed -i"" "s/PROJECT_TITLE/$projectTitle/g; \
-      s/PROJECT_DESCRIPTION/$projectDescription/g;" $file
-  fi
-done
-
 # Add license
-npx license mit > LICENSE
+if [[ ! -f "LICENSE" ]]; then
+  npx license mit > LICENSE
+fi
 
 # Start with a fresh git repo
 if [ -d ".git" ]; then
