@@ -16,10 +16,10 @@ tell application "Spotify"
       end if
 
       if artist_name > 0
-        "#[fg=colour254]♪ #[fg=colour61]"& combined_name
+        "#[fg=colour15]♪ #[fg=colour13]"& combined_name
       else
         # Advertisement
-        "#[fg=colour61]~ " & track_name
+        "#[fg=colour13]~ " & track_name
       end if
     end if
   end if
