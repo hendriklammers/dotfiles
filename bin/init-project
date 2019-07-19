@@ -12,13 +12,11 @@ installDeps() {
 }
 
 # Adds project title and description
-addTitles() {
-  for file in package.json package-lock.json index.html README.md; do
-    if [[ -f "$file" ]]; then
-      sed -i"" "s/PROJECT_TITLE/$projectTitle/g; \
-        s/PROJECT_DESCRIPTION/$projectDescription/g;" $file
-    fi
-  done
+replaceTemplateStrings() {
+  rg \<%PROJECT_TITLE%\> -l \
+    | xargs sed -i "s/<%PROJECT_TITLE%>/$projectTitle/g"
+  rg \<%PROJECT_DESCRIPTION%\> -l \
+    | xargs sed -i "s/<%PROJECT_DESCRIPTION%>/$projectDescription/g"
 }
 
 PS3='Project type: '
@@ -74,12 +72,12 @@ case "$projectType" in
   "elm")
     git clone git@github.com:hendriklammers/elm-project-starter.git .
     installDeps
-    addTitles
+    replaceTemplateStrings
     ;;
   "node")
     git clone git@github.com:hendriklammers/node-project-starter.git .
     installDeps
-    addTitles
+    replaceTemplateStrings
     ;;
   "react")
     npx create-react-app . --typescript
