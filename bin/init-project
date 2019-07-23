@@ -88,6 +88,12 @@ case "$projectType" in
       jq -r '. + {eslintConfig: { extends: "react-app" } }' temp.json > package.json
       rm temp.json
     fi
+
+    # Add prettier
+    curl https://gist.githubusercontent.com/hendriklammers/c23e76db9089f9c56405973cb7216a0d/raw/3caa691e515b8524fa9b564d302d493cc473e9d4/.prettierrc \
+      -o .prettierrc -s
+
+    yarn add -D prettier
     ;;
   *) echo >&2 "Invalid project type"; exit 1
 esac
