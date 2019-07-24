@@ -33,9 +33,10 @@ Plug 'jpalardy/vim-slime'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'freitass/todo.txt-vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'terryma/vim-multiple-cursors'
 
 if has('nvim')
-  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
 endif
