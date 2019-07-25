@@ -26,7 +26,7 @@ Plug 'tpope/vim-dispatch'
 " Plug 'elmcast/elm-vim'
 Plug 'Zaptic/elm-vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'jpalardy/vim-slime'
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
