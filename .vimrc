@@ -471,11 +471,12 @@ let g:user_emmet_settings = {
   \ },
   \}
 
-" let g:user_emmet_expandabbr_key = '<Tab>'
-" let g:user_emmet_complete_tag = 1
-" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-" imap <buffer> <Tab> <Esc>:call emmet#moveNextPrev(0)<CR>
-" imap <buffer> <S-Tab> <Esc>:call emmet#moveNextPrev(1)<CR>
+" Map emmet to Tab
+let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_complete_tag = 1
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+imap <buffer> <Tab> <Esc>:call emmet#moveNextPrev(0)<CR>
+imap <buffer> <S-Tab> <Esc>:call emmet#moveNextPrev(1)<CR>
 
 " Don't indent after <html> tag
 " i.e. <head> and <body> have same indentation as <html>
