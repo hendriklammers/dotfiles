@@ -21,8 +21,6 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
-" Plug 'elmcast/elm-vim'
-Plug 'Zaptic/elm-vim'
 Plug 'sheerun/vim-polyglot'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -357,12 +355,6 @@ augroup vimrc
   " Wrap git commit messages at 72 columns and enable spellcheck
   autocmd Filetype gitcommit setlocal spell textwidth=72
 
-  " Setting up Vim Golang development
-  autocmd FileType go nnoremap <localleader>b <Plug>(go-build)
-  autocmd FileType go nnoremap <localleader>r <Plug>(go-run)
-  autocmd FileType go nnoremap <localleader>i <Plug>(go-imports)
-  autocmd FileType go nnoremap <localleader>m <Plug>(go-metalinter)
-
   " Use 4 spaces indenting for Elm
   autocmd FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
@@ -565,24 +557,6 @@ let g:switch_custom_definitions =
     \   ['production', 'development'],
     \   ['>>', '<<']
     \ ]
-
-" Show everything in quickfix list
-let g:go_list_type = 'quickfix'
-
-" Run goimports when saving a file (While still formatting)
-let g:go_fmt_command = 'goimports'
-
-" Lint Go files on save
-let g:go_metalinter_autosave = 1
-
-" Use elm-vim
-let g:polyglot_disabled = ['elm']
-
-" Use ALE fixer instead to prevend Fugitive problems in diff mode
-let g:elm_format_autosave = 0
-
-" Show type signatures in completion menu
-let g:elm_detailed_complete = 1
 
 " Send to code to tmux
 let g:slime_target = 'tmux'
