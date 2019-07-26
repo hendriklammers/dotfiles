@@ -4,8 +4,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
-Plug 'w0rp/ale'
-Plug 'maximbaz/lightline-ale'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
@@ -150,25 +148,6 @@ let g:lightline = {
       \   'inactive': ['filename', 'modified']
       \ },
       \ }
-
-let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
-
-let g:lightline.component_type = {
-      \     'linter_checking': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'left',
-      \ }
-
-let g:lightline#ale#indicator_checking = ''
-let g:lightline#ale#indicator_warnings = '•'
-let g:lightline#ale#indicator_errors = '✗'
-let g:lightline#ale#indicator_ok = ''
 
 function! LightlineFilename()
   return ('' !=# LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
@@ -418,39 +397,8 @@ let NERDTreeAutoDeleteBuffer=1
 " Removes help text
 let g:NERDTreeMinimalUI = 1
 
-" ALE (Asynchronous Lint Engine) settings
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '•'
 " Change color of warning sign to yellow
-highlight ALEWarningSign ctermfg=3
-
-" No live linting, only run linter when file is opened and saved
-let g:ale_lint_on_text_changed = 'never'
-
-" Enabled ALE linters
-let g:ale_linters = {
-\   'html': ['htmlhint'],
-\   'javascript': ['eslint'],
-\   'typescript': ['tslint', 'tsserver'],
-\   'css': [],
-\   'haskell': ['hlint', 'stack_ghc'],
-\}
-
-" Just use ALE tslint for linting typescript
-let g:nvim_typescript#diagnostics_enable = 0
-
-" Use prettier (when available) to format js/ts files
-let g:ale_fixers = {
-\   'javascript': ['prettier-standard'],
-\   'typescript': ['prettier'],
-\   'elm': ['elm-format'],
-\}
-
-" Format on save
-let g:ale_fix_on_save = 1
-
-" Personal preferences for prettier
-let g:ale_javascript_prettier_options = '--trailing-comma --no-semi --single-quote'
+highlight CocWarningSign ctermfg=3
 
 " Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger='<c-j>'
@@ -645,8 +593,6 @@ nnoremap <leader>/ :grep
 nnoremap <silent> <expr> <leader>o (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
 nnoremap <leader>O :Files<CR>
 nnoremap <leader>l :Lines<CR>
-
-nnoremap <silent> <leader>? :ALEDetail<CR>
 
 " Edit general todo list in new tab
 nnoremap <leader>tl :tabedit ~/Dropbox/todo/todo.txt<CR>
