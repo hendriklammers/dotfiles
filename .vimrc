@@ -6,7 +6,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
-Plug 'mattn/emmet-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
@@ -429,22 +428,6 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsEditSplit='vertical'
 " Edit UltiSnips snippets
 nnoremap <leader>ue :UltiSnipsEdit<CR>
-
-" Not a fan of emmets default <C-y> leader
-let g:user_emmet_leader_key = '<C-e>'
-
-let g:user_emmet_settings = {
-  \ 'typescript' : {
-  \     'extends' : 'jsx',
-  \ },
-  \}
-
-" Map emmet to Tab
-let g:user_emmet_expandabbr_key = '<Tab>'
-let g:user_emmet_complete_tag = 1
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-imap <buffer> <Tab> <Esc>:call emmet#moveNextPrev(0)<CR>
-imap <buffer> <S-Tab> <Esc>:call emmet#moveNextPrev(1)<CR>
 
 " Don't indent after <html> tag
 " i.e. <head> and <body> have same indentation as <html>
