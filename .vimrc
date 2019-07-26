@@ -268,7 +268,7 @@ highlight SpecialKey ctermbg=NONE
 set list listchars=tab:\ \ ,trail:·
 
 " Disable welcome screen
-set shortmess=I
+set shortmess+=Ic
 
 " Always show status line
 set laststatus=2
