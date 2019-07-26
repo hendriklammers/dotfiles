@@ -5,7 +5,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'SirVer/ultisnips'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
@@ -36,7 +35,7 @@ call plug#end()
 " Keep 1000 lines in history instead of 20 default
 set history=1000
 
-" Turn backup and swapfiles off, since most stuff is in git anyway...
+" Turn backup and swapfiles off
 set nobackup
 set nowritebackup
 set noswapfile
@@ -419,16 +418,6 @@ let NERDTreeAutoDeleteBuffer=1
 " Removes help text
 let g:NERDTreeMinimalUI = 1
 
-" Expand snippets with ctrl + j
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
-" Open :UltiSnipsEdit in a vertical split
-let g:UltiSnipsEditSplit='vertical'
-" Edit UltiSnips snippets
-nnoremap <leader>ue :UltiSnipsEdit<CR>
-
 " Don't indent after <html> tag
 " i.e. <head> and <body> have same indentation as <html>
 let g:html_exclude_tags = ['html']
@@ -585,6 +574,23 @@ nnoremap <leader>ta :!todo.sh add
 nnoremap <leader>td :!todo.sh do 
 
 " Coc.nvim
+
+" Installed Coc extensions
+let g:coc_global_extensions = ['coc-tsserver', 'coc-emmet', 'coc-prettier', 'coc-json', 'coc-eslint', 'coc-snippets']
+
+" Make <tab> used for trigger completion, completion confirm, snippet expand 
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif

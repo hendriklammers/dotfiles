@@ -1,5 +1,5 @@
 {
-  "suggest.noselect": false,
+  "suggest.floatEnable": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
@@ -17,5 +17,9 @@
   "diagnostic.infoSign": "•",
   "prettier.semi": false,
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "es5"
+  "prettier.trailingComma": "es5",
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["typescript"]
+  }
 }
