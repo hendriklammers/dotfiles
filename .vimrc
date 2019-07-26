@@ -33,11 +33,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'freitass/todo.txt-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'terryma/vim-multiple-cursors'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
-endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Keep 1000 lines in history instead of 20 default
@@ -47,6 +43,9 @@ set history=1000
 set nobackup
 set nowritebackup
 set noswapfile
+
+" Faster update time recommended by Coc.nvim
+set updatetime=300
 
 " Use persistent undo when available
 if has('persistent_undo')
@@ -128,13 +127,21 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive' ],
       \             [ 'filename' ] ],
-      \   'right': [[ 'linter_errors', 'linter_warnings'],
+      \   'right': [[ 'coc_errors', 'coc_warnings' ],
       \             [ 'lineinfo' ],
       \             [ 'fileencoding', 'filetype' ]]
       \ },
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
-      \   'fugitive': 'LightlineFugitive',
+      \   'fugitive': 'LightlineFugitive'
+      \ },
+      \ 'component_expand': {
+      \   'coc_warnings': 'LightlineCocWarnings',
+      \   'coc_errors': 'LightlineCocErrors',
+      \ },
+      \ 'component_type': {
+      \   'coc_warnings': 'warning',
+      \   'coc_errors': 'error'
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '·' },
@@ -155,6 +162,10 @@ function! LightlineFilename()
         \ ('' !=# LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
+" Use autocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+" Shows if file is readonly
 function! LightlineReadonly()
   if &filetype ==# 'help'
     return ''
@@ -165,6 +176,7 @@ function! LightlineReadonly()
   endif
 endfunction
 
+" Shows if file is modified
 function! LightlineModified()
   if &filetype ==# 'help'
     return ''
@@ -177,6 +189,7 @@ function! LightlineModified()
   endif
 endfunction
 
+" Shows git branch
 function! LightlineFugitive()
   if exists('*fugitive#head')
     let branch = fugitive#head()
@@ -185,8 +198,23 @@ function! LightlineFugitive()
   return ''
 endfunction
 
-" Allow jsx syntax also for *.js files
-let g:jsx_ext_required = 0
+" Shows Coc warnings
+function! LightlineCocWarnings() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if get(info, 'warning', 0)
+    return '•' . info['warning']
+  endif
+  return ''
+endfunction
+
+" Shows Coc errors
+function! LightlineCocErrors() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if get(info, 'error', 0)
+    return '✗' . info['error']
+  endif
+  return ''
+endfunction
 
 " Expand tabs by default
 set expandtab
@@ -227,6 +255,9 @@ highlight CursorLineNr ctermfg=LightGray
 
 " Remove background color from signs column
 highlight clear SignColumn
+
+" Always show signcolumn
+set signcolumn=yes
 
 " Make tilde in front of nonexisting lines less bright
 highlight EndOfBuffer ctermfg=bg
@@ -396,9 +427,6 @@ let NERDTreeAutoDeleteBuffer=1
 
 " Removes help text
 let g:NERDTreeMinimalUI = 1
-
-" Change color of warning sign to yellow
-highlight CocWarningSign ctermfg=3
 
 " Expand snippets with ctrl + j
 let g:UltiSnipsExpandTrigger='<c-j>'
@@ -598,3 +626,32 @@ nnoremap <leader>l :Lines<CR>
 nnoremap <leader>tl :tabedit ~/Dropbox/todo/todo.txt<CR>
 nnoremap <leader>ta :!todo.sh add 
 nnoremap <leader>td :!todo.sh do 
+
+" Coc.nvim
+
+" Close preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Show documentation in preview window
+nnoremap <silent> <leader>? :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap keys for gotos
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>ct <Plug>(coc-type-definition)
+nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>ci <Plug>(coc-implementation)
+
+" Change color of warning sign to yellow
+highlight CocWarningSign ctermfg=3
+
