@@ -1,25 +1,44 @@
 {
   "suggest.floatEnable": false,
+  "suggest.snippetIndicator": "",
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.minTriggerInputLength": 2,
+  "diagnostic.errorSign": "✗",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
     "typescriptreact",
-    "javascriptreact"
+    "javascriptreact",
+    "elm"
   ],
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "runtime": "node",
+        "elmPath": "elm",
+        "elmFormatPath": "elm-format",
+        "elmTestPath": "elm-test"
+      }
+    }
+  },
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["typescript"]
+  },
   "eslint.filetypes": [
     "javascript",
     "typescript",
     "typescriptreact",
     "javascriptreact"
   ],
-  "diagnostic.errorSign": "✗",
-  "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•",
   "prettier.semi": false,
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "es5",
-  "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescriptreact": ["typescript"]
-  }
+  "prettier.trailingComma": "es5"
 }
