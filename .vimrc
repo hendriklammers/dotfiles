@@ -41,7 +41,7 @@ set nowritebackup
 set noswapfile
 
 " Faster update time recommended by Coc.nvim
-set updatetime=300
+set updatetime=500
 
 " Use persistent undo when available
 if has('persistent_undo')
@@ -268,7 +268,7 @@ highlight SpecialKey ctermbg=NONE
 set list listchars=tab:\ \ ,trail:·
 
 " Disable welcome screen
-set shortmess+=Ic
+set shortmess=Ic
 
 " Always show status line
 set laststatus=2
@@ -576,7 +576,15 @@ nnoremap <leader>td :!todo.sh do
 " Coc.nvim
 
 " Installed Coc extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-emmet', 'coc-prettier', 'coc-json', 'coc-eslint', 'coc-snippets']
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-emmet',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-eslint',
+  \ 'coc-snippets',
+  \ 'coc-css'
+  \ ]
 
 " Make <tab> used for trigger completion, completion confirm, snippet expand 
 inoremap <silent><expr> <TAB>
