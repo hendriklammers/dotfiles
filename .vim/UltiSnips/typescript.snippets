@@ -3,6 +3,16 @@ extends javascript
 snippet rfc "React Functional Component" b
 import React from 'react'
 
+const ${1:Component} = () => (
+	$0
+)
+
+export default $1
+endsnippet
+
+snippet rfcp "React Functional Component with props" b
+import React from 'react'
+
 type Props = {
 	$2: $3
 }

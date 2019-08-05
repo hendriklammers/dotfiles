@@ -18,7 +18,7 @@ snippet iife "immediately-invoked function expression"
 })()
 endsnippet
 
-snippet aiife "async immediately-invoked function expression"
+snippet iifa "async immediately-invoked function expression"
 (async () => {
 	$1
 })()
@@ -41,6 +41,16 @@ if (${1:true}) {
 	$2
 } else {
 	$3
+}
+endsnippet
+
+snippet sw "switch statement" b
+switch ($1) {
+	case $2:
+		$3
+		break
+	default:
+		$0
 }
 endsnippet
 
@@ -75,8 +85,8 @@ snippet @ret "@return {Type} Description"
 @return {${1:Type}} ${2:Description}
 endsnippet
 
-snippet /imp?/ "ES6 module import" br
-import ${1:module} from '${2:$1}'$0
+snippet imp "ES6 module import" b
+import $2 from '$1'$0
 endsnippet
 
 snippet forof "for of loop"

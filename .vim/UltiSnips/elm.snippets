@@ -84,6 +84,21 @@ describe "${1}"
 	]
 endsnippet
 
+snippet fuzz "fuzz test"
+test $1Fuzzer "${2:description}" <|
+	\\$1 ->
+		$0
+endsnippet
+
+snippet fuzzr "Round trip json encode/decode fuzz test"
+fuzz $1Fuzzer "round trip" <|
+	\\$1 ->
+		$1
+			|> $1Encoder
+			|> Decode.decodeValue $1Decoder
+			|> Expect.equal (Ok $1)$0
+endsnippet
+
 snippet log "Debug.log"
 Debug.log "$1" $0
 endsnippet
