@@ -44,7 +44,7 @@ do
   read -rp "Title: " input;
   if [[ ! "$input" =~ ^[a-z0-9-]{3,}$ ]]; then
     echo "Invalid project title";
-  elif [ -d "$input" ]; then
+  elif [[ -d "$input" ]]; then
     echo "Directory with this title already exists";
   else
     projectTitle="$input"
@@ -105,14 +105,14 @@ if [[ ! -f "LICENSE" ]]; then
 fi
 
 # Start with a fresh git repo
-if [ -d ".git" ]; then
+if [[ -d ".git" ]]; then
   rm -rf .git
 fi
 git init && git add . && git commit -m "Initial commit"
 echo ""
 
-if [ "$githubRepo" = true ]; then
-  if ! [ -x "$(command -v hub)" ]; then
+if [[ "$githubRepo" = true ]]; then
+  if ! [[ -x "$(command -v hub)" ]]; then
     echo >&2 "hub is not installed."; exit 1
   fi
   hub create -p "$projectTitle" -d "$projectDescription"
