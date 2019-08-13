@@ -5,19 +5,21 @@
 # exit when any command fails
 set -e
 
-jsonFile="/tmp/elm_search.json"
+jsonFile="/tmp/elm_package_search.json"
+# Time in seconds
+updateRate=300
 
 fetch_data() {
-  echo "Fetching latest package information"
+  echo -n "Updating list of available packages"
   curl -s --fail https://package.elm-lang.org/search.json -o $jsonFile
+  echo -e "\033[2K"
 }
 
 if [[ ! -f $jsonFile ]]; then
   fetch_data
 else
-  # When data is older than 1 minute update it
   age=$(($(date +%s) - $(date -r $jsonFile +%s)))
-  if (( age > 60 )); then
+  if (( age >= updateRate )); then
     fetch_data
   fi
 fi
