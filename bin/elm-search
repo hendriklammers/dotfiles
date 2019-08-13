@@ -7,12 +7,11 @@ set -e
 
 jsonFile="/tmp/elm_search.json"
 
-curl -s https://package.elm-lang.org/search.json -o $jsonFile
-
-if [[ -f $jsonFile ]]; then
+if curl -s --fail https://package.elm-lang.org/search.json -o $jsonFile; then
   preview="jq '.[] | select(.name == \"{}\")' $jsonFile"
-
-  jq  -r -M '.[] | .name' $jsonFile \
-  | fzf --preview "$preview" --bind 'ctrl-o:execute(open https://package.elm-lang.org/packages/{}/latest/)' \
-  | cat
+  $(jq  -r -M '.[] | .name' $jsonFile \
+  | fzf --preview "$preview" --bind 'ctrl-o:execute(open https://package.elm-lang.org/packages/{}/latest/),ctrl-i:execute(elm install {})+abort' \
+  | tr -d '\n' | pbcopy)
+else
+  echo "Unable to fetch package information from https://package.elm-lang.org"
 fi
