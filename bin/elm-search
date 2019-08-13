@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Interactively searching Elm packages using fzf and jq
+
+# exit when any command fails
+set -e
+
+jsonFile="/tmp/elm_search.json"
+
+curl -s https://package.elm-lang.org/search.json -o $jsonFile
+
+if [[ -f $jsonFile ]]; then
+  preview="jq '.[] | select(.name == \"{}\")' $jsonFile"
+
+  jq  -r -M '.[] | .name' $jsonFile \
+  | fzf --preview "$preview" --bind 'ctrl-o:execute(open https://package.elm-lang.org/packages/{}/latest/)' \
+  | cat
+fi
