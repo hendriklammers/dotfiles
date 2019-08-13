@@ -7,11 +7,23 @@ set -e
 
 jsonFile="/tmp/elm_search.json"
 
-if curl -s --fail https://package.elm-lang.org/search.json -o $jsonFile; then
-  preview="jq '.[] | select(.name == \"{}\")' $jsonFile"
-  $(jq  -r -M '.[] | .name' $jsonFile \
-  | fzf --preview "$preview" --bind 'ctrl-o:execute(open https://package.elm-lang.org/packages/{}/latest/),ctrl-i:execute(elm install {})+abort' \
-  | tr -d '\n' | pbcopy)
+fetch_data() {
+  echo "Fetching latest package information"
+  curl -s --fail https://package.elm-lang.org/search.json -o $jsonFile
+}
+
+if [[ ! -f $jsonFile ]]; then
+  fetch_data
 else
-  echo "Unable to fetch package information from https://package.elm-lang.org"
+  # When data is older than 1 minute update it
+  age=$(($(date +%s) - $(date -r $jsonFile +%s)))
+  if (( age > 60 )); then
+    fetch_data
+  fi
 fi
+
+preview="jq '.[] | select(.name == \"{}\")' $jsonFile"
+
+jq  -r -M '.[] | .name' $jsonFile \
+  | fzf --preview "$preview" --bind 'ctrl-o:execute(open https://package.elm-lang.org/packages/{}/latest/),ctrl-i:execute(elm install {})+abort' \
+  | tr -d '\n' | pbcopy
