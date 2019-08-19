@@ -19,6 +19,26 @@ replaceTemplateStrings() {
     | xargs sed -i "s/<%PROJECT_DESCRIPTION%>/$projectDescription/g"
 }
 
+react_project() {
+  npx create-react-app . --typescript
+
+  # Add eslint and prettier configuration to package.json
+  if [[ -f "package.json" ]]; then
+    local tempPackage=$(mktemp)
+    jq -r '. + {eslintConfig: { extends: "react-app" }, prettier: { semi: false, singleQuote: true, trailingComma: "es5" } }' package.json > $tempPackage
+    mv $tempPackage package.json
+  fi
+
+  yarn add -D prettier typescript-styled-plugin
+  yarn add styled-components @types/styled-components
+
+  if [[ -f "tsconfig.json" ]]; then
+    local tempTsconfig=$(mktemp)
+    jq -r '.compilerOptions + {plugins: [{name: "typescript-styled-plugin"}]}' tsconfig.json > $tempTsconfig
+    mv $tempTsconfig tsconfig.json
+  fi
+}
+
 PS3='Project type: '
 select opt in Elm Node React
 do
@@ -80,20 +100,7 @@ case "$projectType" in
     replaceTemplateStrings
     ;;
   "react")
-    npx create-react-app . --typescript
-
-    # Add eslint config to package.json to enable linting in editor
-    if [[ -f "package.json" ]]; then
-      mv package.json temp.json
-      jq -r '. + {eslintConfig: { extends: "react-app" } }' temp.json > package.json
-      rm temp.json
-    fi
-
-    # Add prettier
-    curl https://gist.githubusercontent.com/hendriklammers/c23e76db9089f9c56405973cb7216a0d/raw/3caa691e515b8524fa9b564d302d493cc473e9d4/.prettierrc \
-      -o .prettierrc -s
-
-    yarn add -D prettier
+    react_project
     ;;
   *) echo >&2 "Invalid project type"; exit 1
 esac
