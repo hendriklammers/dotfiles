@@ -24,18 +24,20 @@ react_project() {
 
   # Add eslint and prettier configuration to package.json
   if [[ -f "package.json" ]]; then
-    local tempPackage=$(mktemp)
-    jq -r '. + {eslintConfig: { extends: "react-app" }, prettier: { semi: false, singleQuote: true, trailingComma: "es5" } }' package.json > $tempPackage
-    mv $tempPackage package.json
+    local tempPackage
+    tempPackage=$(mktemp)
+    jq -r '. + {eslintConfig: { extends: "react-app" }, prettier: { semi: false, singleQuote: true, trailingComma: "es5" } }' package.json > "$tempPackage"
+    mv "$tempPackage" package.json
   fi
 
   yarn add -D prettier typescript-styled-plugin
   yarn add styled-components @types/styled-components
 
   if [[ -f "tsconfig.json" ]]; then
-    local tempTsconfig=$(mktemp)
-    jq -r '.compilerOptions + {plugins: [{name: "typescript-styled-plugin"}]}' tsconfig.json > $tempTsconfig
-    mv $tempTsconfig tsconfig.json
+    local tempTsconfig
+    tempTsconfig=$(mktemp)
+    jq -r '. * {compilerOptions: {plugins: [{name: "typescript-styled-plugin"}]}}' tsconfig.json > "$tempTsconfig"
+    mv "$tempTsconfig" tsconfig.json
   fi
 }
 
@@ -75,7 +77,7 @@ read -rp "Description: " projectDescription;
 
 while [ -z "$githubRepo" ]
 do
-  read -rp "Create a new repository on Github? [Y/n]" -n 1 choice
+  read -rp "Create a new repository on Github? [Y/n] " -n 1 choice
   case $choice in
     y|Y|"") githubRepo=true;;
     n|N) githubRepo=false;;
