@@ -28,6 +28,8 @@
       }
     }
   },
+  "snippets.priority": 100,
+  "snippets.loadFromExtensions": false,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["typescript"]
