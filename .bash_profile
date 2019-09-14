@@ -74,3 +74,4 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 [ -s "$HOME/.nvm/nvm.sh" ] && source $HOME/.nvm/nvm.sh
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+[ -f "/usr/local/etc/profile.d/z.sh" ] && source "/usr/local/etc/profile.d/z.sh"
