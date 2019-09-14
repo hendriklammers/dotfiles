@@ -10,12 +10,6 @@ server() {
   open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port")
 }
 
-# GIT
-# Commit pending changes and quote all args as message
-gg() {
-  git commit -v -a -m "$*"
-}
-
 # Change directory to the current Finder directory
 cdf() {
   target=$(osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)')
