@@ -3,9 +3,7 @@ extends javascript
 snippet rfc "React Functional Component" b
 import React from 'react'
 
-const ${1:Component} = () => (
-	$0
-)
+const ${1:Component} = () => $0
 
 export default $1
 endsnippet
@@ -28,6 +26,16 @@ endsnippet
 
 snippet rsc "React Styled Component" b
 const $1 = styled.${2:div}\`
+	$0
+\`
+endsnippet
+
+snippet rscp "React Styled Component with props" b
+interface $1Props {
+	$2
+}
+
+const $1 = styled.${2:div}<$1Props>\`
 	$0
 \`
 endsnippet
