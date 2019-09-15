@@ -449,9 +449,6 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Delete in insert mode
 inoremap <C-d> <Del>
 
-" Jump to middle of line
-noremap <silent> gm :call cursor(0, virtcol('$')/2)<CR>
-
 " Use arrow keys to resize window
 noremap <up> <C-W>+
 noremap <down> <C-W>-
@@ -584,7 +581,8 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-eslint',
   \ 'coc-snippets',
-  \ 'coc-css'
+  \ 'coc-css',
+  \ 'coc-diagnostic'
   \ ]
 
 " Make <tab> used for trigger completion, completion confirm, snippet expand 
@@ -598,8 +596,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-let g:coc_snippet_next = '<tab>'
 
 " Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
