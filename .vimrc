@@ -314,6 +314,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Live preview of substitute command
+set inccommand=nosplit
+
 " Make Y consistent with C and D.
 nnoremap Y y$
 
