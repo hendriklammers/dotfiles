@@ -315,7 +315,9 @@ set ignorecase
 set smartcase
 
 " Live preview of substitute command
-set inccommand=nosplit
+if has('nvim')
+  set inccommand=nosplit
+endif
 
 " Make Y consistent with C and D.
 nnoremap Y y$
