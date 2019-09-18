@@ -44,26 +44,15 @@ alias ip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]
 alias wifi="networksetup -setairportpower Wi-Fi"
 
 # Git
-# Probably belongs in .gitconfig
 alias gb='git branch'
 alias ga='git add'
 alias gc='git commit'
 alias gco='git checkout'
 alias gd='git difftool'
-alias gdm='git diff master'
-alias gl='git log'
-alias gla='git log --all --oneline --graph --decorate'
-alias gnp="git-notpushed"
 alias gp='git pull --rebase'
 alias gs='git status -sb'
 alias gt='git tag'
 alias gm='git merge --no-ff'
-# Unstage a file: grh <filename>
-alias grh='git reset HEAD'
-alias grm='git rm'
-# To stop tracking a file:
-# Add file to .gitignore, then do: grc filename
-alias grc='git rm --cached'
 
 # Update homebrew
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
