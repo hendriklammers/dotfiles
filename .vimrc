@@ -356,6 +356,9 @@ augroup vimrc
   " Wrap markdown files at 80 columns and enable spellcheck
   autocmd BufRead,BufNewFile *.md setlocal spell textwidth=80
 
+  " Enable spellcheck for .txt files
+  autocmd BufRead,BufNewFile *.txt setlocal spell
+
   " Wrap git commit messages at 72 columns and enable spellcheck
   autocmd Filetype gitcommit setlocal spell textwidth=72
 
