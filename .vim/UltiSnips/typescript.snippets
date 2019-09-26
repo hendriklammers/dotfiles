@@ -39,3 +39,21 @@ const $1 = styled.${2:div}<$1Props>\`
 	$0
 \`
 endsnippet
+
+snippet reducer "Redux reducer" b
+type ${2:$1}State = Readonly<{ }>
+
+const initialState: $2State = $0
+
+const ${1:name}Reducer: Reducer<$2State> = (
+	state = initialState,
+	action
+) => {
+	switch (action.type) {
+		case ${3:ACTION_TYPE}:
+			return $0
+		default:
+			return state
+	}
+}
+endsnippet
