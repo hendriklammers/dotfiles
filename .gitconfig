@@ -4,7 +4,7 @@
 [color]
 	ui = true
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore
   autocrlf = input
   filemode = false
@@ -29,7 +29,7 @@
 [credential]
   helper = osxkeychain
 [mergetool]
-  path = vim
+  path = nvim
 [tag]
   sort = version:refname
 [color "diff-highlight"]
