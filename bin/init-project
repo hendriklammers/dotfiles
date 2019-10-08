@@ -44,6 +44,9 @@ react_project() {
 
   # Custom jest matchers for easier testing
   echo "import '@testing-library/jest-dom/extend-expect'" >> src/setupTests.ts
+
+  # Remove unused files
+  rm src/{App.css,App.test.tsx,index.css,logo.svg,serviceWorker.ts}
 }
 
 PS3='Project type: '
