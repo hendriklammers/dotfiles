@@ -1,7 +1,6 @@
 " TODO: Organise and cleanup file
 
 call plug#begin('~/.vim/plugged')
-Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
@@ -590,7 +589,9 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-snippets',
   \ 'coc-css',
-  \ 'coc-diagnostic'
+  \ 'coc-diagnostic',
+  \ 'coc-stylelint',
+  \ 'coc-pairs',
   \ ]
 
 " Make <tab> used for trigger completion, completion confirm, snippet expand 
