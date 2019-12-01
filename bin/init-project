@@ -20,10 +20,10 @@ replaceTemplateStrings() {
 }
 
 react_project() {
-  npx create-react-app . --typescript
+  npx create-react-app . --template typescript
 
   # Install additional deps
-  yarn add -D prettier typescript-styled-plugin @testing-library/jest-dom @testing-library/react
+  yarn add -D prettier typescript-styled-plugin
   yarn add styled-components @types/styled-components
 
   # Add eslint and prettier configuration to package.json
@@ -41,9 +41,6 @@ react_project() {
     jq -r '. * {compilerOptions: {plugins: [{name: "typescript-styled-plugin"}]}}' tsconfig.json > "$tempTsconfig"
     mv "$tempTsconfig" tsconfig.json
   fi
-
-  # Custom jest matchers for easier testing
-  echo "import '@testing-library/jest-dom/extend-expect'" >> src/setupTests.ts
 
   # Remove unused files
   rm src/{App.css,App.test.tsx,index.css,logo.svg,serviceWorker.ts}
