@@ -611,8 +611,8 @@ endfunction
 " Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <cr> for confirm completion
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Show documentation in preview window
 nnoremap <silent> <leader>? :call <SID>show_documentation()<CR>
