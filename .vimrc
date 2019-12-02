@@ -431,7 +431,7 @@ let g:NERDTreeMinimalUI = 1
 let g:html_exclude_tags = ['html']
 
 " Git shortcuts used for Fugitive plugin
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :10Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gg :Gbrowse<CR>
 nnoremap <leader>gb :Gblame<CR>
