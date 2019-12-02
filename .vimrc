@@ -575,8 +575,10 @@ nnoremap <leader>l :Lines<CR>
 
 " Edit general todo list in new tab
 nnoremap <leader>tl :tabedit ~/Dropbox/todo/todo.txt<CR>
+nnoremap <leader>te :tabedit todo.txt<CR>
 nnoremap <leader>ta :!todo.sh add 
 nnoremap <leader>td :!todo.sh do 
+nnoremap <leader>tx :!todo.sh add Finish all todos in: %:p<CR>
 
 " Coc.nvim
 
