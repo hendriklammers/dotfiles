@@ -20,19 +20,7 @@ replaceTemplateStrings() {
 }
 
 react_project() {
-  npx create-react-app . --template typescript
-
-  # Install additional deps
-  yarn add -D prettier typescript-styled-plugin
-  yarn add styled-components @types/styled-components
-
-  # Add eslint and prettier configuration to package.json
-  if [[ -f "package.json" ]]; then
-    local tempPackage
-    tempPackage=$(mktemp)
-    jq -r '. + {eslintConfig: { extends: "react-app" }, prettier: { semi: false, singleQuote: true, trailingComma: "es5" } }' package.json > "$tempPackage"
-    mv "$tempPackage" package.json
-  fi
+  npx create-react-app . --template hendrik
 
   # Typescript support for styled-components
   if [[ -f "tsconfig.json" ]]; then
@@ -42,8 +30,7 @@ react_project() {
     mv "$tempTsconfig" tsconfig.json
   fi
 
-  # Remove unused files
-  rm src/{App.css,App.test.tsx,index.css,logo.svg,serviceWorker.ts}
+  replaceTemplateStrings
 }
 
 PS3='Project type: '
@@ -98,13 +85,13 @@ cd "$projectTitle" || exit 1
 case "$projectType" in
   "elm")
     git clone git@github.com:hendriklammers/elm-project-starter.git .
-    installDeps
     replaceTemplateStrings
+    installDeps
     ;;
   "node")
     git clone git@github.com:hendriklammers/node-project-starter.git .
-    installDeps
     replaceTemplateStrings
+    installDeps
     ;;
   "react")
     react_project
