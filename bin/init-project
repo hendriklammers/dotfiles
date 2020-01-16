@@ -14,9 +14,9 @@ installDeps() {
 # Adds project title and description
 replaceTemplateStrings() {
   rg \<%PROJECT_TITLE%\> -l \
-    | xargs sed -i "s/<%PROJECT_TITLE%>/$projectTitle/g"
+    | xargs sed -i "" "s/<%PROJECT_TITLE%>/$projectTitle/g"
   rg \<%PROJECT_DESCRIPTION%\> -l \
-    | xargs sed -i "s/<%PROJECT_DESCRIPTION%>/$projectDescription/g"
+    | xargs sed -i "" "s/<%PROJECT_DESCRIPTION%>/$projectDescription/g"
 }
 
 react_project() {
