@@ -7,6 +7,9 @@ export DOTFILES="$HOME/dotfiles"
 # Location of todo list
 export TODO="$HOME/Dropbox/todo/todo.txt"
 
+# Add to path
+PATH="/usr/local/sbin:$PATH"
+
 # Custom scripts
 PATH="$DOTFILES/bin:$PATH"
 
