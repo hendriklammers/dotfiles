@@ -9,3 +9,6 @@ set mark-symlinked-directories on
 
 # Expand on completion
 set expand-tilde on
+
+# Use Vi bindings where possible
+set editing-mode vi
