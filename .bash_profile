@@ -44,6 +44,9 @@ export LC_ALL=en_US.UTF-8
 # Set hub as alias for git
 eval "$(hub alias -s)"
 
+# Bash completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 # Bash completions installed with Homebrew
 if type brew &>/dev/null; then
   for COMPLETION in $(brew --prefix)/etc/bash_completion.d/*
