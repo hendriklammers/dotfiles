@@ -16,9 +16,6 @@ brew install findutils
 # GNU `sed`, overwriting the built-in `sed`
 brew install gnu-sed --with-default-names
 
-# Install Bash 4.
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
-# running `chsh`.
 brew install bash
 brew tap homebrew/versions
 brew install bash-completion2
@@ -29,9 +26,14 @@ if ! grep -F -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash;
 fi;
 
+brew install bat
+brew install bfg
+brew install brew-cask-completion
 brew install diff-so-fancy
 brew install fd
+brew install ffmpeg
 brew install fzf
+brew install gawk
 brew install git
 brew install git-extras
 brew install git-flow-avh
@@ -48,22 +50,29 @@ brew install neofetch
 brew install neovim --HEAD
 brew install pandoc
 brew install postgresql
-brew install python
 brew install python3
+brew install redis
 brew install rename
 brew install ripgrep
+brew install rlwrap
 brew install shellcheck
 brew install speedtest-cli
 brew install ssh-copy-id
 brew install tavianator/tap/bfs
+brew install shellcheck
+brew install speedtest-cli
+brew install ssh-copy-id
 brew install the_silver_searcher
 brew install tmux
 brew install todo-txt
 brew install tree
 brew install unrar
 brew install wget --with-iri
+brew install wifi-password
 brew install yarn
+brew install yarn-completion
 brew install youtube-dl
+brew install z
 
 # Use Cask to install MacOS applications
 brew install caskroom/cask/brew-cask
@@ -73,7 +82,9 @@ brew cask install android-file-transfer
 brew cask install appcleaner
 brew cask install dash
 brew cask install divvy
+brew cask install docker
 brew cask install dropbox
+brew cask install figma
 brew cask install firefox
 brew cask install gitify
 brew cask install google-chrome
@@ -85,6 +96,9 @@ brew cask install java
 brew cask install pgadmin4
 brew cask install postman
 brew cask install processing
+brew cask install qlmarkdown
+brew cask install qlstephen
+brew cask install quicklook-json
 brew cask install robomongo
 brew cask install sketch
 brew cask install skype
@@ -94,7 +108,9 @@ brew cask install sublime-text
 brew cask install transmission
 brew cask install transmit
 brew cask install unrarx
+brew cask install virtualbox
 brew cask install vlc
+brew cask install whatsapp
 
 # Remove outdated versions from the cellar
 brew cleanup
