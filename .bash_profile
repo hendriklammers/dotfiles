@@ -10,6 +10,9 @@ export TODO="$HOME/Dropbox/todo/todo.txt"
 # Add to path
 PATH="/usr/local/sbin:$PATH"
 
+# Python executables
+PATH="/usr/local/share/python:$PATH"
+
 # Custom scripts
 PATH="$DOTFILES/bin:$PATH"
 
@@ -59,7 +62,14 @@ fi
 [[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
 
 # stack completions
-eval "$(stack --bash-completion-script stack)"
+if command -v stack 1>/dev/null 2>&1; then
+  eval "$(stack --bash-completion-script stack)"
+fi
+
+# Enable pyenv shims and completions
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow 2> /dev/null'

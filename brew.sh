@@ -8,7 +8,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# GNU core utilities (those that come with OS X are outdated)
+# GNU core utilities
 brew install coreutils
 brew install moreutils
 # GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
@@ -16,8 +16,8 @@ brew install findutils
 # GNU `sed`, overwriting the built-in `sed`
 brew install gnu-sed --with-default-names
 
+# Use latest Bash version
 brew install bash
-brew tap homebrew/versions
 brew install bash-completion2
 
 # Switch to using brew-installed bash as default shell
@@ -34,6 +34,7 @@ brew install fd
 brew install ffmpeg
 brew install fzf
 brew install gawk
+brew install gh
 brew install git
 brew install git-extras
 brew install git-flow-avh
@@ -50,18 +51,20 @@ brew install neofetch
 brew install neovim --HEAD
 brew install pandoc
 brew install postgresql
-brew install python3
+brew install pyenv
 brew install redis
 brew install rename
 brew install ripgrep
 brew install rlwrap
 brew install shellcheck
 brew install speedtest-cli
+brew install mysql
 brew install ssh-copy-id
 brew install tavianator/tap/bfs
 brew install shellcheck
 brew install speedtest-cli
 brew install ssh-copy-id
+brew install svgo
 brew install the_silver_searcher
 brew install tmux
 brew install todo-txt
@@ -96,6 +99,7 @@ brew cask install java
 brew cask install pgadmin4
 brew cask install postman
 brew cask install processing
+brew cask install psequel
 brew cask install qlmarkdown
 brew cask install qlstephen
 brew cask install quicklook-json
