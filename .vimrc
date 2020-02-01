@@ -5,6 +5,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -102,8 +103,16 @@ let b:match_debug = 1
 " Use dark background
 set background=dark
 
+" Use true colors
+if exists('+termguicolors')
+  let &t_8f = "[38;2;%lu;%lu;%lum"
+  let &t_8b = "[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 " Use Solarized colorscheme
-colorscheme solarized
+colorscheme solarized8
+
 " More constrast colors in vimdiff
 let g:solarized_diffmode = 'high'
 
