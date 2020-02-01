@@ -256,7 +256,7 @@ set relativenumber
 set cursorline
 
 " Make current line number stand out a bit more
-highlight CursorLineNr ctermfg=LightGray
+highlight CursorLineNr ctermfg=7 guifg=#eee8d5
 
 " Remove background color from signs column
 highlight clear SignColumn
@@ -265,7 +265,7 @@ highlight clear SignColumn
 set signcolumn=yes
 
 " Make tilde in front of nonexisting lines less bright
-highlight EndOfBuffer ctermfg=bg
+highlight EndOfBuffer ctermfg=10 guifg=#586e75
 
 " Show comments in italics
 highlight Comment cterm=italic
@@ -452,7 +452,7 @@ nnoremap <leader>gp :Gpush<CR>
 
 " Open Gdiff in vertical splits
 set diffopt+=vertical
-"
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
