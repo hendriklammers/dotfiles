@@ -28,11 +28,14 @@ Plug 'jpalardy/vim-slime'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'freitass/todo.txt-vim'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-call plug#end()
 
+" TODO: Try this plugin for resolving merge conflicts
+" https://github.com/christoomey/vim-conflicted
+
+call plug#end()
 " Keep 1000 lines in history instead of 20 default
 set history=1000
 
@@ -635,13 +638,19 @@ function! s:show_documentation()
 endfunction
 
 " Remap keys for gotos
-nmap <silent> <leader>cd <Plug>(coc-definition)
-nmap <silent> <leader>ct <Plug>(coc-type-definition)
-nmap <silent> <leader>cr <Plug>(coc-references)
-nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> <leader>ct <Plug>(coc-type-definition)
+" nmap <silent> <leader>cr <Plug>(coc-references)
+" nmap <silent> <leader>ci <Plug>(coc-implementation)
+
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 
 " Change color of warning sign to yellow
-highlight CocWarningSign ctermfg=3
+highlight CocWarningSign ctermfg=3 guifg=#b58900
 
 " Run :Prettier to format a file
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
