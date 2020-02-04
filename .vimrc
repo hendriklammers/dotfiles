@@ -651,6 +651,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Change color of warning sign to yellow
 highlight CocWarningSign ctermfg=3 guifg=#b58900
+highlight CocErrorSign ctermfg=1 guifg=#dc322f
 
 " Run :Prettier to format a file
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
