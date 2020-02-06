@@ -28,7 +28,7 @@ PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 # Set the default editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export GIT_EDITOR=vim
+export GIT_EDITOR=nvim
 
 # Larger bash history (default is 500)
 export HISTFILESIZE=100000
@@ -82,12 +82,18 @@ bind -x '"\C-p": vim $(fzf);'
 # rg config, containing ignore globs
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
+eval "$(rbenv init -)"
+
 # Source scripts
 [ -s "$HOME/.prompt" ] && source "$HOME/.prompt"
 [ -s "$HOME/.functions" ] && source "$HOME/.functions"
 [ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
 [ -s "$HOME/.extra" ] && source "$HOME/.extra"
-[ -s "$HOME/.nvm/nvm.sh" ] && source $HOME/.nvm/nvm.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
 [ -f "/usr/local/etc/profile.d/z.sh" ] && source "/usr/local/etc/profile.d/z.sh"
