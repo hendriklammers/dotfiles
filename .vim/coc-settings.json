@@ -43,7 +43,7 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
-  "diagnostic-languageserver.filetypes": {
-    "sh": "shellcheck"
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
   }
 }
