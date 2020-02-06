@@ -28,8 +28,6 @@
   enabled = true
 [credential]
   helper = osxkeychain
-[mergetool]
-  path = nvim
 [tag]
   sort = version:refname
 [color "diff-highlight"]
@@ -44,3 +42,7 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[mergetool]
+	keepBackup = false
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
