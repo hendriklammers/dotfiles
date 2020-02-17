@@ -378,6 +378,12 @@ augroup vimrc
 
   " Haskell settings
   autocmd FileType haskell setlocal tabstop=4 shiftwidth=4 softtabstop=4 formatprg=hindent
+
+  " console.log the word under the cursor
+  autocmd FileType javascript nnoremap <localleader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>
+
+  " console.log visual selection
+  autocmd FileType javascript vnoremap <localleader>l yoconsole.log('<c-r>"', <c-r>")<esc>
 augroup END
 
 " Remove trailing whitespace
@@ -447,7 +453,7 @@ nnoremap <leader>gs :10Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gg :Gbrowse<CR>
 nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gd :Gdiffsplit!<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gl :0Glog<CR>
