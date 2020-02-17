@@ -11,9 +11,9 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
   log = true
-  tool = vimdiff
+	tool = fugitive
 [diff]
-  tool = vimdiff
+  tool = fugitive
 [difftool]
   prompt = false
 [push]
@@ -46,3 +46,5 @@
 	keepBackup = false
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
