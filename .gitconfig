@@ -22,6 +22,8 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   s = status -s
   d = difftool
+  co = checkout
+  m = merge
 [pull]
   rebase = true
 [rerere]
