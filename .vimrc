@@ -23,6 +23,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'sheerun/vim-polyglot'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'jpalardy/vim-slime'
 " Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
@@ -591,6 +592,9 @@ nnoremap <silent> <expr> <leader>o (len(system('git rev-parse')) ? ':Files' : ':
 nnoremap <leader>O :Files<CR>
 nnoremap <leader>l :Lines<CR>
 
+" Disable FZF preview window
+let g:fzf_preview_window = ''
+
 " Edit general todo list in new tab
 nnoremap <leader>tl :tabedit ~/Dropbox/todo/todo.txt<CR>
 nnoremap <leader>te :tabedit todo.txt<CR>
@@ -661,3 +665,27 @@ highlight CocErrorSign ctermfg=1 guifg=#dc322f
 
 " Run :Prettier to format a file
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Hide Tmux status bar when using Goyo
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()

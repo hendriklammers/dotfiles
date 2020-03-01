@@ -24,6 +24,7 @@
   d = difftool
   co = checkout
   m = merge
+  b = branch
 [pull]
   rebase = true
 [rerere]
