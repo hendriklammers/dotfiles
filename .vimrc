@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'lifepillar/vim-solarized8'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
@@ -104,9 +103,6 @@ runtime macros/matchit.vim
 " Matchit sometimes doesn't work with braces, this fixes it..
 let b:match_debug = 1
 
-" Use dark background
-set background=dark
-
 " Use true colors
 if exists('+termguicolors')
   let &t_8f = "[38;2;%lu;%lu;%lum"
@@ -120,8 +116,8 @@ colorscheme solarized8
 " More constrast colors in vimdiff
 let g:solarized_diffmode = 'high'
 
-" Toggle Solarized light/dark
-call togglebg#map('<F3>')
+" Use dark background
+set background=dark
 
 " Show syntax highlighting
 syntax on
@@ -319,7 +315,8 @@ if executable('rg')
 endif
 
 " Enable search highlighting
-set hlsearch
+set nohlsearch
+
 " Incrementally match the search
 set incsearch
 " Use case insensitive search, except when using capital letters
@@ -450,7 +447,7 @@ let g:NERDTreeMinimalUI = 1
 let g:html_exclude_tags = ['html']
 
 " Git shortcuts used for Fugitive plugin
-nnoremap <leader>gs :10Gstatus<CR>
+nnoremap <leader>gs :10Git<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gg :Gbrowse<CR>
 nnoremap <leader>gb :Gblame<CR>
@@ -689,3 +686,8 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" Fix to update lightline after switching background dark/light
+autocmd OptionSet background
+  \ execute 'source' globpath(&rtp, 'autoload/lightline/colorscheme/solarized.vim')
+  \ | call lightline#colorscheme() | call lightline#update()
