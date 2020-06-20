@@ -294,9 +294,7 @@ set scrolloff=3
 
 " Fold settings
 set foldenable
-set foldmethod=indent
-set foldlevelstart=10
-set foldnestmax=10
+set foldmethod=manual
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
