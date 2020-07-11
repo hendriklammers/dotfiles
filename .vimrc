@@ -5,7 +5,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'lifepillar/vim-solarized8'
-Plug 'ap/vim-css-color'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-rhubarb'
@@ -546,6 +546,7 @@ let g:switch_custom_definitions =
     \   ['pause', 'play'],
     \   ['Pause', 'Play'],
     \   ['production', 'development'],
+    \   ['enabled', 'disabled'],
     \   ['>>', '<<']
     \ ]
 
@@ -557,6 +558,9 @@ let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{right-o
 
 " Always use defaults
 let g:slime_dont_ask_default = 1
+
+" Shows color behind value
+let g:Hexokinase_highlighters = ['virtual']
 
 " vim-slime mappings
 xmap <leader>s <Plug>SlimeRegionSend
@@ -653,6 +657,9 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+
+" Restart Coc
+nmap <leader>cr :CocRestart<CR>
 
 " Change color of warning sign to yellow
 highlight CocWarningSign ctermfg=3 guifg=#b58900
