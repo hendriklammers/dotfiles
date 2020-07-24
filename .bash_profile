@@ -29,6 +29,8 @@ PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR=nvim
+# Prevent Create React App from opening Vim on error
+export REACT_EDITOR=none
 
 # Larger bash history (default is 500)
 export HISTFILESIZE=100000
