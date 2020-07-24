@@ -20,12 +20,16 @@
   default = simple
 	followTags = true
 [alias]
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  s = status -s
-  d = difftool
-  co = checkout
-  m = merge
+  a = add
   b = branch
+  c = commit
+  co = checkout
+  d = difftool
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  m = merge
+  p = pull --rebase
+  s = status -sb
+  t = tag
 [pull]
   rebase = true
 [rerere]
