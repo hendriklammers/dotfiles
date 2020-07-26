@@ -67,3 +67,6 @@ alias work='cd ~/work'
 alias pro='cd ~/Projects'
 alias code='cd ~/code'
 alias doc='cd ~/Documents'
+
+# Use python 3 by default
+alias python='python3'
