@@ -81,6 +81,14 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 # Open fzf to search file and open it with Vim
 bind -x '"\C-p": vim $(fzf);'
 
+# fzf Git bindings
+bind '"\er": redraw-current-line'
+bind '"\C-g\C-f": "$(fzf_gf)\n\e\C-e\er"'
+bind '"\C-g\C-b": "$(fzf_gb)\n\e\C-e\er"'
+bind '"\C-g\C-t": "$(fzf_gt)\n\e\C-e\er"'
+bind '"\C-g\C-l": "$(fzf_gh)\n\e\C-e\er"'
+bind '"\C-g\C-r": "$(fzf_gr)\n\e\C-e\er"'
+
 # rg config, containing ignore globs
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
