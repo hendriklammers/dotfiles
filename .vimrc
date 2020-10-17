@@ -5,7 +5,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'lifepillar/vim-solarized8'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-rhubarb'
@@ -24,13 +23,13 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'jpalardy/vim-slime'
-" Fix for <C-h> in Neovim is needed, see: https://github.com/neovim/neovim/issues/2048
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'freitass/todo.txt-vim'
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-rails'
 
 " TODO: Try this plugin for resolving merge conflicts
 " https://github.com/christoomey/vim-conflicted
@@ -376,10 +375,10 @@ augroup vimrc
   autocmd FileType haskell setlocal tabstop=4 shiftwidth=4 softtabstop=4 formatprg=hindent
 
   " console.log the word under the cursor
-  autocmd FileType javascript nnoremap <localleader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>
+  autocmd FileType javascript,jsx,javascriptreact nnoremap <localleader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>
 
   " console.log visual selection
-  autocmd FileType javascript vnoremap <localleader>l yoconsole.log('<c-r>"', <c-r>")<esc>
+  autocmd FileType javascript,jsx,javascriptreact vnoremap <localleader>l yoconsole.log('<c-r>"', <c-r>")<esc>
 augroup END
 
 " Remove trailing whitespace
@@ -559,9 +558,6 @@ let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{right-o
 " Always use defaults
 let g:slime_dont_ask_default = 1
 
-" Shows color behind value
-let g:Hexokinase_highlighters = ['virtual']
-
 " vim-slime mappings
 xmap <leader>s <Plug>SlimeRegionSend
 nmap <leader>s <Plug>SlimeParagraphSend
@@ -615,6 +611,7 @@ let g:coc_global_extensions = [
   \ 'coc-diagnostic',
   \ 'coc-stylelint',
   \ 'coc-pairs',
+  \ 'coc-solargraph',
   \ ]
 
 " Make <tab> used for trigger completion, completion confirm, snippet expand 
