@@ -12,7 +12,8 @@
     "typescript",
     "typescriptreact",
     "javascriptreact",
-    "elm"
+    "elm",
+    "ruby"
   ],
   "languageserver": {
     "elmLS": {
@@ -45,5 +46,7 @@
   "prettier.trailingComma": "es5",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
-  }
+  },
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true
 }
