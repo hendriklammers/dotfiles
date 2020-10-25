@@ -9,6 +9,7 @@ links=(
   ".ghci"
   ".gitconfig"
   ".inputrc"
+  ".irbrc"
   ".prompt"
   ".ripgreprc"
   ".tmux.conf"
