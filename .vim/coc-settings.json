@@ -45,7 +45,8 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
+    "eruby": "html"
   },
   "solargraph.diagnostics": true,
   "solargraph.formatting": true
