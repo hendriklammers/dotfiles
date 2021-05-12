@@ -100,3 +100,9 @@ fzf_gr() {
     --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {1} | head -200' |
   cut -d$'\t' -f1
 }
+
+# Create a pull request and open it in browser
+# Usage: gitpr <branch-name>
+gitpr() {
+  gh pr create --base "$1" --web
+}
