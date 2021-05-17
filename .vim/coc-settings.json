@@ -8,12 +8,8 @@
   "diagnostic.infoSign": "•",
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
     "typescript",
-    "typescriptreact",
-    "javascriptreact",
-    "elm",
-    "ruby"
+    "elm"
   ],
   "languageserver": {
     "elmLS": {
