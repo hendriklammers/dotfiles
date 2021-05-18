@@ -70,3 +70,6 @@ alias doc='cd ~/Documents'
 
 # Use python 3 by default
 alias python='python3'
+
+# Reinstall node modules with npm
+alias npmri='rm -rf node_modules && npm i'

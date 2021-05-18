@@ -13,6 +13,11 @@ PATH="/usr/local/sbin:$PATH"
 # Python executables
 PATH="/usr/local/share/python:$PATH"
 
+# Use GNU utils without 'g' prefix
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # Custom scripts
 PATH="$DOTFILES/bin:$PATH"
 
@@ -24,6 +29,9 @@ PATH="$HOME/.local/bin:$PATH"
 export GOPATH="${HOME}/code/go"
 export GOROOT="$(brew --prefix golang)/libexec"
 PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# Enable Go modules
+export GO111MODULE=on
 
 # Set the default editor
 export VISUAL=nvim
@@ -46,12 +54,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # https://stackoverflow.com/questions/56716993/error-message-when-starting-vim-failed-to-set-locale-category-lc-numeric-to-en
 export LC_ALL=en_US.UTF-8
 
-# Set hub as alias for git
-eval "$(hub alias -s)"
-
-# Bash completion
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
 # Bash completions installed with Homebrew
 if type brew &>/dev/null; then
   for COMPLETION in $(brew --prefix)/etc/bash_completion.d/*
@@ -73,6 +75,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# Set hub as alias for git
+eval "$(hub alias -s)"
+
+eval "$(rbenv init -)"
+
+eval "$(thefuck --alias)"
+
 # http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -91,8 +100,6 @@ bind '"\C-g\C-r": "$(fzf_gr)\n\e\C-e\er"'
 
 # rg config, containing ignore globs
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-
-eval "$(rbenv init -)"
 
 # Source scripts
 [ -s "$HOME/.prompt" ] && source "$HOME/.prompt"
