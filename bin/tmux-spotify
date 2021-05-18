@@ -11,6 +11,10 @@ tell application "Spotify"
       set combined_name to artist_name & " - " & track_name
       set max_length to 40
 
+      if length of track_name > max_length then
+        set track_name to ((characters 1 thru max_length of track_name) as string) & "…"
+      end if
+
       if length of combined_name > max_length then
         set combined_name to ((characters 1 thru max_length of combined_name) as string) & "…"
       end if
@@ -18,7 +22,7 @@ tell application "Spotify"
       if artist_name > 0
         "#[fg=colour15]♪ #[fg=colour13]"& combined_name
       else
-        # Advertisement
+        # Advertisement or podcast
         "#[fg=colour13]~ " & track_name
       end if
     end if
