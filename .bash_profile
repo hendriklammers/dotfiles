@@ -10,9 +10,6 @@ export TODO="$HOME/Dropbox/todo/todo.txt"
 # Add to path
 PATH="/usr/local/sbin:$PATH"
 
-# Python executables
-PATH="/usr/local/share/python:$PATH"
-
 # Use GNU utils without 'g' prefix
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
@@ -32,6 +29,12 @@ PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Enable Go modules
 export GO111MODULE=on
+
+# Use Python version installed with pyenv instead of default MacOS version
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # Set the default editor
 export VISUAL=nvim
@@ -68,11 +71,6 @@ fi
 # stack completions
 if command -v stack 1>/dev/null 2>&1; then
   eval "$(stack --bash-completion-script stack)"
-fi
-
-# Enable pyenv shims and completions
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
 fi
 
 # Set hub as alias for git
