@@ -57,7 +57,10 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # https://stackoverflow.com/questions/56716993/error-message-when-starting-vim-failed-to-set-locale-category-lc-numeric-to-en
 export LC_ALL=en_US.UTF-8
 
-# Bash completions installed with Homebrew
+# bash-completion@2
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# Completions installed with Homebrew
 if type brew &>/dev/null; then
   for COMPLETION in $(brew --prefix)/etc/bash_completion.d/*
   do
