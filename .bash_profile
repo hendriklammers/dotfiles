@@ -115,3 +115,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
 [ -f "/usr/local/etc/profile.d/z.sh" ] && source "/usr/local/etc/profile.d/z.sh"
+
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
