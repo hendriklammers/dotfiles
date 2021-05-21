@@ -57,16 +57,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # https://stackoverflow.com/questions/56716993/error-message-when-starting-vim-failed-to-set-locale-category-lc-numeric-to-en
 export LC_ALL=en_US.UTF-8
 
-# bash-completion@2
+# Enable bash completion installed with brew (bash-completion@2)
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
-# Completions installed with Homebrew
-if type brew &>/dev/null; then
-  for COMPLETION in $(brew --prefix)/etc/bash_completion.d/*
-  do
-    [[ -f $COMPLETION ]] && source "$COMPLETION"
-  done
-fi
 
 # Completion for nvm
 [[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
@@ -75,9 +68,6 @@ fi
 if command -v stack 1>/dev/null 2>&1; then
   eval "$(stack --bash-completion-script stack)"
 fi
-
-# Set hub as alias for git
-eval "$(hub alias -s)"
 
 eval "$(rbenv init -)"
 
