@@ -112,10 +112,10 @@ fi
 git init && git add . && git commit -m "Initial commit"
 echo ""
 
+# Use Github cli to create a new repository
 if [[ "$githubRepo" = true ]]; then
-  if ! [[ -x "$(command -v hub)" ]]; then
-    echo >&2 "hub is not installed."; exit 1
+  if ! [[ -x "$(command -v gh)" ]]; then
+    echo >&2 "gh cli is not installed."; exit 1
   fi
-  hub create -p "$projectTitle" -d "$projectDescription"
-  # git push -u origin master
+  gh repo create "$projectTitle" -d "$projectDescription" --private --confirm
 fi
