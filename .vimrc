@@ -24,9 +24,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'jpalardy/vim-slime'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'freitass/todo.txt-vim'
-Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-rails'
@@ -444,15 +442,15 @@ let g:NERDTreeMinimalUI = 1
 let g:html_exclude_tags = ['html']
 
 " Git shortcuts used for Fugitive plugin
-nnoremap <leader>gs :10Git<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gg :Gbrowse<CR>
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gs :Git<CR><C-w>10-
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gg :GBrowse<CR>
 nnoremap <leader>gd :Gdiffsplit!<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gl :0Glog<CR>
-nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gl :Gclog<CR>
 
 " Open Gdiff in vertical splits
 set diffopt+=vertical
@@ -580,12 +578,11 @@ command! -bang -nargs=* Rg
     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
     \   <bang>0)
 
-nnoremap <leader>/ :grep
-
 " FZF mappings
 nnoremap <silent> <expr> <leader>o (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
 nnoremap <leader>O :Files<CR>
 nnoremap <leader>l :Lines<CR>
+nnoremap <leader>/ :Rg<CR>
 
 " Disable FZF preview window
 let g:fzf_preview_window = ''
@@ -645,9 +642,9 @@ endfunction
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> <leader>ct <Plug>(coc-type-definition)
-" nmap <silent> <leader>cr <Plug>(coc-references)
-" nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>ct <Plug>(coc-type-definition)
+nmap <silent> <leader>cf <Plug>(coc-references)
+nmap <silent> <leader>ci <Plug>(coc-implementation)
 
 " Navigate coc diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -700,3 +697,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 autocmd OptionSet background
   \ execute 'source' globpath(&rtp, 'autoload/lightline/colorscheme/solarized.vim')
   \ | call lightline#colorscheme() | call lightline#update()
+
+" Format file with Prettier
+nnoremap <leader>p :Prettier<CR>
