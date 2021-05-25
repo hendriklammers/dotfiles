@@ -16,8 +16,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias la='ls -A -l -G' # List all
-alias l.='ls -d .[^.]*' # List hidden
+alias ls='ls --color=auto' # Always output in color
+alias lsh='ls -ld .[^.]*' # List hidden
 alias lsd='ls -l | grep "^d"' # List directories
 alias cl='clear' #clear screen
 
