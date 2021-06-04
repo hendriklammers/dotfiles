@@ -6,8 +6,10 @@ md() {
 
 # Start an HTTP server from a directory, optionally specifying the port
 server() {
-  (port="${1:-8000}"
-  open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port")
+  if command -v npx > /dev/null; then
+    (port="${1:-8000}"
+    open "http://localhost:${port}/" && npx serve -p "$port")
+  fi
 }
 
 # Change directory to the current Finder directory
