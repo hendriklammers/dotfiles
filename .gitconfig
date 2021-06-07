@@ -1,6 +1,6 @@
 [user]
-  name = Hendrik Lammers
-  email = lammers@gmail.com
+	name = Hendrik Lammers
+	email = lammers@gmail.com
 [color]
 	ui = true
 [core]
@@ -24,14 +24,18 @@
   b = branch
   c = commit
   ca = commit --amend
+  ce = commit --amend --no-edit
   co = checkout
+	sw = switch
   d = difftool
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   m = merge
-  p = pull --rebase
+  p = pull
   s = status -sb
   t = tag
   parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
+	# Opens a new pr for current branch with $1 argument as base e.g. $ git req master
+	req = "!f() { gh pr create --base \"$1\" --web; }; f"
 [pull]
   rebase = true
 [rerere]
