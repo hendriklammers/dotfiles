@@ -9,6 +9,7 @@
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
+    "typescriptreact",
     "elm"
   ],
   "languageserver": {
