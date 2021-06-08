@@ -11,6 +11,7 @@ links=(
   ".inputrc"
   ".irbrc"
   ".prompt"
+  ".psqlrc"
   ".ripgreprc"
   ".tmux.conf"
   ".vim"
@@ -19,5 +20,5 @@ links=(
 
 for i in "${links[@]}"
 do
-  ln -svh "$HOME"/dotfiles/"$i" "$HOME"/"$i"
+  ln -sv "$HOME"/dotfiles/"$i" "$HOME"/"$i"
 done
