@@ -103,8 +103,7 @@ fzf_gr() {
   cut -d$'\t' -f1
 }
 
-# Create a pull request and open it in browser
-# Usage: gitpr <branch-name>
-gitpr() {
-  gh pr create --base "$1" --web
+# Removes node_modules from all subdirectories of current dir
+clear_node_modules() {
+  find . -name "node_modules" -type d -prune -print -exec rm -rf "{}" \;
 }
