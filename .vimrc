@@ -28,6 +28,7 @@ Plug 'freitass/todo.txt-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-rails'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " TODO: Try this plugin for resolving merge conflicts
 " https://github.com/christoomey/vim-conflicted
@@ -703,5 +704,32 @@ autocmd OptionSet background
   \ execute 'source' globpath(&rtp, 'autoload/lightline/colorscheme/solarized.vim')
   \ | call lightline#colorscheme() | call lightline#update()
 
-" Format file with Prettier
-nnoremap <leader>p :Prettier<CR>
+" Setting up Vim Golang development
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>i <Plug>(go-imports)
+
+" Show everything in quickfix list
+let g:go_list_type = "quickfix"
+
+" Run goimports when saving a file (While still formatting)
+let g:go_fmt_command = "goimports"
+
+" Disable vim-go's goto definition
+let g:go_def_mapping_enabled = 0
+
+" Format lua files on save
+autocmd BufWrite *.lua call LuaFormat()
+
+" Disable Github copilot for most filetypes as it gets in the way
+let g:copilot_filetypes = {
+  \ '*': v:false,
+  \ 'lua': v:true,
+  \ 'svelte': v:true,
+  \ 'typescript': v:true,
+  \ }
+
+let g:svelte_preprocessor_tags = [
+  \ { 'name': 'ts', 'tag': 'lang', 'as': 'typescript' }
+  \ ]
+let g:svelte_preprocessors = ['ts']
