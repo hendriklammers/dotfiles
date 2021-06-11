@@ -609,6 +609,7 @@ let g:coc_global_extensions = [
   \ 'coc-stylelint',
   \ 'coc-pairs',
   \ 'coc-solargraph',
+  \ 'coc-lua',
   \ ]
 
 " Make <tab> used for trigger completion, completion confirm, snippet expand 
@@ -662,12 +663,16 @@ nmap <leader>rn <Plug>(coc-rename)
 " Restart Coc
 nmap <leader>cr :CocRestart<CR>
 
+" Formatting selected code.
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
 " Change color of warning sign to yellow
 highlight CocWarningSign ctermfg=3 guifg=#b58900
 highlight CocErrorSign ctermfg=1 guifg=#dc322f
-
-" Run :Prettier to format a file
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Hide Tmux status bar when using Goyo
 function! s:goyo_enter()

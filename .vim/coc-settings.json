@@ -24,6 +24,11 @@
         "elmFormatPath": "elm-format",
         "elmTestPath": "elm-test"
       }
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
     }
   },
   "snippets.priority": 100,
@@ -46,5 +51,6 @@
     "eruby": "html"
   },
   "solargraph.diagnostics": true,
-  "solargraph.formatting": true
+  "solargraph.formatting": true,
+  "svelte.enable-ts-plugin": true
 }
