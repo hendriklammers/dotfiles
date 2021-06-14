@@ -36,6 +36,11 @@ function* ${1:functionName}(${2:arguments}) {
 }
 endsnippet
 
+snippet funa "async function"
+async function ${1:functionName}(${2:arguments}) {
+	${3:// body...}
+}
+endsnippet
 
 snippet if "if statement"
 if (${1:true}) {
@@ -110,7 +115,7 @@ snippet af "arrow function"
 ($1) => $0
 endsnippet
 
-snippet async "async function"
+snippet afa "async arrow function"
 async ($1) => ${2:\{$0\}}
 endsnippet
 
