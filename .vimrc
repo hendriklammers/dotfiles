@@ -333,10 +333,10 @@ endif
 nnoremap Y y$
 
 " Omnicomplete setting
-set completeopt=longest,menuone
-set omnifunc=csscomplete#CompleteCSS
-set omnifunc=htmlcomplete#CompleteTags
-set omnifunc=javascriptcomplete#CompleteJS
+" set completeopt=longest,menuone
+" set omnifunc=csscomplete#CompleteCSS
+" set omnifunc=htmlcomplete#CompleteTags
+" set omnifunc=javascriptcomplete#CompleteJS
 
 " Map leader to space
 let g:mapleader = "\<Space>"
@@ -363,8 +363,8 @@ augroup vimrc
   " This should fix matchit to jump from <ul> to <li> instead of </ul>
   autocmd FileType html,php let b:match_words='<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
 
-  " Wrap markdown files at 80 columns and enable spellcheck
-  autocmd BufRead,BufNewFile *.md setlocal spell textwidth=80
+  " Wrap markdown files at 100 columns and enable spellcheck
+  autocmd BufRead,BufNewFile *.md setlocal spell textwidth=100
 
   " Enable spellcheck for .txt files
   autocmd BufRead,BufNewFile *.txt setlocal spell
@@ -379,10 +379,10 @@ augroup vimrc
   autocmd FileType haskell setlocal tabstop=4 shiftwidth=4 softtabstop=4 formatprg=hindent
 
   " console.log the word under the cursor
-  autocmd FileType javascript,jsx,javascriptreact nnoremap <localleader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>
+  autocmd FileType javascript,jsx,javascriptreact,typescript,typescriptreact,svelte nnoremap <localleader>l yiwoconsole.log('<c-r>"', <c-r>")<esc>
 
   " console.log visual selection
-  autocmd FileType javascript,jsx,javascriptreact vnoremap <localleader>l yoconsole.log('<c-r>"', <c-r>")<esc>
+  autocmd FileType javascript,jsx,javascriptreact,typescript,typescriptreact,svelte vnoremap <localleader>l yoconsole.log('<c-r>"', <c-r>")<esc>
 augroup END
 
 " Remove trailing whitespace
@@ -456,7 +456,7 @@ nnoremap <leader>gg :GBrowse<CR>
 nnoremap <leader>gd :Gdiffsplit!<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gl :Gclog<CR>
+nnoremap <leader>gl :0Gclog<CR>
 
 " Open Gdiff in vertical splits
 set diffopt+=vertical
@@ -585,7 +585,7 @@ command! -bang -nargs=* Rg
     \   <bang>0)
 
 " FZF mappings
-nnoremap <silent> <expr> <leader>o (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
+nnoremap <silent> <expr> <leader>o (len(system('git rev-parse')) ? ':Files' : ':GFiles --cached --others --exclude-standard')."\<cr>"
 nnoremap <leader>O :Files<CR>
 nnoremap <leader>l :Lines<CR>
 nnoremap <leader>/ :Rg<CR>
