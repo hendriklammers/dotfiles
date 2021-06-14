@@ -11,6 +11,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
 Plug 'tommcdo/vim-exchange'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'chrisbra/csv.vim'
@@ -29,11 +30,15 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-rails'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'andrejlevkovitch/vim-lua-format'
+Plug 'github/copilot.vim'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " TODO: Try this plugin for resolving merge conflicts
 " https://github.com/christoomey/vim-conflicted
 
 call plug#end()
+
 " Keep 1000 lines in history instead of 20 default
 set history=1000
 
