@@ -31,13 +31,16 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   m = merge
   p = pull
-  s = status -sb
+  s = status
+  st = stash --include-untracked
   t = tag
   parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
 	# Opens a new pr for current branch with $1 argument as base e.g. $ git req master
 	req = "!f() { gh pr create --base \"$1\" --web; }; f"
 [pull]
   rebase = true
+[merge]
+	ff = no
 [rerere]
   enabled = true
 [credential]
@@ -62,3 +65,5 @@
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[init]
+	defaultBranch = main
