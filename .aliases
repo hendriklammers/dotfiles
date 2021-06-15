@@ -19,7 +19,7 @@ alias ......='cd ../../../../..'
 alias ls='ls --color=auto' # Always output in color
 alias lsh='ls -ld .[^.]*' # List hidden
 alias lsd='ls -l | grep "^d"' # List directories
-alias cl='clear' #clear screen
+alias cl='clear' # Clear screen
 
 # Always use verbose for these commands
 alias mv='mv -v'
