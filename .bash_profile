@@ -94,6 +94,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 [ -s "$HOME/.prompt" ] && source "$HOME/.prompt"
 [ -s "$HOME/.functions" ] && source "$HOME/.functions"
 [ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
+# Not checked into dotfiles repo
 [ -s "$HOME/.extra" ] && source "$HOME/.extra"
 
 export NVM_DIR="$HOME/.nvm"

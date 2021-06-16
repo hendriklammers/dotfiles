@@ -36,7 +36,7 @@
   t = tag
   parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
 	# Opens a new pr for current branch with $1 argument as base e.g. $ git req master
-	req = "!f() { gh pr create --base \"$1\" --web; }; f"
+	req = "!f() { gh pr create --base \"$1\" --reviewer \"$GIT_REVIEWERS\"; }; f"
 [pull]
   rebase = true
 [merge]
