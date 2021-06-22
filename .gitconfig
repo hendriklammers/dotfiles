@@ -1,6 +1,7 @@
 [user]
-	name = Hendrik Lammers
-	email = lammers@gmail.com
+  # Inside ~/.gitconfig_local
+[include]
+  path = ~/.gitconfig_local
 [color]
 	ui = true
 [core]
