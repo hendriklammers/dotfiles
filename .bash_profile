@@ -10,11 +10,6 @@ export TODO="$HOME/Dropbox/todo/todo.txt"
 # Add to path
 PATH="/usr/local/sbin:$PATH"
 
-# Use GNU utils without 'g' prefix
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-
 # Custom scripts
 PATH="$DOTFILES/bin:$PATH"
 
