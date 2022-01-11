@@ -732,7 +732,11 @@ let g:copilot_filetypes = {
   \ 'lua': v:true,
   \ 'svelte': v:true,
   \ 'typescript': v:true,
+  \ 'typescriptreact': v:true,
   \ }
+
+" Open Github copilot completions in a panel
+inoremap <C-i> <Esc>:Copilot panel<CR>
 
 let g:svelte_preprocessor_tags = [
   \ { 'name': 'ts', 'tag': 'lang', 'as': 'typescript' }
