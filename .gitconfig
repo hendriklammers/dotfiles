@@ -1,6 +1,5 @@
-[user]
-  # Inside ~/.gitconfig_local
 [include]
+  # Contains user
   path = ~/.gitconfig_local
 [color]
 	ui = true
