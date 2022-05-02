@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'lifepillar/vim-solarized8'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-rhubarb'
@@ -113,11 +113,11 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-" Use Solarized colorscheme
-colorscheme solarized8
+" Set color scheme
+colorscheme tokyonight
 
-" More constrast colors in vimdiff
-let g:solarized_diffmode = 'high'
+let g:tokyonight_style = 'night'
+let g:tokyonight_sidebars = [ "nerdtree" ]
 
 " Use dark background
 set background=dark
@@ -130,7 +130,7 @@ set backspace=indent,eol,start
 
 " Lightline configuration
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'tokyonight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive' ],
@@ -704,10 +704,10 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" Fix to update lightline after switching background dark/light
-autocmd OptionSet background
-  \ execute 'source' globpath(&rtp, 'autoload/lightline/colorscheme/solarized.vim')
-  \ | call lightline#colorscheme() | call lightline#update()
+" " Fix to update lightline after switching background dark/light
+" autocmd OptionSet background
+"   \ execute 'source' globpath(&rtp, 'autoload/lightline/colorscheme/solarized.vim')
+"   \ | call lightline#colorscheme() | call lightline#update()
 
 " Setting up Vim Golang development
 autocmd FileType go nmap <leader>b <Plug>(go-build)
