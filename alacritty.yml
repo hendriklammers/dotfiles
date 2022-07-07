@@ -116,7 +116,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 4
-    y: 4
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -147,7 +147,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: SimpleFullscreen
+  startup_mode: Maximized
 
   # Window title
   #title: Alacritty
