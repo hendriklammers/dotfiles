@@ -20,5 +20,5 @@ links=(
 
 for i in "${links[@]}"
 do
-  ln -sv "$HOME"/dotfiles/"$i" "$HOME"/"$i"
+  ln -sv "$HOME"/.dotfiles/"$i" "$HOME"/"$i"
 done

@@ -21,8 +21,8 @@ brew install bash
 brew install bash-completion2
 
 # Switch to using brew-installed bash as default shell
-if ! grep -F -q '/usr/local/bin/bash' /etc/shells; then
-  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
+if ! grep -F -q '/opt/homebrew/bin/bash' /etc/shells; then
+  echo '/opt/homebrew/bin/bash' | sudo tee -a /etc/shells;
   chsh -s /usr/local/bin/bash;
 fi;
 
@@ -78,43 +78,42 @@ brew install youtube-dl
 brew install z
 
 # Use Cask to install MacOS applications
-brew install caskroom/cask/brew-cask
-brew cask install 1password
-brew cask install alfred
-brew cask install android-file-transfer
-brew cask install appcleaner
-brew cask install dash
-brew cask install divvy
-brew cask install docker
-brew cask install dropbox
-brew cask install figma
-brew cask install firefox
-brew cask install gitify
-brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install imagealpha
-brew cask install imageoptim
-brew cask install iterm2
-brew cask install java
-brew cask install pgadmin4
-brew cask install postman
-brew cask install processing
-brew cask install psequel
-brew cask install qlmarkdown
-brew cask install qlstephen
-brew cask install quicklook-json
-brew cask install robomongo
-brew cask install sketch
-brew cask install skype
-brew cask install slack
-brew cask install spotify
-brew cask install sublime-text
-brew cask install transmission
-brew cask install transmit
-brew cask install unrarx
-brew cask install virtualbox
-brew cask install vlc
-brew cask install whatsapp
+brew install 1password --cask
+brew install alfred --cask
+brew install android-file-transfer --cask
+brew install appcleaner --cask
+brew install dash --cask
+brew install divvy --cask
+brew install docker --cask
+brew install dropbox --cask
+brew install figma --cask
+brew install firefox --cask
+brew install gitify --cask
+brew install google-chrome --cask
+brew install google-chrome-canary --cask
+brew install imagealpha --cask
+brew install imageoptim --cask
+brew install iterm2 --cask
+brew install java --cask
+brew install pgadmin4 --cask
+brew install postman --cask
+brew install processing --cask
+brew install psequel --cask
+brew install qlmarkdown --cask
+brew install qlstephen --cask
+brew install quicklook-json --cask
+brew install robomongo --cask
+brew install sketch --cask
+brew install skype --cask
+brew install slack --cask
+brew install spotify --cask
+brew install sublime-text --cask
+brew install transmission --cask
+brew install transmit --cask
+brew install unrarx --cask
+brew install virtualbox --cask
+brew install vlc --cask
+brew install whatsapp --cask
 
 # Remove outdated versions from the cellar
 brew cleanup
