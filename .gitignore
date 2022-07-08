@@ -3,5 +3,6 @@
 .vim/bundle/
 .vim/plugged/
 .vim/view/
+.vim/autoload/
 *.log
 todo.txt

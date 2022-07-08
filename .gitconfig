@@ -19,6 +19,7 @@
 [push]
   default = simple
 	followTags = true
+	autoSetupRemote = true
 [alias]
   a = add
   b = branch
@@ -32,8 +33,8 @@
   m = merge
   p = pull
   s = status
-  st = stash --include-untracked
   t = tag
+  r = restore
   parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
 	# Opens a new pr for current branch with $1 argument as base e.g. $ git req master
 	req = "!f() { gh pr create --base \"$1\" --reviewer \"$GIT_REVIEWERS\"; }; f"
