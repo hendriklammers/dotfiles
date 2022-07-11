@@ -20,7 +20,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'sheerun/vim-polyglot'
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'jpalardy/vim-slime'
@@ -742,3 +742,6 @@ let g:svelte_preprocessor_tags = [
   \ { 'name': 'ts', 'tag': 'lang', 'as': 'typescript' }
   \ ]
 let g:svelte_preprocessors = ['ts']
+
+" Disable perl provider
+let g:loaded_perl_provider = 0
