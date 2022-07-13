@@ -73,3 +73,7 @@ bindkey -s '^g^r' '$(fzf_gr)\n' # Git remote
 
 # rg config, containing ignore globs
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# pnpm package manager
+export PNPM_HOME="/Users/hendrik/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"

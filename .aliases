@@ -71,3 +71,6 @@ alias umai='cd ~/code/umai'
 
 # Reinstall node modules with npm
 alias npmri='rm -rf node_modules && npm i'
+
+# pnpm is difficult to type
+alias pn=pnpm
