@@ -52,9 +52,6 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { noremap = true, silent = true
 vim.keymap.set("n", "<leader>gr", ":Gread<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>gl", ":0Gclog<CR>", { noremap = true, silent = true })
 
--- Format file
-vim.keymap.set("n", "<leader>f", ":Format<CR>", { noremap = true, silent = true })
-
 -- Quickly open todo list
 vim.keymap.set("n", "<leader>tl", ":tabedit ~/Dropbox/todo/todo.txt<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>te", ":tabedit todo.txt<CR>", { noremap = true })

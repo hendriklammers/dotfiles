@@ -16,10 +16,9 @@ require("nvim-tree").setup({
 	renderer = {
 		icons = {
 			show = {
-				-- Disable all icons for now, maybe add in future
 				file = false,
 				folder = false,
-				folder_arrow = false,
+				folder_arrow = true,
 				git = false,
 			},
 		},
@@ -29,11 +28,10 @@ require("nvim-tree").setup({
 	},
 })
 
--- Set lualine as statusline
--- See `:help lualine.txt`
+-- Status line
 require("lualine").setup({
 	options = {
-		icons_enabled = false,
+		icons_enabled = true,
 		theme = "tokyonight",
 		component_separators = "|",
 		section_separators = "",
@@ -43,7 +41,12 @@ require("lualine").setup({
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { "filename" },
-		lualine_x = { "filetype" },
+		lualine_x = {
+			{
+				"filetype",
+				colored = false,
+			},
+		},
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
 	},
@@ -55,7 +58,7 @@ require("Comment").setup({
 	pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 })
 
--- See `:help telescope` and `:help telescope.setup()`
+-- Use telescope for fuzzy file finder
 local actions = require("telescope.actions")
 require("telescope").setup({
 	defaults = {
@@ -97,7 +100,6 @@ vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { de
 vim.keymap.set("n", "<leader>/", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
 vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 
--- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require("nvim-treesitter.configs").setup({
 	-- Add languages to be installed here that you want installed for treesitter
@@ -172,7 +174,8 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 local on_attach = function(client, bufnr)
 	local nmap = function(keys, func, desc)
 		if desc then
@@ -189,8 +192,8 @@ local on_attach = function(client, bufnr)
 	nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 	nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
 	nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-	nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-	nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+	-- nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+	-- nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
 	-- See `:help K` for why this keymap
 	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -198,37 +201,11 @@ local on_attach = function(client, bufnr)
 
 	-- Lesser used LSP functionality
 	nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
-	nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
-	nmap("<leader>wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, "[W]orkspace [L]ist Folders")
-
-	-- Format on save
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				vim.lsp.buf.format({
-					bufnr = bufnr,
-					filter = function(cl)
-						return cl.name == "null-ls"
-					end,
-				})
-			end,
-		})
-	end
-
-	-- Create a command `:Format` local to the LSP buffer
-	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-		if vim.lsp.buf.format then
-			vim.lsp.buf.format()
-		elseif vim.lsp.buf.formatting then
-			vim.lsp.buf.formatting()
-		end
-	end, { desc = "Format current buffer with LSP" })
+	-- nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
+	-- nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+	-- nmap("<leader>wl", function()
+	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	-- end, "[W]orkspace [L]ist Folders")
 end
 
 local signs = { Error = "✗ ", Warning = "• ", Hint = "• ", Information = "• " }
@@ -251,6 +228,7 @@ require("mason-lspconfig").setup({
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 for _, lsp in ipairs(servers) do
 	require("lspconfig")[lsp].setup({
@@ -262,16 +240,14 @@ end
 -- Turn on lsp status information
 require("fidget").setup()
 
--- Example custom configuration for lua
---
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require("lspconfig").sumneko_lua.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+	-- on_attach = on_attach,
+	-- capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {
@@ -290,19 +266,94 @@ require("lspconfig").sumneko_lua.setup({
 	},
 })
 
+require("lspconfig").emmet_ls.setup({
+	-- on_attach = on_attach,
+	-- capabilities = capabilities,
+	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+	init_options = {
+		html = {
+			options = {
+				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+				["bem.enabled"] = true,
+			},
+		},
+	},
+})
+
 local null_ls = require("null-ls")
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 null_ls.setup({
+	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.keymap.set("n", "<Leader>f", function()
+				vim.lsp.buf.format({
+					bufnr = vim.api.nvim_get_current_buf(),
+					filter = function(cl)
+						return cl.name == "null-ls"
+					end,
+				})
+			end, { buffer = bufnr, desc = "[lsp] format" })
+
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format({
+						bufnr = bufnr,
+						filter = function(cl)
+							return cl.name == "null-ls"
+						end,
+					})
+				end,
+			})
+		end
+	end,
 	sources = {
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.code_actions.eslint_d,
-		null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.diagnostics.eslint_d,
+		null_ls.builtins.formatting.prettier,
+	},
+})
+
+local prettier = require("prettier")
+
+prettier.setup({
+	bin = "prettierd",
+	filetypes = {
+		"css",
+		"graphql",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"json",
+		"less",
+		"markdown",
+		"scss",
+		"typescript",
+		"typescriptreact",
+		"yaml",
 	},
 })
 
 -- nvim-cmp setup
-local cmp = require("cmp")
 local luasnip = require("luasnip")
+
+luasnip.config.set_config({
+	history = true,
+	updateevents = "TextChanged,TextChangedI",
+	enable_autosnippets = false,
+})
+
+luasnip.snippets = {
+	all = {
+		luasnip.parser.parse_snippet("hello", "-- THis is what was expanded"),
+	},
+}
+
+local cmp = require("cmp")
 
 cmp.setup({
 	snippet = {
@@ -342,6 +393,19 @@ cmp.setup({
 		{ name = "luasnip" },
 	},
 })
+
+-- " press <Tab> to expand or jump in a snippet. These can also be mapped separately
+-- " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+-- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+-- " -1 for jumping backwards.
+-- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+--
+-- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+-- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+--
+-- " For changing choices in choiceNodes (not strictly necessary for a basic setup).
+-- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+-- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 require("nvim-autopairs").setup({
 	check_ts = true,
