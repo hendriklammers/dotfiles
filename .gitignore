@@ -6,3 +6,5 @@
 .vim/autoload/
 *.log
 todo.txt
+nvim/plugin
+nvim/lua/.luarc.json
