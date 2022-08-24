@@ -29,12 +29,18 @@ export REACT_EDITOR=none
 # Enable Vi mode
 bindkey -v
 
-# Case insensitive tab completion
-autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# Enable completions installed with Homebrew
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-# Enable Bash completions
-autoload -U +X bashcompinit && bashcompinit
+  # Case insensitive tab completion
+  autoload -Uz compinit 
+  # Initialize all completions on $fpath
+  compinit
+fi
+# TODO: Find out exactly what this does
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Enable Z, which is installed with brew
 [ -f /opt/homebrew/etc/profile.d/z.sh ] && source /opt/homebrew/etc/profile.d/z.sh
