@@ -34,12 +34,12 @@ if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-  # Case insensitive tab completion
+  # Load Zsh completion system
   autoload -Uz compinit 
   # Initialize all completions on $fpath
   compinit
 fi
-# TODO: Find out exactly what this does
+# Use case insensitive completions: `cd dow -> Downloads`
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Enable Z, which is installed with brew
