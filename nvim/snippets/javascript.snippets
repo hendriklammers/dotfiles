@@ -1,0 +1,140 @@
+snippet /** Comment block
+				/**
+				* ${1:Description}
+				*/
+
+snippet str Use strict mode
+				'use strict'$1
+
+snippet log console.log()
+				console.log($1)$0
+
+snippet iife immediately-invoked function expression
+				(() => {
+					$1
+				})()
+
+snippet iifa async immediately-invoked function expression
+				(async () => {
+					$1
+				})()
+
+snippet fun function
+				function ${1:functionName}(${2:arguments}) {
+					${3:// body...}
+				}
+
+snippet fun* generator function
+				function* ${1:functionName}(${2:arguments}) {
+					yield $0
+				}
+
+snippet funa async function
+				async function ${1:functionName}(${2:arguments}) {
+					${3:// body...}
+				}
+
+snippet if if statement
+				if (${1:true}) {
+					$2
+				}
+
+snippet ife if...else
+				if (${1:true}) {
+					$2
+				} else {
+					$3
+				}
+
+snippet sw switch statement
+				switch ($1) {
+					case $2:
+						$3
+						break
+					default:
+						$0
+				}
+
+snippet for For loop
+				for (let ${1:i} = 0; $1 < ${2:amount}; $1++) {
+					$0
+				}
+
+snippet req Require node/commonjs module
+				require('$1')$0
+
+snippet mod node/commonjs module
+				module.exports = function($1) {
+					$2
+				}
+
+snippet /* A JSDoc comment
+				/**
+				* ${1:${VISUAL}}$0
+				*/
+
+snippet @p @param {Type} varname Description
+				@param {${1:Type}} ${2:varname} ${3:Description}
+
+snippet @ret @return {Type} Description
+				@return {${1:Type}} ${2:Description}
+
+snippet imp ES6 module import
+				import $2 from '$1'$0
+
+snippet forof for of loop
+				for (let ${1:s} of ${2:sequence}) {
+					${3}
+				}
+
+snippet af arrow function
+				const $1 = ($2) => $0
+
+snippet af arrow function
+				($1) => $0
+
+snippet afa async arrow function
+				async ($1) => ${2:\{$0\}}
+
+snippet prom Promise
+				new Promise((resolve, reject) => {
+					$0
+				})
+
+snippet try try/catch
+				try {
+					$0
+				} catch (err) {
+					console.error(err)
+				}
+
+snippet #! shebang
+				#!/usr/bin/env node
+
+snippet esd Disable eslint
+				// TODO: Enable eslint
+				/* eslint-disable */
+
+snippet esdl Disable eslint for next line
+				// eslint-disable-next-line ${1:react-hooks/exhaustive-deps}
+
+snippet desc Jest - describe
+				describe('${1:description}', () => {
+					$0
+				})
+
+snippet test Jest - test
+				test('${1:name}', () => {
+					${2:expect()}
+				})
+
+snippet it Jest - it
+				it('${1:name}', () => {
+					${2:expect()}
+				})
+
+snippet ita Jest - it async
+				it('${1:name}', async () => {
+					const result = await $2
+					expect(result).${3:toBe($4)}
+				})

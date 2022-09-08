@@ -1,0 +1,136 @@
+snippet mod module
+				module ${1:`!p snip.rv = snip.basename`} exposing (${2:..})
+
+				$0
+
+snippet /imp?/  import
+				import ${1:Html}
+
+snippet ime import exposising
+				import ${1:List} exposing (${2:..})
+
+snippet ima import as
+				import ${1:Html.Attributes} as ${2:H}
+
+snippet case case pattern matching
+				case $1 of
+					$2 ->
+						$0
+
+snippet if if else
+				if $1 then
+					$2
+				else
+					$0
+
+snippet let let in
+				let
+					$1 =
+						$2
+				in
+					$0
+
+snippet tya type alias
+				type alias $1 =
+					$2
+
+snippet view Html view
+				view${1:Name} : ${2:Model} -> Html ${3:Msg}
+				view$1 ${4:model} =
+						$0
+
+snippet update update function
+				update : Msg -> Model -> ( Model, Cmd Msg )
+				update msg model =
+					case msg of
+						$1 ->
+							( model$0, Cmd.none )
+
+snippet style Style definition
+				${1:name}Style : List ( String, String )
+				$1Style =
+						[ ( "$2", "$3" )
+						, ( "$4", "$5" )$0
+						]
+
+snippet mc Default (model, cmd) return
+				( model, Cmd.none )$0
+
+snippet mcu update model inside (model, cmd)
+				( { model | $0 }, Cmd.none )
+
+snippet test test
+				test "${1}" <|
+					\_ ->
+						$0
+
+snippet desc Describe test
+				describe "${1}"
+					[ $0
+					]
+
+snippet fuzz fuzz test
+				test $1Fuzzer "${2:description}" <|
+					\\$1 ->
+						$0
+
+snippet fuzzr Round trip json encode/decode fuzz test
+				fuzz $1Fuzzer "round trip" <|
+					\\$1 ->
+						$1
+							|> $1Encoder
+							|> Decode.decodeValue $1Decoder
+							|> Expect.equal (Ok $1)$0
+
+snippet log Debug.log
+				Debug.log "$1" $0
+
+snippet doc Documentation block
+				{-| $0
+				-}
+
+snippet program Program using the Elm Architecture
+				module Main exposing (main)
+
+				import Browser
+				import Html exposing (Html, text)
+
+
+				type alias Model =
+					String
+
+
+				type Msg
+					= NoOp
+
+
+				init : () -> ( Model, Cmd Msg )
+				init _ =
+					( "Initial Model", Cmd.none )
+
+
+				subscriptions : Model -> Sub Msg
+				subscriptions model =
+					Sub.none
+
+
+				update : Msg -> Model -> ( Model, Cmd Msg )
+				update msg model =
+					case msg of
+						NoOp ->
+							( model, Cmd.none )
+
+
+				view : Model -> Html Msg
+				view model =
+					text model
+
+
+				main : Program () Model Msg
+				main =
+					Browser.element
+						{ init = init
+						, subscriptions = subscriptions
+						, update = update
+						, view = view
+						}

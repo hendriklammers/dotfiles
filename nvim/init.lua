@@ -338,20 +338,16 @@ prettier.setup({
 	},
 })
 
--- nvim-cmp setup
 local luasnip = require("luasnip")
+
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = "./snippets" })
+luasnip.filetype_extend("javascriptreact", { "javascript" })
 
 luasnip.config.set_config({
 	history = true,
 	updateevents = "TextChanged,TextChangedI",
 	enable_autosnippets = false,
 })
-
-luasnip.snippets = {
-	all = {
-		luasnip.parser.parse_snippet("hello", "-- THis is what was expanded"),
-	},
-}
 
 local cmp = require("cmp")
 

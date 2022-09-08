@@ -1,0 +1,71 @@
+snippet /@?imp?/ @import '...';
+				@import "${1:file}";
+
+snippet /@?inc/ @include mixin(...);
+				@include ${1:mixin}(${2:arguments});
+
+snippet /@?ext?/ @extend %placeholder;
+				@extend %${1:placeholder};
+
+snippet /@?mix/ @mixin (...) { ... }
+				@mixin ${1:name}(${2:arguments}) {
+					${VISUAL}$0
+				}
+
+snippet /@?fun/ @function (...) { ... }
+				@function ${1:name}(${2:arguments}) {
+					${VISUAL}$0
+				}
+
+snippet /@?if/ @if (...) { ... }
+				@if ${1:condition} {
+					${VISUAL}$0
+				}
+
+snippet /@?else/ @else { ... }
+				@else ${1:condition} {
+					${VISUAL}$0
+				}
+
+snippet /@?for/ @for loop
+				@for ${1:$i} from ${2:1} through ${3:3} {
+					${VISUAL}$0
+				}
+
+snippet /@?each/ @each loop
+				@each ${1:$item} in ${2:item, item, item} {
+					${VISUAL}$0
+				}
+
+snippet /@?while/ @while loop
+				@while ${1:$i} ${2:>} ${3:0} {
+					${VISUAL}$0
+				}
+
+snippet rc rem-calc function
+				rem-calc($1)$0
+
+snippet med @media
+				@media screen and (min-width: ${1:768}px) {
+					$0
+				}
+
+snippet af &::after
+				&::after {
+					content: '$1';$0
+				}
+
+snippet bf &::before
+				&::before {
+					content: '$1';$0
+				}
+
+snippet hv &:hover
+				&:hover {
+					$0
+				}
+
+snippet bp @mixin breakpoint
+				@include breakpoint(${1:large}) {
+					$0
+				}

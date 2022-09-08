@@ -1,0 +1,24 @@
+extends typescript
+
+snippet rfc React Functional Component
+				import React from 'react'
+
+				const ${1:Component} = () => $0
+
+				export default $1
+
+snippet rfcp React Functional Component with props
+				import React from 'react'
+
+				type Props = {
+					$2: $3
+				}
+
+				const ${1:Component} = ( {$2}: Props ) => {
+					return (
+						$0
+					)
+				}
+
+				export default $1
+

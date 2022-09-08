@@ -1,0 +1,52 @@
+snippet readme README template
+				# ${1:title}
+
+				${2:description}
+
+
+				## Install
+
+				\`\`\`
+				$3
+				\`\`\`
+
+				## Usage
+
+				\`\`\`
+				$0
+				\`\`\`
+
+				## License
+
+				MIT
+
+snippet link Link to url
+				[${1:${VISUAL:text}}](${3:https://${2:www.url.com}})$0
+
+snippet code Codeblock
+				\`\`\`
+				$1
+				\`\`\`
+				$0
+
+snippet img Image
+				![${1:alt text}](${2:href}${3/.+/ "/}${3:title}${3/.+/"/})$0
+
+snippet recipe Recipe template structure
+				# ${1:title}
+
+				## Description
+
+				$2
+
+				## Ingredients
+
+				- $3
+
+				## Instructions
+
+				1. $4
+
+				## Notes
+
+				## References
