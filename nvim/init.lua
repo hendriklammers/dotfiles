@@ -39,7 +39,7 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_b = { { "branch", icon = "" }, "diff", "diagnostics" },
 		lualine_c = { "filename" },
 		lualine_x = {
 			{
@@ -103,7 +103,7 @@ vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { de
 -- See `:help nvim-treesitter`
 require("nvim-treesitter.configs").setup({
 	-- Add languages to be installed here that you want installed for treesitter
-	ensure_installed = { "go", "lua", "rust", "javascript", "typescript", "tsx", "help", "json", "bash" },
+	ensure_installed = { "go", "lua", "rust", "javascript", "typescript", "tsx", "html", "help", "json", "bash" },
 
 	highlight = { enable = true },
 	indent = { enable = true },
@@ -163,6 +163,9 @@ require("nvim-treesitter.configs").setup({
 				["<leader>A"] = "@parameter.inner",
 			},
 		},
+	},
+	autotag = {
+		enable = true,
 	},
 })
 
@@ -313,8 +316,8 @@ null_ls.setup({
 	end,
 	sources = {
 		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.diagnostics.eslint_d,
-		null_ls.builtins.formatting.prettier,
 	},
 })
 

@@ -37,22 +37,27 @@ require("packer").startup(function(use)
 	})
 
 	use({ -- Highlight, edit, and navigate code
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-		end,
-	})
-
-	use({ -- Additional text objects via treesitter
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		after = "nvim-treesitter",
+		{
+			"nvim-treesitter/nvim-treesitter",
+			run = function()
+				pcall(require("nvim-treesitter.install").update({ with_sync = true }))
+			end,
+		},
+		{ -- Additional text objects
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			after = "nvim-treesitter",
+		},
+		{ -- Autoclose and rename html tags
+			"windwp/nvim-ts-autotag",
+			after = "nvim-treesitter",
+		},
 	})
 
 	-- Git related plugins
 	use("tpope/vim-fugitive")
 	use("tpope/vim-rhubarb")
 
-	use("folke/tokyonight.nvim")
+	use("folke/tokyonight.nvim") -- Color theme
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
 	use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
