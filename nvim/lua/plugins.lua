@@ -58,19 +58,17 @@ require("packer").startup(function(use)
 	use("tpope/vim-rhubarb")
 
 	use("folke/tokyonight.nvim") -- Color theme
-	use("kyazdani42/nvim-web-devicons")
+	use("nvim-tree/nvim-web-devicons") -- Filetype icons
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
 	use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	-- use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 	use("tpope/vim-unimpaired") -- Bracket mappings
 	use("tpope/vim-surround") -- Change/delete/add surrounding tags, brackets etc.
 	use("tpope/vim-repeat") -- Adds . repeat support for several plugins
-	use("windwp/nvim-autopairs")
+	use("windwp/nvim-autopairs") -- Automatically close {(["' etc.
 
 	use("freitass/todo.txt-vim") -- Support for todo.txt file
-	-- use 'editorconfig.nvim' -- Support for .editorconfig file
-	use("AndrewRadev/switch.vim")
+	use("AndrewRadev/switch.vim") -- <leader>x to switch predefined texts
 
 	-- Fuzzy Finder (files, lsp, etc)
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { "nvim-lua/plenary.nvim" } })

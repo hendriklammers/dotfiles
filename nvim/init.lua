@@ -410,6 +410,7 @@ require("nvim-autopairs").setup({
 	check_ts = true,
 })
 
+-- console.log word under cursor
 vim.api.nvim_create_augroup("ConsoleLog", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = "ConsoleLog",

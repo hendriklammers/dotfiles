@@ -59,9 +59,6 @@ vim.keymap.set("n", "<leader>ta", ":!todo.sh add", { noremap = true })
 vim.keymap.set("n", "<leader>td", ":!todo.sh do", { noremap = true })
 vim.keymap.set("n", "<leader>tx", ":!todo.sh add Finish all todos in: %:p<CR>", { noremap = true })
 
--- Use `gx` to open url under the cursor (Normally provided by netrw)
-vim.keymap.set("n", "gx", ":!open <cWORD><CR>", { noremap = true })
-
 -- Select last pasted text
 -- TODO: Update to use vim.keymap.set
 vim.cmd([[nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]']])
