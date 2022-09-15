@@ -456,3 +456,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "Visual", timeout = "300" })
 	end,
 })
+
+-- Custom filetypes
+vim.filetype.add({
+	pattern = {
+		[".*%.env.*"] = "sh",
+	},
+	filename = {
+		[".aliases"] = "zsh",
+	},
+})
