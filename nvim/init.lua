@@ -1,5 +1,6 @@
 require("plugins")
 require("options")
+require("autocmd")
 require("mappings")
 
 -- Use tokyonight color theme
@@ -393,68 +394,8 @@ cmp.setup({
 	},
 })
 
--- " press <Tab> to expand or jump in a snippet. These can also be mapped separately
--- " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
--- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
--- " -1 for jumping backwards.
--- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
---
--- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
--- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
---
--- " For changing choices in choiceNodes (not strictly necessary for a basic setup).
--- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
--- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-
 require("nvim-autopairs").setup({
 	check_ts = true,
-})
-
--- console.log word under cursor
-vim.api.nvim_create_augroup("ConsoleLog", { clear = true })
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	group = "ConsoleLog",
-	pattern = "javascript,jsx,javascriptreact,typescript,typescriptreact,svelte",
-	callback = function()
-		vim.keymap.set(
-			"n",
-			"<localleader>l",
-			"yiwoconsole.log('<c-r>\"', <c-r>\")<esc>",
-			{ noremap = true, silent = true }
-		)
-		vim.keymap.set(
-			"v",
-			"<localleader>l",
-			"yoconsole.log('<c-r>\"', <c-r>\")<esc>",
-			{ noremap = true, silent = true }
-		)
-	end,
-})
-
--- Only show cursor line for active buffer
-vim.api.nvim_create_augroup("CursorLine", { clear = true })
-vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
-	group = "CursorLine",
-	pattern = "*",
-	callback = function()
-		vim.opt_local.cursorline = true
-	end,
-})
-vim.api.nvim_create_autocmd({ "WinLeave" }, {
-	group = "CursorLine",
-	pattern = "*",
-	callback = function()
-		vim.opt_local.cursorline = false
-	end,
-})
-
--- highlight yanked text
-vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-	group = "YankHighlight",
-	callback = function()
-		vim.highlight.on_yank({ higroup = "Visual", timeout = "300" })
-	end,
 })
 
 -- Custom filetypes
