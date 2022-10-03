@@ -222,7 +222,17 @@ end
 require("mason").setup()
 
 -- Enabled language servers
-local servers = { "rust_analyzer", "tsserver", "sumneko_lua", "gopls" }
+local servers = {
+	"rust_analyzer",
+	"tsserver",
+	"sumneko_lua",
+	"gopls",
+	"html",
+	"cssls",
+	"tailwindcss",
+	"jsonls",
+	"yamlls",
+}
 
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({
