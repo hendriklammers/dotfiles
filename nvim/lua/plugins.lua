@@ -66,7 +66,7 @@ require("packer").startup(function(use)
 	use("tpope/vim-surround") -- Change/delete/add surrounding tags, brackets etc.
 	use("tpope/vim-repeat") -- Adds . repeat support for several plugins
 	use("windwp/nvim-autopairs") -- Automatically close {(["' etc.
-
+	use("mbbill/undotree") -- Undo history visualizer
 	use("freitass/todo.txt-vim") -- Support for todo.txt file
 	use("AndrewRadev/switch.vim") -- <leader>x to switch predefined texts
 
