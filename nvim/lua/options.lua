@@ -84,3 +84,6 @@ if vim.fn.executable("rg") == 1 then
 	vim.opt.grepprg = "rg --no-heading --vimgrep"
 	vim.opt.grepformat = "%f:%l:%c:%m"
 end
+
+-- Increase width of undotree window
+vim.g.undotree_SplitWidth = 50

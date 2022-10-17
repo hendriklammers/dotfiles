@@ -36,7 +36,7 @@ require("lualine").setup({
 		theme = "tokyonight",
 		component_separators = "|",
 		section_separators = "",
-		disabled_filetypes = { "packer", "NvimTree" },
+		disabled_filetypes = { "packer", "NvimTree", "undotree", "diff" },
 	},
 	sections = {
 		lualine_a = { "mode" },
