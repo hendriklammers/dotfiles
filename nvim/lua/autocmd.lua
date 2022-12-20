@@ -1,3 +1,13 @@
+-- Enable spell check for certain filetypes
+vim.api.nvim_create_augroup("SpellGroup", { clear = true })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	group = "SpellGroup",
+	pattern = "text,gitcommit,markdown",
+	callback = function()
+		vim.opt_local.spell = true
+	end,
+})
+
 -- console.log word under cursor
 vim.api.nvim_create_augroup("ConsoleLog", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -8,13 +18,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 			"n",
 			"<localleader>l",
 			"yiwoconsole.log('<c-r>\"', <c-r>\")<esc>",
-			{ noremap = true, silent = true }
+			{ noremap = true, silent = true, buffer = true }
 		)
 		vim.keymap.set(
 			"v",
 			"<localleader>l",
 			"yoconsole.log('<c-r>\"', <c-r>\")<esc>",
-			{ noremap = true, silent = true }
+			{ noremap = true, silent = true, buffer = true }
 		)
 	end,
 })
