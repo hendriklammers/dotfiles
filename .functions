@@ -31,20 +31,9 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || tmux
 }
 
-# Create new LICENSE file
-license() {
-  npx license "$(npm get init.license)" -o "$(npm get init.author.name)" > LICENSE
-}
-
 # .editorconfig file
 editorconfig() {
   curl https://gist.githubusercontent.com/hendriklammers/2b09d9c5d6dada7a12ee311a65b6ca60/raw/8dec201982cc2b6c4dd37cd028b71bfc876d3763/.editorconfig -o .editorconfig -s
-}
-
-# Install npm package with separate types package
-nit() {
-  npm install -S "$1"
-  npm install -D @types/"$1"
 }
 
 # Check if in Git repository
@@ -101,9 +90,4 @@ fzf_gr() {
   fzf_down --tac \
     --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {1} | head -200' |
   cut -d$'\t' -f1
-}
-
-# Removes node_modules from all subdirectories of current dir
-clear_node_modules() {
-  find . -name "node_modules" -type d -prune -print -exec rm -rf "{}" \;
 }
