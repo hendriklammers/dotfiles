@@ -1,23 +1,3 @@
--- This function gets run when an LSP connects to a particular buffer
-local on_attach = function(_, bufnr)
-	local nmap = function(keys, func, desc)
-		if desc then
-			desc = "LSP: " .. desc
-		end
-
-		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-	end
-
-	nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-	nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-	nmap("<leader>d", vim.lsp.buf.type_definition, "Type [D]efinition")
-	nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-	nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-	nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-	nmap("<leader>K", vim.lsp.buf.signature_help, "Signature Documentation")
-end
-
 -- Setup mason so it can manage external tooling
 require("mason").setup()
 
@@ -41,6 +21,20 @@ local servers = {
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
 })
+
+-- This function gets run when an LSP connects to a particular buffer
+local on_attach = function(_, bufnr)
+	local opts = { buffer = bufnr }
+
+	vim.keymap.set("<leader>rn", vim.lsp.buf.rename, opts)
+	vim.keymap.set("<leader>ca", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("<leader>d", vim.lsp.buf.type_definition, opts)
+	vim.keymap.set("gd", vim.lsp.buf.definition, opts)
+	vim.keymap.set("gr", require("telescope.builtin").lsp_references, opts)
+	vim.keymap.set("gi", vim.lsp.buf.implementation, opts)
+	vim.keymap.set("K", vim.lsp.buf.hover, opts)
+	vim.keymap.set("<leader>K", vim.lsp.buf.signature_help, opts)
+end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -85,7 +79,7 @@ require("lspconfig").sumneko_lua.setup({
 
 require("lspconfig").emmet_ls.setup({
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
-	init_options = {
+	init_opts = {
 		html = {
 			options = {
 				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
@@ -109,7 +103,7 @@ null_ls.setup({
 						return cl.name == "null-ls"
 					end,
 				})
-			end, { buffer = bufnr, desc = "[lsp] format" })
+			end, { buffer = bufnr })
 
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
