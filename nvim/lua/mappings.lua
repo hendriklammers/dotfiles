@@ -59,6 +59,12 @@ vim.keymap.set("n", "<leader>ta", ":!todo.sh add", { noremap = true })
 vim.keymap.set("n", "<leader>td", ":!todo.sh do", { noremap = true })
 vim.keymap.set("n", "<leader>tx", ":!todo.sh add Finish all todos in: %:p<CR>", { noremap = true })
 
+-- Diagnostic mappings
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { noremap = true, silent = true })
+
 -- Open undo history
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { noremap = true, silent = true })
 

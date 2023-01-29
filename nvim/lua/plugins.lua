@@ -29,7 +29,6 @@ require("packer").startup(function(use)
 	})
 
 	use("jose-elias-alvarez/null-ls.nvim") -- Formatters and linters
-	use("MunifTanjim/prettier.nvim")
 
 	use({ -- Autocompletion
 		"hrsh7th/nvim-cmp",
@@ -61,7 +60,7 @@ require("packer").startup(function(use)
 	use("nvim-tree/nvim-web-devicons") -- Filetype icons
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
 	use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("JoosepAlviste/nvim-ts-context-commentstring") -- Use correct comment format
 	use("tpope/vim-unimpaired") -- Bracket mappings
 	use("tpope/vim-surround") -- Change/delete/add surrounding tags, brackets etc.
 	use("tpope/vim-repeat") -- Adds . repeat support for several plugins
