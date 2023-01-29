@@ -34,6 +34,7 @@ local servers = {
 	"yamlls",
 	"emmet_ls",
 	"cssls",
+	"bashls",
 }
 
 -- Ensure the servers above are installed
@@ -128,10 +129,11 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd.with({
-			-- disabled_filetypes = { "html" },
+			disabled_filetypes = { "markdown" },
 		}),
 		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.gofmt,
 		null_ls.builtins.diagnostics.eslint_d,
+		null_ls.builtins.diagnostics.shellcheck,
 	},
 })

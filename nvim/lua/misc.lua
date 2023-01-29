@@ -13,5 +13,6 @@ vim.filetype.add({
 	},
 	filename = {
 		[".aliases"] = "zsh",
+		[".functions"] = "zsh",
 	},
 })
