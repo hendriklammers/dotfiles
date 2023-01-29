@@ -59,6 +59,7 @@ require("packer").startup(function(use)
 	use("folke/tokyonight.nvim") -- Color theme
 	use("nvim-tree/nvim-web-devicons") -- Filetype icons
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
+	use("alvarosevilla95/luatab.nvim") -- Tabline
 	use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- Use correct comment format
 	use("tpope/vim-unimpaired") -- Bracket mappings
