@@ -26,14 +26,14 @@ require("mason-lspconfig").setup({
 local on_attach = function(_, bufnr)
 	local opts = { buffer = bufnr }
 
-	vim.keymap.set("<leader>rn", vim.lsp.buf.rename, opts)
-	vim.keymap.set("<leader>ca", vim.lsp.buf.code_action, opts)
-	vim.keymap.set("<leader>d", vim.lsp.buf.type_definition, opts)
-	vim.keymap.set("gd", vim.lsp.buf.definition, opts)
-	vim.keymap.set("gr", require("telescope.builtin").lsp_references, opts)
-	vim.keymap.set("gi", vim.lsp.buf.implementation, opts)
-	vim.keymap.set("K", vim.lsp.buf.hover, opts)
-	vim.keymap.set("<leader>K", vim.lsp.buf.signature_help, opts)
+	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("n", "<leader>d", vim.lsp.buf.type_definition, opts)
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+	vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "<leader>K", vim.lsp.buf.signature_help, opts)
 end
 
 -- nvim-cmp supports additional completion capabilities
@@ -127,7 +127,7 @@ null_ls.setup({
 		}),
 		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.gofmt,
-		null_ls.builtins.diagnostics.eslint_d,
+		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.diagnostics.shellcheck,
 	},
 })
