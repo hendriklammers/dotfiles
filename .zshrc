@@ -33,6 +33,7 @@ bindkey -v
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  FPATH="$HOME/.zfunc:${FPATH}"
 
   # Load Zsh completion system
   autoload -Uz compinit 
