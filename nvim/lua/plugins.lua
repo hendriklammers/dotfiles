@@ -69,6 +69,7 @@ require("packer").startup(function(use)
 	use("mbbill/undotree") -- Undo history visualizer
 	use("freitass/todo.txt-vim") -- Support for todo.txt file
 	use("AndrewRadev/switch.vim") -- <leader>x to switch predefined texts
+	use("chrisbra/csv.vim") -- CSV support
 
 	-- Fuzzy Finder (files, lsp, etc)
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { "nvim-lua/plenary.nvim" } })
