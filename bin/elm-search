@@ -11,7 +11,7 @@ updateRate=300
 
 fetch_data() {
   echo -n "Updating list of available packages"
-  curl -s --fail https://package.elm-lang.org/search.json -o $jsonFile
+  curl -s --compressed --fail https://package.elm-lang.org/search.json -o $jsonFile
   echo -e "\033[2K"
 }
 
