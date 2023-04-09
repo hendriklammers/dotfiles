@@ -87,7 +87,6 @@ eval "$(pyenv init -)"
 # Contains private stuff that shouldn't be checked into Git
 [ -s "$HOME/.extra" ] && source "$HOME/.extra"
 
-# http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Use fd as ripgrep doesn't natively support searching directories
@@ -100,8 +99,12 @@ bindkey -s '^p' 'vim $(fzf)\n'
 bindkey -s '^g^f' '$(fzf_gf)\n' # Git status
 bindkey -s '^g^b' '$(fzf_gb)\n' # Git branches
 bindkey -s '^g^t' '$(fzf_gt)\n' # Git tags
-bindkey -s '^g^l' '$(fzf_gl)\n' # Git log
+bindkey -s '^g^o' '$(fzf_gl)\n' # Git log
 bindkey -s '^g^r' '$(fzf_gr)\n' # Git remote
+
+# cd into any directory with FZF (Default binding is ALT-c)
+# Required to get ALT-c working in zsh
+bindkey "ç" fzf-cd-widget
 
 # rg config, containing ignore globs
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
