@@ -11,10 +11,8 @@ local servers = {
 	"cssls",
 	"tailwindcss",
 	"jsonls",
-	"yamlls",
 	"emmet_ls",
-	"cssls",
-	"bashls",
+	"eslint",
 }
 
 -- Ensure the servers above are installed
@@ -89,6 +87,15 @@ require("lspconfig").emmet_ls.setup({
 	},
 })
 
+-- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint and
+-- https://github.com/microsoft/vscode-eslint/#settings-options for more info
+require("lspconfig").eslint.setup({
+	settings = {
+		packageManager = "pnpm",
+		run = "onSave",
+	},
+})
+
 local null_ls = require("null-ls")
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -127,7 +134,6 @@ null_ls.setup({
 		}),
 		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.gofmt,
-		null_ls.builtins.diagnostics.eslint,
-		null_ls.builtins.diagnostics.shellcheck,
+		null_ls.builtins.diagnostics.stylelint,
 	},
 })
