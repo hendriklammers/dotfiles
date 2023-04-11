@@ -70,6 +70,7 @@ require("packer").startup(function(use)
 	use("freitass/todo.txt-vim") -- Support for todo.txt file
 	use("AndrewRadev/switch.vim") -- <leader>x to switch predefined texts
 	use("chrisbra/csv.vim") -- CSV support
+	use("folke/zen-mode.nvim") -- Distraction-free mode
 
 	-- Fuzzy Finder (files, lsp, etc)
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { "nvim-lua/plenary.nvim" } })
