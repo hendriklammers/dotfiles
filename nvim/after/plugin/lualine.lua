@@ -8,7 +8,15 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { { "branch", icon = "" }, "diff", "diagnostics" },
+		lualine_b = {
+			{ "branch", icon = "" },
+			"diff",
+			{
+				"diagnostics",
+				sources = { "nvim_diagnostic" },
+				symbols = { error = "✗ ", warn = " ", info = " ", hint = " " },
+			},
+		},
 		lualine_c = { "filename" },
 		lualine_x = {
 			{
