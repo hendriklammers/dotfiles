@@ -112,3 +112,6 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # pnpm package manager
 export PNPM_HOME="/Users/hendrik/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+# ghcup-env used for Haskell
+[ -f "/Users/hendrik/.ghcup/env" ] && source "/Users/hendrik/.ghcup/env"
