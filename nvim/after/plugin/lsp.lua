@@ -89,12 +89,7 @@ require("lspconfig").emmet_ls.setup({
 
 -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint and
 -- https://github.com/microsoft/vscode-eslint/#settings-options for more info
-require("lspconfig").eslint.setup({
-	settings = {
-		packageManager = "pnpm",
-		run = "onSave",
-	},
-})
+require("lspconfig").eslint.setup({})
 
 local null_ls = require("null-ls")
 
