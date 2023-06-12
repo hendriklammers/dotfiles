@@ -93,7 +93,7 @@ fzf_gr() {
 }
 
 # Make commit at specified date and time
-# Date format: 2023-08-23T19:20:13
+# Date format: 2023-08-23T19:20
 git_commit_date() {
   if [ $# -lt 2 ]; then
     echo "Usage: git_commit_date <date> <commit_message>"
@@ -102,5 +102,6 @@ git_commit_date() {
 
   DATE="$1"
   COMMIT_MESSAGE="$2"
-  GIT_AUTHOR_DATE="$DATE +0800" GIT_COMMITTER_DATE="$DATE" git commit -m "$COMMIT_MESSAGE"
+  SECONDS=$(printf "%02d" $((RANDOM % 60)))
+  GIT_AUTHOR_DATE="$DATE:$SECONDS +0800" GIT_COMMITTER_DATE="$DATE" git commit -m "$COMMIT_MESSAGE"
 }
