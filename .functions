@@ -91,3 +91,16 @@ fzf_gr() {
     --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {1} | head -200' |
   cut -d$'\t' -f1
 }
+
+# Make commit at specified date and time
+# Date format: 2023-08-23T19:20:13
+git_commit_date() {
+  if [ $# -lt 2 ]; then
+    echo "Usage: git_commit_date <date> <commit_message>"
+    return 1
+  fi
+
+  DATE="$1"
+  COMMIT_MESSAGE="$2"
+  GIT_AUTHOR_DATE="$DATE +0800" GIT_COMMITTER_DATE="$DATE" git commit -m "$COMMIT_MESSAGE"
+}
