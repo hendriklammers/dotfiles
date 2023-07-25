@@ -71,6 +71,8 @@ alias npmri='rm -rf node_modules && npm i'
 
 # pnpm is difficult to type
 alias pn=pnpm
+# pnpm's npx equivalent
+alias pnx='pnpm dlx'
 
 # IP address
 alias ip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
