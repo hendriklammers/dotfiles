@@ -63,6 +63,7 @@ alias pro='cd ~/Projects'
 alias code='cd ~/code'
 alias doc='cd ~/Documents'
 alias umai='cd ~/code/umai'
+alias notes='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Notes'
 
 # Reinstall node modules with npm
 alias npmri='rm -rf node_modules && npm i'
