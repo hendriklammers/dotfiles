@@ -105,3 +105,13 @@ git_commit_date() {
   SECONDS=$(printf "%02d" $((RANDOM % 60)))
   GIT_AUTHOR_DATE="$DATE:$SECONDS +0800" GIT_COMMITTER_DATE="$DATE" git commit -m "$COMMIT_MESSAGE"
 }
+
+# todo.txt
+todo() {
+  if [ $# -eq 0 ]; then
+    nvim ~/Dropbox/todo/todo.txt
+  else
+    command todo.sh "$@"
+  fi
+}
+

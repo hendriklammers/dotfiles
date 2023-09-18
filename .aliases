@@ -46,8 +46,6 @@ alias vimdiff='nvim -d'
 # Update homebrew
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
-# todo.txt cli
-alias todo='todo.sh'
 # Enable completions for alias
 complete -o default -o nospace -F _todo todo
 
