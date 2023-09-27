@@ -35,6 +35,7 @@
   s = status
   t = tag
   r = restore
+	last = log -1 HEAD --stat
   parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
 	# Opens a new pr for current branch with $1 argument as base e.g. $ git req master
 	req = "!f() { gh pr create --base \"$1\" --reviewer \"$GIT_REVIEWERS\"; }; f"
