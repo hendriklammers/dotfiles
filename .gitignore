@@ -8,3 +8,4 @@
 todo.txt
 nvim/plugin
 nvim/lua/.luarc.json
+nvim/lazy-lock.json

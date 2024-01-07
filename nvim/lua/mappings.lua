@@ -1,7 +1,3 @@
--- Map leader to space
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
-
 -- Disable Ex mode
 vim.keymap.set("n", "Q", "<nop>")
 
@@ -9,9 +5,9 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<S-k>", "<nop>", { noremap = true, silent = true })
 
 -- Open nvim-tree
-vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>")
+-- vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>")
 -- Show current file in nvim-tree
-vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>")
+-- vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>")
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -20,6 +16,16 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Move visually selected lines up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Paste without overwriting clipboard
+vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- Replace word under cursor
+-- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Move to end of line in insert mode
 vim.keymap.set("i", "<C-l>", "<Esc>A", { noremap = true, silent = true })
@@ -106,3 +112,17 @@ vim.g.switch_custom_definitions = {
 	{ "enabled", "disabled" },
 	{ ">>", "<<" },
 }
+
+-- vim.keymap.set("i", "<Tab>", function()
+-- 	if require("copilot.suggestion").is_visible() then
+-- 		require("copilot.suggestion").accept()
+-- 	else
+-- 		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+-- 	end
+-- end, {
+-- 	silent = true,
+-- })
+
+-- vim.keymap.set("i", "<C-x>", "<Plug>(copilot-dismiss)", { noremap = true, silent = true })
+-- vim.keymap.set("i", "<C-]>", "<Plug>(copilot-next)", { noremap = true, silent = true })
+-- vim.keymap.set("i", "<C-[>", "<Plug>(copilot-prev)", { noremap = true, silent = true })
