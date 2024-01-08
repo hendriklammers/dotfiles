@@ -4,11 +4,6 @@ vim.keymap.set("n", "Q", "<nop>")
 -- Prevent vim opening man when accidentally
 vim.keymap.set("n", "<S-k>", "<nop>", { noremap = true, silent = true })
 
--- Open nvim-tree
--- vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>")
--- Show current file in nvim-tree
--- vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>")
-
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
@@ -24,8 +19,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Paste without overwriting clipboard
 vim.keymap.set("x", "<leader>p", '"_dP')
 
--- Replace word under cursor
--- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- Search word under cursor
+vim.keymap.set("n", "<leader>;", [[:grep '\b<C-r><C-w>\b']])
 
 -- Move to end of line in insert mode
 vim.keymap.set("i", "<C-l>", "<Esc>A", { noremap = true, silent = true })

@@ -1,9 +1,12 @@
 return {
-	"jose-elias-alvarez/null-ls.nvim", -- Formatters and linters
+	-- Formatters and linters
+	"jose-elias-alvarez/null-ls.nvim",
 	-- Git related plugins
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
-	"nvim-tree/nvim-web-devicons", -- Filetype icons
+	-- Filetype icons
+	"nvim-tree/nvim-web-devicons",
+	-- Tabline
 	{
 		"alvarosevilla95/luatab.nvim",
 		opts = {
@@ -20,8 +23,9 @@ return {
 				return ""
 			end,
 		},
-	}, -- Tabline
-	{ -- "gc" to comment visual regions/lines
+	},
+	-- "gc" to comment visual regions/lines
+	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup({
@@ -29,22 +33,33 @@ return {
 			})
 		end,
 	},
-	"JoosepAlviste/nvim-ts-context-commentstring", -- Use correct comment format
-	"tpope/vim-unimpaired", -- Bracket mappings
-	"tpope/vim-surround", -- Change/delete/add surrounding tags, brackets etc.
-	"tpope/vim-repeat", -- Adds . repeat support for several plugins
-	"tpope/vim-abolish", -- Easily convert casing of words: snake_case, camelCase, etc.
-	{ -- Automatically close {(["' etc.
+	-- Use correct comment format
+	"JoosepAlviste/nvim-ts-context-commentstring",
+	-- Bracket mappings
+	"tpope/vim-unimpaired",
+	-- Change/delete/add surrounding tags, brackets etc.
+	"tpope/vim-surround",
+	-- Adds . repeat support for several plugins
+	"tpope/vim-repeat",
+	-- Easily convert casing of words: snake_case, camelCase, etc.
+	"tpope/vim-abolish",
+	-- Automatically close {(["' etc.
+	{
 		"windwp/nvim-autopairs",
 		opts = {
 			check_ts = true,
 		},
 	},
-	"mbbill/undotree", -- Undo history visualizer
-	"freitass/todo.txt-vim", -- Support for todo.txt file
-	"AndrewRadev/switch.vim", -- <leader>x to switch predefined texts
-	"chrisbra/csv.vim", -- CSV support
-	{ -- Distraction-free mode
+	-- Undo history visualizer
+	"mbbill/undotree",
+	-- Support for todo.txt file
+	"freitass/todo.txt-vim",
+	-- <leader>x to switch predefined texts
+	"AndrewRadev/switch.vim",
+	-- CSV support
+	"chrisbra/csv.vim",
+	-- Distraction-free mode
+	{
 		"folke/zen-mode.nvim",
 		opts = {
 			window = {
@@ -57,7 +72,6 @@ return {
 			{ "<leader>zm", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
 		},
 	},
-	"github/copilot.vim", -- AI autocompletion
-	-- Required by certain plugins
-	"nvim-lua/plenary.nvim",
+	-- AI autocompletion
+	"github/copilot.vim",
 }
