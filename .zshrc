@@ -115,3 +115,6 @@ export PATH="$PNPM_HOME:$PATH"
 
 # ghcup-env used for Haskell
 [ -f "/Users/hendrik/.ghcup/env" ] && source "/Users/hendrik/.ghcup/env"
+
+# Enable Github Copilot CLI aliases
+eval "$(github-copilot-cli alias -- "$0")"
