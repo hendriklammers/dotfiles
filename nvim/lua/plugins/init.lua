@@ -64,7 +64,6 @@ return {
 		opts = {
 			window = {
 				backdrop = 1,
-				width = 500,
 				height = 0.90,
 			},
 		},
