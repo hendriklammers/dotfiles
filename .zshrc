@@ -118,3 +118,6 @@ export PATH="$PNPM_HOME:$PATH"
 
 # Enable Github Copilot CLI aliases
 eval "$(github-copilot-cli alias -- "$0")"
+
+# PNPM tab completions
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
