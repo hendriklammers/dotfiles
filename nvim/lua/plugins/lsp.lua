@@ -6,7 +6,7 @@ return {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		-- ful status updates for LSP
-		"j-hui/fidget.nvim",
+		-- "j-hui/fidget.nvim",
 	},
 	config = function()
 		-- Setup mason so it can manage external tooling
@@ -57,14 +57,21 @@ return {
 			})
 		end
 
-		-- Turn on lsp status information
-		require("fidget").setup({
-			integration = {
-				["nvim-tree"] = {
-					enable = false, -- Integrate with nvim-tree/nvim-tree.lua (if installed)
-				},
-			},
+		-- Enable Tailwind classname colors
+		require("lspconfig")["tailwindcss"].setup({
+			on_attach = function(_, bufnr)
+				require("tailwindcss-colors").buf_attach(bufnr)
+			end,
 		})
+
+		-- -- Turn on lsp status information
+		-- require("fidget").setup({
+		-- 	integration = {
+		-- 		["nvim-tree"] = {
+		-- 			enable = false, -- Integrate with nvim-tree/nvim-tree.lua (if installed)
+		-- 		},
+		-- 	},
+		-- })
 
 		-- Make runtime files discoverable to the server
 		local runtime_path = vim.split(package.path, ";")

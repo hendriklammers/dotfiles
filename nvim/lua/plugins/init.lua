@@ -73,4 +73,11 @@ return {
 	},
 	-- AI autocompletion
 	"github/copilot.vim",
+	-- Highlight Tailwind color classes
+	{
+		"themaxmarchuk/tailwindcss-colors.nvim",
+		config = function()
+			require("tailwindcss-colors").setup()
+		end,
+	},
 }
